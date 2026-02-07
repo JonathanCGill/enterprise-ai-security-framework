@@ -86,7 +86,7 @@ Insight: 28% of issues pass guardrails — judge layer is load-bearing
 
 ## Architecture
 
-![Behavioral Anomaly Detection](../assets/behavioral-anomaly-detection.svg)
+![Behavioral Anomaly Detection](../images/behavioral-anomaly-detection.svg)
 
 ### Signal Collection
 
@@ -112,6 +112,8 @@ Every safety layer emits structured events:
 ```
 
 ### Aggregation Pipeline
+
+![Aggregation Pipeline](../images/aggregation-pipeline.svg)
 
 ```
 ┌─────────────┐  ┌─────────────┐  ┌─────────────┐
