@@ -24,6 +24,8 @@ The core principles hold. Implementation must evolve.
 
 ## Proposed Architecture
 
+![Emerging Controls Architecture](../images/emerging-architecture.svg)
+
 ```
 INPUT LAYER
 ├── Text guardrails ─────────────────┐
@@ -56,6 +58,8 @@ JUDGE (multi-mode)
 
 ## 1. Modality-Specific Guardrails
 
+![Modality-Specific Guardrails](../images/modality-guardrails.svg)
+
 ### Input
 
 | Modality | Process | Maturity |
@@ -84,6 +88,8 @@ JUDGE (multi-mode)
 ---
 
 ## 2. Unified Multimodal Judge
+
+![Multi-Mode Judge Architecture](../images/multi-mode-judge.svg)
 
 A Judge seeing only text when the interaction included images evaluates incomplete information.
 
@@ -139,6 +145,8 @@ Requires model to expose reasoning. If hidden, this control is unavailable.
 
 ## 4. State Governance
 
+![State Governance](../images/state-governance.svg)
+
 Long context and memory create attack surfaces that accumulate over time.
 
 ### Controls
@@ -168,6 +176,8 @@ Long context and memory create attack surfaces that accumulate over time.
 ---
 
 ## 5. Streaming Controls
+
+![Streaming Controls](../images/streaming-controls.svg)
 
 Output reaches users before validation completes. No good solution exists.
 
