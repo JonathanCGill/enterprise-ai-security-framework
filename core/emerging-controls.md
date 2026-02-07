@@ -34,34 +34,6 @@ The map shows how emerging controls connect. Solid lines indicate established or
 
 ![Emerging Controls Architecture](../images/emerging-architecture.svg)
 
-```
-INPUT LAYER
-├── Text guardrails ─────────────────┐
-├── Image guardrails (OCR + classifier) │
-├── Audio guardrails (STT + classifier) ├─→ Unified decision
-├── Cross-modal analyser ────────────┘
-└── State validator
-
-MODEL LAYER
-├── Reasoning capture
-├── Stream monitor  
-├── Agent boundary validator
-└── State tracker
-
-OUTPUT LAYER
-├── Text guardrails ─────────────────┐
-├── Image guardrails (synthetic detection) │
-├── Audio guardrails ────────────────┼─→ Unified decision
-├── Streaming interruptor ───────────┘
-└── State checkpoint
-
-JUDGE (multi-mode)
-├── Transaction mode (current)
-├── Reasoning mode (evaluate thinking)
-├── Longitudinal mode (evaluate state drift)
-└── System mode (evaluate multi-agent coordination)
-```
-
 ---
 
 ## 1. Modality-Specific Guardrails
@@ -200,13 +172,7 @@ Output reaches users before validation completes. No good solution exists.
 
 ### Proposed: Parallel Monitor
 
-```
-Token generated → Streams to user
-       ↓
-Monitor evaluates (parallel)
-       ↓
-Confidence < threshold? → Interrupt ("Let me rephrase...")
-```
+See the [Streaming Controls diagram](../images/streaming-controls.svg) for the full pattern: token streams to user while monitor evaluates in parallel. If confidence drops below threshold, interrupt with "Let me rephrase..."
 
 ### Acceptance
 
@@ -220,11 +186,7 @@ Agent-to-agent messages are injection vectors. System behaviour emerges unpredic
 
 ### Agent Boundary Validation
 
-Treat inter-agent messages as untrusted:
-
-```
-Agent A → Guardrails → Agent B
-```
+Treat inter-agent messages as untrusted: **Agent A → Guardrails → Agent B**
 
 | Control | Purpose |
 |---------|---------|

@@ -60,21 +60,7 @@ This isn't a technicality. It's the difference between defensible governance and
 
 The Judge operates **after the fact**, reviewing what has already happened:
 
-```
-Transaction occurs
-    ↓
-Guardrails check (inline) → Block if obvious problem
-    ↓
-AI executes
-    ↓
-Response delivered to user
-    ↓
-Interaction logged
-    ↓
-Judge evaluates (async) → Flag if concerning
-    ↓
-Human reviews findings → Decide and act
-```
+![Judge Async Flow](../images/judge-async-flow.svg)
 
 The transaction completes before the Judge evaluates. The Judge informs future action; it doesn't gate current action.
 

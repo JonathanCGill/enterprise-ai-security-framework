@@ -99,19 +99,7 @@ Automatic halts triggered by anomaly detection. Error rate spikes? Pause. Unusua
 
 Infrastructure controls don't replace instructions. They back them up.
 
-```
-Layer 1: Instructions (intent)
-    "Only access customer service data"
-    
-Layer 2: Infrastructure (enforcement)
-    Credentials can only access CS tables
-    
-Layer 3: Monitoring (detection)
-    Alert on any access attempt outside scope
-    
-Layer 4: Response (correction)
-    Investigate alerts, update controls
-```
+![Defence in Depth Layers](../images/insights-defence-layers.svg)
 
 Instructions tell the agent what you want. Infrastructure ensures it happens. Monitoring catches gaps. Response closes them.
 
