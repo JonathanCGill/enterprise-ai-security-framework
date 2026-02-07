@@ -20,6 +20,16 @@ You can't fully test an AI system before deployment. So how do you know it's wor
 
 ---
 
+## Before You Proceed
+
+> **[The First Control: Choosing the Right Tool](insights/the-first-control.md)**
+>
+> The most effective way to reduce AI risk is to not use AI where it doesn't belong. Before guardrails, judges, or human oversight — ask whether AI is the right tool for this problem. Design thinking should precede technology selection.
+
+Everything in this Blueprint assumes you've already answered "yes" to that fundamental question.
+
+---
+
 ## The Pattern
 
 The industry is converging on an answer: **runtime behavioral monitoring**.

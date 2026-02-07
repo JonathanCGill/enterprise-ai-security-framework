@@ -4,6 +4,16 @@ Articles explaining why AI requires behavioral monitoring and how to implement i
 
 ---
 
+## Before You Begin
+
+**[The First Control: Choosing the Right Tool](the-first-control.md)** (1,400 words)
+
+The most effective way to reduce AI risk is to not use AI where it doesn't belong. Design thinking should precede technology selection. This article helps architects determine where AI genuinely improves outcomes versus where it quietly creates downstream work.
+
+*Read this first. Everything else assumes you've answered "yes" to: Is AI the right tool for this problem?*
+
+---
+
 ## The Core Insight
 
 Traditional software assurance relies on design-time testing. AI breaks this model — non-deterministic outputs, emergent behavior, and adversarial inputs mean you can't fully test before deployment.
