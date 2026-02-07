@@ -52,6 +52,10 @@ How the pattern applies — or doesn't — to emerging AI capabilities.
 
 Why current safety approaches can't confirm ground truth — and what independent verification methods are emerging to fill the gap.
 
+**[Behavioral Anomaly Detection](behavioral-anomaly-detection.md)** (1,200 words)
+
+Aggregating safety signals to detect when agent behavior drifts from normal — turning individual alerts into pattern intelligence.
+
 **[Multimodal AI Breaks Your Text-Based Guardrails](multimodal-breaks-guardrails.md)** (950 words)
 
 Images, audio, and video create attack surfaces your current controls can't see.
