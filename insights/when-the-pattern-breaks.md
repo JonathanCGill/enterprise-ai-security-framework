@@ -8,11 +8,7 @@
 
 The three-layer pattern assumes a simple topology:
 
-```
-User Input → [Guardrails] → LLM → [Guardrails] → [Judge (async)] → Output
-                                                          ↓
-                                                   [Human Review (if flagged)]
-```
+[![The Three-Layer Pattern](/images/three-layer-pattern.svg)](/images/three-layer-pattern.svg)
 
 One input. One model. One output. Clear trust boundaries. The guardrails know what "input" and "output" mean. The judge evaluates a single response. The human reviews a discrete decision.
 
