@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1550 1150" width="1550" height="1150">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 0 1610 1150" width="1610" height="1150">
   <style>
     .sn { font: 9px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #1e293b; }
     .tn { font: bold 9.5px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #1e293b; }
@@ -14,7 +14,7 @@
     .walk-label { font: italic 7px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #94a3b8; }
   </style>
   
-  <rect width="1550" height="1150" fill="#f5f5f0"/>
+  <rect x="-60" width="1610" height="1150" fill="#f5f5f0"/>
   
   <text x="775" y="42" text-anchor="middle" class="title">AI SECURITY REFERENCE ARCHITECTURE</text>
   <text x="775" y="62" text-anchor="middle" class="subtitle">Enterprise AI Governance Map — Runtime Behavioral Controls</text>
@@ -99,6 +99,10 @@
   <!-- Walk: Risk Tiers ↔ Testing -->
   <line x1="370" y1="303" x2="370" y2="387" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4"/>
   <text x="378" y="350" class="walk-label">walk</text>
+  
+  <!-- Walk: Risk Tiers ↔ Input Guardrails (tier determines guardrail config) -->
+  <path d="M 357,290 Q 280,450 200,596" stroke="#94a3b8" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+  <text x="260" y="470" class="walk-label" transform="rotate(-55,260,470)">walk — tier sets guardrails</text>
 
   <!-- ================================================================ -->
   <!-- DEVELOPMENT (Blue #3b82f6) + TESTING LOOP                       -->
@@ -107,11 +111,11 @@
   <!-- Main path -->
   <path d="M 120,400 H 370 L 410,440 H 650 L 690,480 H 760" stroke="#3b82f6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Testing loop: Production Release curves back to Validation -->
-  <path d="M 760,480 Q 780,520 750,540 Q 680,580 580,560 Q 480,540 430,500 Q 405,480 410,440" stroke="#3b82f6" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12,4"/>
+  <path d="M 760,480 Q 780,520 750,540 Q 680,580 580,560 Q 480,540 430,500 Q 405,480 410,440" stroke="#3b82f6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   
-  <!-- Loop label -->
-  <text x="620" y="565" text-anchor="middle" class="sn" fill="#3b82f6" font-style="italic">Continuous Testing Loop</text>
-  <text x="620" y="576" text-anchor="middle" font-size="8" fill="#3b82f6" font-family="Arial">↺</text>
+  <!-- Loop direction arrow and label -->
+  <text x="620" y="568" text-anchor="middle" class="sn" fill="#3b82f6" font-style="italic">Continuous Testing</text>
+  <text x="555" y="548" font-size="14" fill="#3b82f6" font-family="Arial">↺</text>
   
   <!-- T: Requirements -->
   <rect x="103" y="391" width="7" height="18" rx="1" fill="#1e293b"/>
@@ -458,8 +462,7 @@
   <text x="55" y="152" text-anchor="end" class="ic">cross: Gov</text>
   <rect x="30" y="156" width="20" height="10" rx="3" fill="#d32f2f"/>
   <text x="40" y="164" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="24" y="176" text-anchor="end" class="bus-dest">Post-incident</text>
-  <text x="24" y="186" text-anchor="end" class="bus-dest">review, org learning</text>
+  <text x="54" y="164" class="bus-dest">Post-incident review</text>
 
   <!-- ================================================================ -->
   <!-- Extend Dev and Risk lines to meet Incident at x=70              -->
@@ -475,7 +478,7 @@
   <!-- ================================================================ -->
   <!-- LEGEND                                                           -->
   <!-- ================================================================ -->
-  <rect x="30" y="1050" width="1490" height="90" rx="8" fill="#ffffff" stroke="#d4d4d4" stroke-width="1.5"/>
+  <rect x="-30" y="1050" width="1550" height="90" rx="8" fill="#ffffff" stroke="#d4d4d4" stroke-width="1.5"/>
   
   <text x="50" y="1070" class="lh">LINES</text>
   
@@ -529,8 +532,8 @@
   <line x1="660" y1="1100" x2="682" y2="1100" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,3"/>
   <text x="688" y="1104" class="lt">Walking route — short walk between nearby stations</text>
   
-  <path d="M 660,1118 Q 672,1110 682,1118" stroke="#3b82f6" stroke-width="3" fill="none" stroke-dasharray="6,3"/>
-  <text x="688" y="1122" class="lt">Continuous loop — testing never stops</text>
+  <path d="M 660,1114 Q 670,1106 680,1114 Q 690,1122 700,1114" stroke="#3b82f6" stroke-width="4" fill="none"/>
+  <text x="708" y="1122" class="lt">Continuous testing loop — security testing never stops</text>
   
   <!-- How to read -->
   <line x1="920" y1="1060" x2="920" y2="1130" stroke="#d4d4d4" stroke-width="1"/>
