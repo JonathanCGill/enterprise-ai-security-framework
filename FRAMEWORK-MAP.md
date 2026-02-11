@@ -18,6 +18,7 @@ Navigate the framework like a transit system. Each line represents a reading pat
 | 🟡 **Operations** | SOC integration, monitoring, cost | Metrics → SOC Integration → Anomaly Detection Ops → Cost & Latency |
 | ⚪ **Regulatory** | Compliance mapping | ISO 42001 → EU AI Act → Checklist |
 | 🔵 **Getting Started** | Onboarding paths | Quick Start → Implementation Guide → Risk Tiers → Controls |
+| 🩷 **Testing & Assurance** | Adversarial testing loop | Threat Modelling → Adversarial Testing → Red Team Exercises → *feedback into Guardrails and Judge Assurance* |
 
 ---
 
@@ -58,6 +59,14 @@ Then go straight to the **Operations** line: [SOC Integration](extensions/techni
 
 Follow the **Regulatory** line: [ISO 42001 Mapping](extensions/regulatory) and [EU AI Act](extensions/regulatory) connect back to the [Checklist](core/checklist.md) on the red line, showing which controls satisfy which requirements.
 
+### "I need to test and red team AI controls"
+
+Follow the **Testing & Assurance** loop. It branches off Risk Tiers on the red line and runs down the left side of the map:
+
+[Threat Model Template](extensions/templates/threat-model-template.md) gives you the starting structure. [Testing Guidance](extensions/templates/testing-guidance.md) covers what to test and how. From there, design adversarial tests that target your guardrails, judge, and human oversight layer specifically — the feedback loop arrow shows results flowing back into Judge Assurance and Guardrails for continuous improvement.
+
+The loop is deliberate: testing isn't a one-off pre-deployment gate. It's a continuous cycle that runs alongside production monitoring.
+
 ---
 
 ## How the Map Works
@@ -69,6 +78,7 @@ The map uses London Underground visual conventions:
 - **Dashed lines** show where an insight article connects to its corresponding solution document
 - **The river** (pale blue band labelled DATA FLOW) separates the understanding/implementation zone above from the operational zone below
 - **Red NEW badges** mark content added in the latest release
+- **The pink testing loop** on the left side shows the continuous adversarial testing cycle — results feed back into Guardrails and Judge Assurance via the dashed feedback arrow
 - **Grey branch lines** are extensions — supplementary material you can follow if needed
 
 The three zone labels across the top — UNDERSTAND, IMPLEMENT, OPERATE — describe the journey left to right. Most readers won't traverse every line. Pick the line that matches your role, follow it, and branch when the map shows a connection to something relevant.
@@ -152,6 +162,15 @@ Every station on the map, with its document link.
 | The Supply Chain Problem | [insights/the-supply-chain-problem.md](insights/the-supply-chain-problem.md) |
 | RAG Is Your Biggest Attack Surface | [insights/rag-is-your-biggest-attack-surface.md](insights/rag-is-your-biggest-attack-surface.md) |
 
+### Testing & Assurance (Pink Loop)
+
+| Station | Document |
+|---------|----------|
+| Threat Modelling | [extensions/templates/threat-model-template.md](extensions/templates/threat-model-template.md) |
+| Adversarial Testing | [extensions/templates/testing-guidance.md](extensions/templates/testing-guidance.md) |
+| Red Team Exercises | [extensions/templates/testing-guidance.md](extensions/templates/testing-guidance.md) |
+| Testing Guidance | [extensions/templates/testing-guidance.md](extensions/templates/testing-guidance.md) |
+
 ### Extensions (Grey Branches)
 
 | Station | Document |
@@ -160,5 +179,4 @@ Every station on the map, with its document link.
 | Infrastructure | [extensions/technical/infrastructure.md](extensions/technical/infrastructure.md) |
 | Current Solutions | [extensions/technical/current-solutions.md](extensions/technical/current-solutions.md) |
 | Playbooks & Templates | [extensions/templates/](extensions/templates) |
-| Threat Model | [extensions/templates/threat-model-template.md](extensions/templates/threat-model-template.md) |
 | Emerging Controls | [core/emerging-controls.md](core/emerging-controls.md) |

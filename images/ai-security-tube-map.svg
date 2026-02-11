@@ -314,6 +314,44 @@
   </g>
 
   <!-- ============================================================ -->
+  <!-- LINE 9: TESTING & ASSURANCE LOOP (Pink #CC0066) -->
+  <!-- ============================================================ -->
+  <g id="line-testing">
+    <!-- Branch left-down from Risk Tiers -->
+    <polyline points="280,448 280,500 140,560 140,660 140,760" 
+              fill="none" stroke="#CC0066" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Stations -->
+    <use href="#stn" x="140" y="560" stroke="#CC0066"/>
+    <text x="140" y="548" text-anchor="middle" font-size="10" font-weight="bold" fill="#CC0066">Threat Modelling</text>
+
+    <use href="#stn" x="140" y="660" stroke="#CC0066"/>
+    <text x="140" y="648" text-anchor="middle" font-size="10" font-weight="bold" fill="#CC0066">Adversarial Testing</text>
+
+    <use href="#stn" x="140" y="760" stroke="#CC0066"/>
+    <text x="140" y="748" text-anchor="middle" font-size="10" font-weight="bold" fill="#CC0066">Red Team Exercises</text>
+
+    <!-- FEEDBACK LOOP: dashed arrow from Red Team back up to Judge Assurance -->
+    <path d="M148,760 L260,760 Q290,760 290,730 L290,500 Q290,470 350,460 L490,448" 
+          fill="none" stroke="#CC0066" stroke-width="3" stroke-dasharray="10,5" stroke-linecap="round" opacity="0.5"/>
+    <!-- Continue feedback to Judge Assurance -->
+    <path d="M490,448 L700,448 L910,448" 
+          fill="none" stroke="#CC0066" stroke-width="3" stroke-dasharray="10,5" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Loop label on the feedback path -->
+    <rect x="340" y="490" width="90" height="18" rx="3" fill="#CC0066" opacity="0.85"/>
+    <text x="385" y="503" text-anchor="middle" font-size="8" font-weight="bold" fill="white">FEEDBACK LOOP</text>
+    <!-- Arrow indicating direction (right, back into controls) -->
+    <polygon points="435,499 445,503 435,507" fill="#CC0066" opacity="0.6"/>
+
+    <!-- Testing Guidance — small branch off Adversarial Testing -->
+    <line x1="140" y1="660" x2="60" y2="700" stroke="#CC0066" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="60" cy="700" r="4" fill="white" stroke="#CC0066" stroke-width="2"/>
+    <text x="60" y="718" text-anchor="middle" font-size="8.5" fill="#CC0066">Testing</text>
+    <text x="60" y="728" text-anchor="middle" font-size="8.5" fill="#CC0066">Guidance</text>
+  </g>
+
+  <!-- ============================================================ -->
   <!-- ADDITIONAL EXTENSIONS (small branches) -->
   <!-- ============================================================ -->
   <g id="extensions-misc">
@@ -331,16 +369,11 @@
     <circle cx="1420" cy="500" r="4" fill="white" stroke="#888" stroke-width="2"/>
     <text x="1420" y="518" text-anchor="middle" font-size="8.5" fill="#666">Current Solutions</text>
 
-    <!-- Templates/Examples — branch off Checklist -->
+    <!-- Playbooks/Templates — branch off Checklist -->
     <line x1="1330" y1="440" x2="1420" y2="380" stroke="#888" stroke-width="3" stroke-linecap="round"/>
     <circle cx="1420" cy="380" r="4" fill="white" stroke="#888" stroke-width="2"/>
     <text x="1420" y="368" text-anchor="middle" font-size="8.5" fill="#666">Playbooks &amp;</text>
     <text x="1420" y="357" text-anchor="middle" font-size="8.5" fill="#666">Templates</text>
-
-    <!-- Threat Model — branch -->
-    <line x1="1420" y1="380" x2="1420" y2="330" stroke="#888" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="1420" cy="330" r="4" fill="white" stroke="#888" stroke-width="2"/>
-    <text x="1420" y="318" text-anchor="middle" font-size="8.5" fill="#666">Threat Model</text>
 
     <!-- Emerging Controls — branch off Human Oversight -->
     <line x1="1120" y1="440" x2="1220" y2="500" stroke="#888" stroke-width="3" stroke-linecap="round"/>
@@ -393,25 +426,25 @@
     <line x1="0" y1="30" x2="50" y2="30" stroke="#00A4A7" stroke-width="6" stroke-linecap="round"/>
     <text x="58" y="34" font-size="10" fill="#333">Getting Started</text>
 
-    <line x1="200" y1="30" x2="250" y2="30" stroke="#888" stroke-width="3" stroke-linecap="round"/>
-    <text x="258" y="34" font-size="10" fill="#333">Extensions</text>
+    <line x1="200" y1="30" x2="250" y2="30" stroke="#CC0066" stroke-width="6" stroke-linecap="round"/>
+    <text x="258" y="34" font-size="10" fill="#333">Testing &amp; Assurance</text>
 
-    <line x1="370" y1="30" x2="420" y2="30" stroke="#9B0056" stroke-width="4" stroke-dasharray="12,6" stroke-linecap="round"/>
-    <text x="428" y="34" font-size="10" fill="#333">Insight Article</text>
+    <line x1="440" y1="30" x2="490" y2="30" stroke="#9B0056" stroke-width="4" stroke-dasharray="12,6" stroke-linecap="round"/>
+    <text x="498" y="34" font-size="10" fill="#333">Insight Article</text>
 
-    <circle cx="600" cy="30" r="5.5" fill="white" stroke="#333" stroke-width="2.5"/>
-    <text x="614" y="34" font-size="10" fill="#333">Station</text>
+    <circle cx="620" cy="30" r="5.5" fill="white" stroke="#333" stroke-width="2.5"/>
+    <text x="634" y="34" font-size="10" fill="#333">Station</text>
 
-    <circle cx="715" cy="30" r="8" fill="white" stroke="#000" stroke-width="2.5"/>
-    <text x="730" y="34" font-size="10" fill="#333">Interchange</text>
+    <circle cx="720" cy="30" r="8" fill="white" stroke="#000" stroke-width="2.5"/>
+    <text x="735" y="34" font-size="10" fill="#333">Interchange</text>
 
     <g transform="translate(870,30)">
       <use href="#new-badge"/>
     </g>
     <text x="898" y="34" font-size="10" fill="#333">New in this release</text>
 
-    <line x1="1050" y1="30" x2="1100" y2="30" stroke="#003688" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
-    <text x="1108" y="34" font-size="10" fill="#333">Connects to</text>
+    <line x1="1050" y1="30" x2="1100" y2="30" stroke="#CC0066" stroke-width="3" stroke-dasharray="10,5" stroke-linecap="round" opacity="0.5"/>
+    <text x="1108" y="34" font-size="10" fill="#333">Feedback loop</text>
   </g>
 
   <!-- ============================================================ -->
