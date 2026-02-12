@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this framework, please cite it as below."
+authors:
+  - family-names: "Gill"
+    given-names: "Jonathan"
+    orcid: ""
+title: "Enterprise AI Security Framework: Runtime Behavioral Controls for Generative and Agentic AI Systems"
+version: 1.0.0
+date-released: 2025-01-01
+url: "https://github.com/JonathanCGill/enterprise-ai-security-framework"
+license: MIT
+type: software
+keywords:
+  - ai-security
+  - llm-guardrails
+  - llm-as-judge
+  - enterprise-ai
+  - ai-governance
+  - iso-42001
+  - agentic-ai
+  - runtime-monitoring
+abstract: >-
+  A practical, open-source framework for implementing runtime behavioral
+  security controls across generative and agentic AI systems. Defines a
+  three-layer architecture — guardrails, LLM-as-Judge evaluation, and
+  human oversight — with risk-tiered implementation guidance, regulatory
+  mapping, and worked examples.

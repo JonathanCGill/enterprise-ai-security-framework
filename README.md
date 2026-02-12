@@ -1,207 +1,182 @@
 # Enterprise AI Security Framework
 
-A practical guide to implementing behavioral controls for AI systems.
+**Declare what your AI system should do. Guardrails enforce it. An LLM-as-Judge verifies it. Humans decide.**
 
-[![Enterprise AI Security Framework — Tube Map](images/ai-security-tube-map.svg)](FRAMEWORK-MAP.md)
+A practical, open-source framework for implementing behavioral security controls across generative and agentic AI systems — from internal tools to regulated decisions.
 
-> **[→ Interactive Framework Map](FRAMEWORK-MAP.md)** — Reading paths, line guide, and how the pieces connect.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[![Enterprise AI Security Framework](images/ai-security-tube-map.svg)](images/ai-security-tube-map.svg)
 
 ---
 
-## The Problem
+## Why This Exists
 
 Traditional software assurance relies on design-time testing. You write code, test it, prove it works, ship it.
 
 **AI breaks this model.**
 
-- **Non-deterministic** — Same input can produce different outputs
-- **Emergent behavior** — You can't predict all failure modes
-- **Adversarial inputs** — Users will find edge cases your test suite never imagined
+AI systems are non-deterministic — the same input can produce different outputs. They exhibit emergent behavior that can't be predicted through conventional test suites. And adversarial inputs will find edge cases no QA team imagined.
 
-You can't fully test an AI system before deployment. So how do you know it's working correctly?
+You can't fully test an AI system before deployment. The question is: **how do you know it's working correctly in production?**
+
+The industry is converging on an answer: **runtime behavioral monitoring.** Instead of proving correctness at design time, you continuously verify behavior in production through three complementary layers.
+
+| Layer | What It Does | When It Acts |
+| --- | --- | --- |
+| **Guardrails** | Prevent known-bad inputs and outputs | Real-time (~10ms) |
+| **LLM-as-Judge** | Detect unknown-bad via independent LLM evaluation | Async (~500ms–5s) |
+| **Human Oversight** | Decide edge cases, maintain accountability | As needed |
+
+**Guardrails prevent. Judge detects. Humans decide.**
+
+This pattern already exists in production at major platforms (NVIDIA NeMo, AWS Bedrock, Azure AI, LangChain, Guardrails AI, and others). What's been missing is a clear, vendor-neutral explanation of *why* it's necessary and *how* to implement it proportionate to risk.
+
+That's what this framework provides.
 
 ---
 
-## Before You Proceed
+## Get Started
+
+| If you want to... | Go here |
+| --- | --- |
+| Understand the concepts in 30 minutes | [Quick Start](QUICK_START.md) |
+| Implement controls with working code | [Implementation Guide](IMPLEMENTATION_GUIDE.md) |
+| Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
+| Deploy an agentic AI system | [Agentic Controls](core/agentic.md) |
+| Track your implementation | [Checklist](core/checklist.md) |
+
+---
+
+## Before You Build Controls
 
 > **[The First Control: Choosing the Right Tool](insights/the-first-control.md)**
 >
 > The most effective way to reduce AI risk is to not use AI where it doesn't belong. Before guardrails, judges, or human oversight — ask whether AI is the right tool for this problem. Design thinking should precede technology selection.
 
-Everything in this Framework assumes you've already answered "yes" to that fundamental question.
+Everything in this framework assumes you've already answered "yes" to that question.
 
 ---
 
-## The Pattern
+## Framework Structure
 
-The industry is converging on an answer: **runtime behavioral monitoring**.
+### Core
 
-Instead of proving correctness at design time, you continuously verify behavior in production.
-
-| Layer | Function | Timing |
-|-------|----------|--------|
-| **Guardrails** | Prevent known-bad inputs/outputs | Real-time (~10ms) |
-| **Judge** | Detect unknown-bad via LLM evaluation | Async (~500ms–5s) |
-| **Human Oversight** | Decide edge cases, remain accountable | As needed |
-
-**Guardrails prevent. Judge detects. Humans decide.**
-
-> Design reviews prove intent. Behavioral monitoring proves reality.
-
----
-
-## This Isn't New
-
-This pattern already exists in production. What's been missing is a clear explanation of *why* it's necessary and *how* to implement it proportionate to risk.
-
-### Platforms Implementing This Pattern
-
-| Platform | Implementation |
-|----------|---------------|
-| [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) | 5 rail types: input, dialog, retrieval, execution, output |
-| [LangChain](https://docs.langchain.com/) | Middleware + human-in-the-loop |
-| [Guardrails AI](https://www.guardrailsai.com/) | Open-source validator framework |
-| [Galileo](https://www.rungalileo.io/) | Eval-to-guardrail lifecycle |
-| [Confident AI / DeepEval](https://github.com/confident-ai/deepeval) | LLM-as-judge evaluation framework |
-| AWS Bedrock Guardrails | Managed input/output filtering |
-| Azure AI Content Safety | Content filtering and moderation |
-
-### Standards Describing the Risks
-
-| Standard | Focus |
-|----------|-------|
-| [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Security vulnerabilities in LLM applications |
-| [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/) | Risks specific to autonomous AI agents |
-| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | Risk management framework |
-| [ISO 42001](https://www.iso.org/standard/81230.html) | AI management system standard |
-
----
-
-## What This Guide Provides
-
-A practical synthesis: how to understand the pattern, select appropriate controls, and implement them proportionate to risk.
-
-**[→ Implementation Guide](IMPLEMENTATION_GUIDE.md)** — Working code. Copy, adapt, ship.
-
-**[→ Quick Start](QUICK_START.md)** — Conceptual overview in 30 minutes.
-
----
-
-## Core Content
+The essential documents for understanding and implementing the pattern.
 
 | Document | Purpose |
-|----------|---------|
-| [Risk Tiers](core/risk-tiers.md) | Classify your system, determine control requirements |
-| [Controls](core/controls.md) | Guardrails, Judge, Human Oversight implementation |
-| [Agentic](core/agentic.md) | Additional controls for AI agents |
-| [Checklist](core/checklist.md) | Track your implementation |
-| [Emerging Controls](core/emerging-controls.md) | Multimodal, reasoning, streaming *(theoretical)* |
-| [Judge Assurance](core/judge-assurance.md) | Who judges the judge? Calibration, testing, fail-safes `NEW` |
-| [Multi-Agent Controls](core/multi-agent-controls.md) | Delegation policy, identity propagation, circuit breakers `NEW` |
-| [Multimodal Controls](core/multimodal-controls.md) | Controls for image, audio, video, document inputs `NEW` |
-| [Streaming Controls](core/streaming-controls.md) | Buffer-and-release, post-hoc, non-streaming patterns `NEW` |
-| [Memory and Context](core/memory-and-context.md) | Session isolation, context hygiene, persistent memory `NEW` |
-| [Reasoning Model Controls](core/reasoning-model-controls.md) | Chain-of-thought monitoring, reasoning-aware evaluation `NEW` |
+| --- | --- |
+| [Risk Tiers](core/risk-tiers.md) | Classify your AI system, determine control requirements |
+| [Controls](core/controls.md) | Guardrails, Judge, and Human Oversight implementation |
+| [Agentic](core/agentic.md) | Additional controls for autonomous AI agents |
+| [Checklist](core/checklist.md) | Track your implementation progress |
+| [Emerging Controls](core/emerging-controls.md) | Multimodal, reasoning, and streaming considerations *(theoretical)* |
 
----
+### Extensions
 
-## Extensions
-
-Reference material for specific needs.
+Reference material for specific needs: regulatory mapping, technical depth, templates, and worked examples.
 
 | Folder | Contents |
-|--------|----------|
-| [extensions/regulatory/](extensions/regulatory) | ISO 42001, EU AI Act mapping |
-| [extensions/technical/](extensions/technical) | Bypass prevention, infrastructure, metrics |
-| [extensions/technical/current-solutions.md](extensions/technical/current-solutions.md) | **Industry solutions reference** — guardrails, evaluators, safety models |
-| [extensions/templates/](extensions/templates) | Incident playbooks, threat models |
-| [extensions/examples/](extensions/examples) | Worked examples by use case |
+| --- | --- |
+| [Regulatory](extensions/regulatory/) | ISO 42001 and EU AI Act mapping |
+| [Technical](extensions/technical/) | Bypass prevention, infrastructure, metrics |
+| [Industry Solutions](extensions/technical/current-solutions.md) | Guardrails, evaluators, and safety model reference |
+| [Templates](extensions/templates/) | Incident playbooks, threat models, testing guidance |
+| [Examples](extensions/examples/) | Worked examples by use case |
 
-### New Technical Extensions
+### Insights
 
-| Document | Purpose |
-|----------|---------|
-| [SOC Integration](extensions/technical/soc-integration.md) | Alert taxonomy, identity correlation, triage procedures, SIEM rules `NEW` |
-| [RAG Security](extensions/technical/rag-security.md) | Retrieval access control, ingestion validation, vector store security `NEW` |
-| [Supply Chain](extensions/technical/supply-chain.md) | Model pinning, AI-BOM, dependency scanning, provider monitoring `NEW` |
-| [NHI Lifecycle](extensions/technical/nhi-lifecycle.md) | Non-human identity governance for agents and service accounts `NEW` |
-| [Anomaly Detection Ops](extensions/technical/anomaly-detection-ops.md) | Baselining, detection rules, alert routing, tooling `NEW` |
-| [Cost and Latency](extensions/technical/cost-and-latency.md) | Evaluation budgets, sampling strategies, latency tradeoffs `NEW` |
+Articles explaining the reasoning behind the pattern — suitable for standalone reading, sharing, or adaptation.
 
----
+**Why This Pattern?**
 
-## Insights
-
-Articles explaining the thinking behind the pattern. **[→ Full index with reading paths](insights/README.md)**
-
-### Why This Pattern?
-
-| Article | Summary |
-|---------|---------|
+| Article | Key Argument |
+| --- | --- |
 | [The First Control: Choosing the Right Tool](insights/the-first-control.md) | Design thinking before technology selection |
 | [Why Your AI Guardrails Aren't Enough](insights/why-guardrails-arent-enough.md) | Guardrails block known-bad; you need detection for unknown-bad |
-| [The Judge Detects. It Doesn't Decide.](insights/judge-detects-not-decides.md) | Async evaluation beats real-time blocking for nuance |
-| [Infrastructure Beats Instructions](insights/infrastructure-beats-instructions.md) | You can't secure systems with prompts alone |
-| [Risk Tier Is Use Case, Not Technology](insights/risk-tier-is-use-case.md) | Classification is about deployment, not capability |
+| [The Judge Detects. It Doesn't Decide.](insights/judge-detects-not-decides.md) | Async evaluation beats real-time blocking for nuanced decisions |
+| [Infrastructure Beats Instructions](insights/infrastructure-beats-instructions.md) | You can't secure AI systems with prompts alone |
+| [Risk Tier Is Use Case, Not Technology](insights/risk-tier-is-use-case.md) | Classification should reflect deployment context, not model capability |
 | [Humans Remain Accountable](insights/humans-remain-accountable.md) | AI assists decisions; humans own outcomes |
 
-### Emerging Challenges
+**Emerging Challenges**
 
-| Article | Summary |
-|---------|---------|
-| [The Verification Gap](insights/the-verification-gap.md) | Why current safety approaches can't confirm ground truth |
-| [Behavioral Anomaly Detection](insights/behavioral-anomaly-detection.md) | Aggregating signals to detect drift from normal |
-| [Multimodal AI Breaks Your Text-Based Guardrails](insights/multimodal-breaks-guardrails.md) | Images, audio, video create new attack surfaces |
+| Article | Key Argument |
+| --- | --- |
+| [The Verification Gap](insights/the-verification-gap.md) | Current safety approaches can't confirm ground truth |
+| [Behavioral Anomaly Detection](insights/behavioral-anomaly-detection.md) | Aggregating signals to detect drift from expected behavior |
+| [Multimodal AI Breaks Your Text-Based Guardrails](insights/multimodal-breaks-guardrails.md) | Images, audio, and video create new attack surfaces |
 | [When AI Thinks Before It Answers](insights/when-ai-thinks.md) | Reasoning models need reasoning-aware controls |
 | [When Agents Talk to Agents](insights/when-agents-talk-to-agents.md) | Multi-agent systems have accountability gaps |
-| [The Memory Problem](insights/the-memory-problem.md) | Long context and persistent memory risks |
-| [You Can't Validate What Hasn't Finished](insights/you-cant-validate-unfinished.md) | Real-time streaming AI challenges |
-
-### Operational Gaps
-
-| Article | Summary |
-|---------|---------|
-| [The Supply Chain Problem](insights/the-supply-chain-problem.md) | You don't control the model you deploy `NEW` |
-| [RAG Is Your Biggest Attack Surface](insights/rag-is-your-biggest-attack-surface.md) | Retrieval pipelines bypass existing access controls `NEW` |
+| [The Memory Problem](insights/the-memory-problem.md) | Long context and persistent memory introduce novel risks |
+| [You Can't Validate What Hasn't Finished](insights/you-cant-validate-unfinished.md) | Real-time streaming challenges existing validation approaches |
 
 ---
 
 ## Scope
 
-**In scope:** Custom LLM applications, AI decision support, document processing, agentic systems, multi-agent architectures, RAG pipelines
+**In scope:** Custom LLM applications, AI decision support, document processing, agentic systems — from deployment through incident response.
 
-**Out of scope:**
-
-- Vendor AI products (Copilot, Gemini, etc.) — use vendor controls
-- Model training — see MLOps security guidance
-- Pre-deployment testing — this guide is about production monitoring
-
-This guide is **operationally focused** — deployment through incident response.
+**Out of scope:** Vendor AI products (use vendor controls), model training (see MLOps security guidance), and pre-deployment testing. This framework is about what happens in production.
 
 ---
 
-## Status
+## Platforms Implementing This Pattern
 
-This is a **synthesis and practical guide**, not a standard.
+This isn't a theoretical proposal. These platforms already implement variants of the three-layer pattern:
 
-- Combines existing patterns with implementation guidance
-- Feedback welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
-- Will evolve as the field matures
+| Platform | Approach |
+| --- | --- |
+| [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) | Five rail types: input, dialog, retrieval, execution, output |
+| [LangChain](https://docs.langchain.com/) | Middleware chains with human-in-the-loop |
+| [Guardrails AI](https://www.guardrailsai.com/) | Open-source validator framework |
+| [Galileo](https://www.rungalileo.io/) | Eval-to-guardrail lifecycle |
+| [DeepEval](https://github.com/confident-ai/deepeval) | LLM-as-judge evaluation framework |
+| AWS Bedrock Guardrails | Managed input/output filtering |
+| Azure AI Content Safety | Content filtering and moderation |
 
 ---
 
-## Quick Links
+## Standards Alignment
 
-| Need | Go To |
-|------|-------|
-| Get started | [Quick Start](QUICK_START.md) |
-| See how it all fits together | [Framework Map](FRAMEWORK-MAP.md) |
-| Classify a system | [Risk Tiers](core/risk-tiers.md) |
-| Implement controls | [Controls](core/controls.md) |
-| Deploy an agent | [Agentic](core/agentic.md) |
-| Secure a multi-agent system | [Multi-Agent Controls](core/multi-agent-controls.md) |
-| Secure a RAG pipeline | [RAG Security](extensions/technical/rag-security.md) |
-| Connect AI alerts to your SOC | [SOC Integration](extensions/technical/soc-integration.md) |
-| Test your controls | [Testing Guidance](extensions/templates/testing-guidance.md) |
-| Threat model | [Threat Model Template](extensions/templates/threat-model-template.md) |
-| Map to ISO 42001 | [Regulatory Extensions](extensions/regulatory) |
+The framework maps to established standards and risk taxonomies:
+
+| Standard | Relevance |
+| --- | --- |
+| [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Security vulnerabilities in LLM applications |
+| [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/) | Risks specific to autonomous AI agents |
+| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | AI risk management framework |
+| [ISO 42001](https://www.iso.org/standard/81230.html) | AI management system standard |
+
+---
+
+## Contributing
+
+Feedback, corrections, and extensions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+This is a living framework. It will evolve as the field matures.
+
+---
+
+## About the Author
+
+**Jonathan Gill** is a cybersecurity practitioner with over 30 years in information technology and 20+ years in enterprise cybersecurity. His career spans UNIX system administration, building national-scale ISP infrastructure, enterprise security architecture at major financial institutions, and diplomatic IT service.
+
+His current focus is AI security governance: designing control architectures that address the unique challenges of securing non-deterministic systems at enterprise scale, and translating complex technical risk into actionable guidance for engineering teams and executive leadership.
+
+This framework represents a synthesis of practical implementation experience, industry patterns, and regulatory requirements — built to be useful, not theoretical.
+
+- GitHub: [@JonathanCGill](https://github.com/JonathanCGill)
+- LinkedIn: [Jonathan Gill](https://www.linkedin.com/in/jonathancgill/)
+
+---
+
+## Citation
+
+If you reference this framework in publications, presentations, or derivative work, see [CITATION.md](CITATION.md).
+
+---
+
+## License
+
+[MIT](LICENSE) — Use it, adapt it, build on it.
