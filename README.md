@@ -32,7 +32,7 @@ The industry is converging on an answer: **runtime behavioral monitoring.** Inst
 
 This pattern already exists in production at major platforms (NVIDIA NeMo, AWS Bedrock, Azure AI, LangChain, Guardrails AI, and others). What's been missing is a clear, vendor-neutral explanation of *why* it's necessary and *how* to implement it proportionate to risk.
 
-That's what this framework provides — and its companion repository, [AI Security Infrastructure Controls](https://github.com/JonathanCGill/ai-security-infrastructure-controls), provides the 80 technical controls that make the pattern enforceable at the infrastructure layer.
+That's what this framework provides. The [Infrastructure Controls](infrastructure/) section provides 80 technical controls that make the pattern enforceable at the infrastructure layer.
 
 ---
 
@@ -44,7 +44,7 @@ That's what this framework provides — and its companion repository, [AI Securi
 | Implement controls with working code | [Implementation Guide](IMPLEMENTATION_GUIDE.md) |
 | Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
 | Deploy an agentic AI system | [Agentic Controls](core/agentic.md) |
-| Enforce controls at the infrastructure layer | [Infrastructure Controls](https://github.com/JonathanCGill/ai-security-infrastructure-controls) *(companion repo)* |
+| Enforce controls at the infrastructure layer | [Infrastructure Controls](infrastructure/) |
 | Track your implementation | [Checklist](core/checklist.md) |
 
 ---
@@ -80,7 +80,7 @@ Reference material for specific needs: regulatory mapping, technical depth, temp
 | Folder | Contents |
 | --- | --- |
 | [Regulatory](extensions/regulatory/) | ISO 42001 and EU AI Act mapping |
-| [Technical](extensions/technical/) | Bypass prevention, metrics — see also [Infrastructure Controls](https://github.com/JonathanCGill/ai-security-infrastructure-controls) |
+| [Technical](extensions/technical/) | Bypass prevention, metrics — see also [Infrastructure Controls](infrastructure/) |
 | [Industry Solutions](extensions/technical/current-solutions.md) | Guardrails, evaluators, and safety model reference |
 | [Templates](extensions/templates/) | Incident playbooks, threat models, testing guidance |
 | [Examples](extensions/examples/) | Worked examples by use case |
@@ -112,13 +112,13 @@ Articles explaining the reasoning behind the pattern — suitable for standalone
 | [The Memory Problem](insights/the-memory-problem.md) | Long context and persistent memory introduce novel risks |
 | [You Can't Validate What Hasn't Finished](insights/you-cant-validate-unfinished.md) | Real-time streaming challenges existing validation approaches |
 
-### Companion: Infrastructure Controls
+### Infrastructure Controls
 
-This framework defines *what* to enforce. The companion repository defines *how* to enforce it at the infrastructure layer — 80 technical controls across 11 domains, with standards mappings and platform-specific patterns.
+This framework defines *what* to enforce. The [infrastructure](infrastructure/) section defines *how* to enforce it at the infrastructure layer — 80 technical controls across 11 domains, with standards mappings and platform-specific patterns.
 
 | Resource | Contents |
 | --- | --- |
-| [AI Security Infrastructure Controls](https://github.com/JonathanCGill/ai-security-infrastructure-controls) | Full companion repository |
+| [Infrastructure Controls](infrastructure/) | Technical infrastructure controls |
 
 **Control domains:** Identity & Access Management (8), Logging & Observability (10), Network & Segmentation (8), Data Protection (8), Secrets & Credentials (8), Supply Chain (8), Incident Response (8), Tool Access (6), Session & Scope (5), Delegation Chains (5), Sandbox Patterns (6).
 
@@ -158,10 +158,10 @@ The framework maps to established standards and risk taxonomies:
 
 | Standard | Relevance | Infrastructure Mapping |
 | --- | --- | --- |
-| [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Security vulnerabilities in LLM applications | [OWASP mapping](https://github.com/JonathanCGill/ai-security-infrastructure-controls/blob/main/mappings/owasp-llm-top10.md) |
-| [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/) | Risks specific to autonomous AI agents | [OWASP mapping](https://github.com/JonathanCGill/ai-security-infrastructure-controls/blob/main/mappings/owasp-llm-top10.md) |
-| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | AI risk management framework | [NIST mapping](https://github.com/JonathanCGill/ai-security-infrastructure-controls/blob/main/mappings/nist-ai-rmf.md) |
-| [ISO 42001](https://www.iso.org/standard/81230.html) | AI management system standard | [ISO 42001 mapping](https://github.com/JonathanCGill/ai-security-infrastructure-controls/blob/main/mappings/iso42001-annex-a.md) |
+| [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Security vulnerabilities in LLM applications | [OWASP mapping](infrastructure/mappings/owasp-llm-top10.md) |
+| [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/) | Risks specific to autonomous AI agents | [OWASP mapping](infrastructure/mappings/owasp-llm-top10.md) |
+| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | AI risk management framework | [NIST mapping](infrastructure/mappings/nist-ai-rmf.md) |
+| [ISO 42001](https://www.iso.org/standard/81230.html) | AI management system standard | [ISO 42001 mapping](infrastructure/mappings/iso42001-annex-a.md) |
 
 ---
 
