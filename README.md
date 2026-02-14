@@ -1,8 +1,8 @@
 # Enterprise AI Security Framework
 
-**Declare what your AI system should do. Guardrails enforce it. An LLM-as-Judge verifies it. Humans decide.**
+**Secure AI from experiment to production. A fast lane for low-risk deployments. Guardrails, LLM-as-Judge, and human oversight for everything else — scaled to the risk.**
 
-A practical, open-source framework for implementing behavioral security controls across generative and agentic AI systems — from internal tools to regulated decisions.
+A practical, open-source framework for implementing behavioral security controls across generative and agentic AI systems — from internal tools to regulated decisions. Controls scale to risk so low-risk AI moves fast and high-risk AI stays safe.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -27,12 +27,17 @@ The industry is converging on an answer: **runtime behavioral monitoring.** Inst
 | **Guardrails** | Prevent known-bad inputs and outputs | Real-time (~10ms) |
 | **LLM-as-Judge** | Detect unknown-bad via independent LLM evaluation | Async (~500ms–5s) |
 | **Human Oversight** | Decide edge cases, maintain accountability | As needed |
+| **Circuit Breaker** | Stop AI traffic, activate non-AI fallback when controls fail | Immediate |
 
-**Guardrails prevent. Judge detects. Humans decide.**
+**Guardrails prevent. Judge detects. Humans decide. Circuit breakers contain.**
 
 This pattern already exists in production at major platforms (NVIDIA NeMo, AWS Bedrock, Azure AI, LangChain, Guardrails AI, and others). What's been missing is a clear, vendor-neutral explanation of *why* it's necessary and *how* to implement it proportionate to risk.
 
 That's what this framework provides. The [Infrastructure Controls](infrastructure/) section provides 80 technical controls that make the pattern enforceable at the infrastructure layer.
+
+**But controls that slow adoption aren't controls — they're obstacles.** This framework scales controls to risk. Low-risk internal AI tools get a [Fast Lane](FAST-LANE.md): minimal controls, self-certification, deploy in days. High-risk regulated systems get the full architecture with defined fail postures and tested fallback paths. The goal is to make security the enabler, not the bottleneck.
+
+Every control in this framework has a defined failure mode. The [PACE resilience methodology](PACE-RESILIENCE.md) (Primary, Alternate, Contingency, Emergency) ensures that when a control layer degrades — and it will — the system fails safely rather than silently. Even at the lowest risk tier, there's a fallback plan. At the highest, there's a structured degradation path from full autonomy to full stop.
 
 ---
 
@@ -40,10 +45,12 @@ That's what this framework provides. The [Infrastructure Controls](infrastructur
 
 | If you want to... | Go here |
 | --- | --- |
+| Deploy low-risk AI fast | [Fast Lane](FAST-LANE.md) |
 | Understand the concepts in 30 minutes | [Quick Start](QUICK_START.md) |
 | Implement controls with working code | [Implementation Guide](IMPLEMENTATION_GUIDE.md) |
 | Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
 | Deploy an agentic AI system | [Agentic Controls](core/agentic.md) |
+| Understand what happens when controls fail | [PACE Resilience](PACE-RESILIENCE.md) |
 | Enforce controls at the infrastructure layer | [Infrastructure Controls](infrastructure/) |
 | Track your implementation | [Checklist](core/checklist.md) |
 
@@ -55,7 +62,7 @@ That's what this framework provides. The [Infrastructure Controls](infrastructur
 >
 > The most effective way to reduce AI risk is to not use AI where it doesn't belong. Before guardrails, judges, or human oversight — ask whether AI is the right tool for this problem. Design thinking should precede technology selection.
 
-Everything in this framework assumes you've already answered "yes" to that question.
+Everything in this framework assumes you've already answered "yes" to that question. If your deployment is internal, read-only, handles no regulated data, and has a human reviewing output — start with the [Fast Lane](FAST-LANE.md). You may not need the rest.
 
 ---
 
@@ -67,10 +74,12 @@ The essential documents for understanding and implementing the pattern.
 
 | Document | Purpose |
 | --- | --- |
-| [Risk Tiers](core/risk-tiers.md) | Classify your AI system, determine control requirements |
-| [Controls](core/controls.md) | Guardrails, Judge, and Human Oversight implementation |
-| [Agentic](core/agentic.md) | Additional controls for autonomous AI agents |
-| [Checklist](core/checklist.md) | Track your implementation progress |
+| [Fast Lane](FAST-LANE.md) | Pre-approved minimal controls for low-risk AI — deploy without a bespoke security assessment |
+| [Risk Tiers](core/risk-tiers.md) | Classify your AI system, determine control and resilience requirements |
+| [Controls](core/controls.md) | Guardrails, Judge, and Human Oversight implementation with per-layer fail postures |
+| [Agentic](core/agentic.md) | Controls for autonomous AI agents including graceful degradation path |
+| [PACE Resilience](PACE-RESILIENCE.md) | The resilience methodology — what happens when controls fail, from fail-open to full stop |
+| [Checklist](core/checklist.md) | Track your implementation and PACE verification progress |
 | [Emerging Controls](core/emerging-controls.md) | Multimodal, reasoning, and streaming considerations *(theoretical)* |
 
 ### Extensions
