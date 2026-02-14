@@ -23,7 +23,7 @@
   <text x="585" y="96" text-anchor="middle" fill="#86efac" font-size="12" font-weight="600">GREEN — Healthy</text>
 
   <!-- RED indicators -->
-  <rect x="30" y="118" width="210" height="360" rx="6" fill="#ef4444" opacity="0.04" stroke="#ef4444" stroke-width="0.5" opacity="0.2"/>
+  <rect x="30" y="118" width="210" height="360" rx="6" fill="#ef4444" fill-opacity="0.04" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2"/>
 
   <text x="45" y="142" fill="#f87171" font-size="10" font-weight="600">Response Time</text>
   <text x="45" y="157" fill="#fca5a5" font-size="9">Median review time &lt; 3 seconds</text>
@@ -60,7 +60,7 @@
   <text x="45" y="460" fill="#fca5a5" font-size="9">over extended period</text>
 
   <!-- AMBER indicators -->
-  <rect x="255" y="118" width="210" height="360" rx="6" fill="#f59e0b" opacity="0.04" stroke="#f59e0b" stroke-width="0.5" opacity="0.2"/>
+  <rect x="255" y="118" width="210" height="360" rx="6" fill="#f59e0b" fill-opacity="0.04" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.2"/>
 
   <text x="270" y="142" fill="#f59e0b" font-size="10" font-weight="600">Response Time</text>
   <text x="270" y="157" fill="#fcd34d" font-size="9">Median review time trending</text>
@@ -97,7 +97,7 @@
   <text x="270" y="460" fill="#fcd34d" font-size="9">of all escalations</text>
 
   <!-- GREEN indicators -->
-  <rect x="480" y="118" width="210" height="360" rx="6" fill="#22c55e" opacity="0.04" stroke="#22c55e" stroke-width="0.5" opacity="0.2"/>
+  <rect x="480" y="118" width="210" height="360" rx="6" fill="#22c55e" fill-opacity="0.04" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.2"/>
 
   <text x="495" y="142" fill="#22c55e" font-size="10" font-weight="600">Response Time</text>
   <text x="495" y="157" fill="#86efac" font-size="9">Median 30s–5min depending</text>
