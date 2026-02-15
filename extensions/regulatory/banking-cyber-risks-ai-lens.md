@@ -458,7 +458,7 @@ This is where banks fail most often. The AI service account typically has far mo
 
 | Control | Purpose | Implementation |
 |---------|---------|----------------|
-| **Action whitelisting** | AI can only perform approved actions | Explicit action registry per AI system |
+| **Action allowlisting** | AI can only perform approved actions | Explicit action registry per AI system |
 | **Approval workflows** | High-risk actions require human sign-off | HITL gates before financial transactions, data modifications |
 | **Segregation of duties** | AI cannot both recommend and execute | Separate systems for recommendation and execution |
 | **Transaction limits** | Cap what AI can commit to | Monetary limits, volume limits, scope limits |
@@ -588,7 +588,7 @@ AI introduces data residency complications that traditional banking systems don'
 | **Vector database** | Embeddings stored may be subject to local data laws | Deploy vector DB in same region as source data |
 | **Multi-region failover** | Failover may route data to different jurisdiction | Ensure failover regions comply with same residency requirements |
 | **Model provider logging** | Provider may log your data for training/improvement | Contractual prohibition; verify with provider; use zero-retention options |
-| **Third-party tools (MCP)** | Agent tool calls may send data to external services | Whitelist tool endpoints; verify data handling per tool |
+| **Third-party tools (MCP)** | Agent tool calls may send data to external services | Allowlist tool endpoints; verify data handling per tool |
 
 ### Data Security Checklist (Per AI System)
 

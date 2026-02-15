@@ -13,7 +13,7 @@ For MEDIUM-risk internal tools, the control model simplifies:
 | Layer | Approach |
 |-------|----------|
 | **Guardrails** | Rules-based validation (no LLM needed) |
-| **LLM-as-Judge** | Optional—sampling for quality assurance |
+| **LLM-as-Judge** | Recommended—sampling for quality assurance |
 | **Human Oversight** | Periodic batch review, not real-time |
 
 This example uses **guardrails only** for inline protection, with optional Judge sampling for quality monitoring. This is appropriate because:
@@ -106,7 +106,6 @@ Rationale: Internal-only tool with no access to sensitive data. Primary risks ar
 - LLM-as-Judge (rules sufficient for internal tool)
 - Real-time SIEM integration
 - Dedicated HITL queue
-- AI-specific incident playbooks
 
 ---
 
@@ -298,7 +297,7 @@ Department: {department}
 
 **What we log:** Query, response metadata, who, when  
 **What we don't log:** Full response text (storage cost, privacy)  
-**Retention:** 90 days (no regulatory requirement)
+**Retention:** 1 year
 
 ---
 

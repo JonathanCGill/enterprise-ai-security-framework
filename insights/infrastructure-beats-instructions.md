@@ -64,7 +64,7 @@ Instead of telling the agent what not to do, make it impossible.
 | "Only access customer service data" | Database view exposes only CS data |
 | "Don't send emails without approval" | Email API requires approval token |
 | "Stay within $100 budget" | Hard spending cap at gateway |
-| "Only call these three APIs" | Network whitelist blocks everything else |
+| "Only call these three APIs" | Network allowlist blocks everything else |
 | "Don't run for more than 10 minutes" | Process timeout kills execution |
 
 The difference is enforcement location. Instructions are enforced by the agent — which means they're not really enforced at all. Infrastructure is enforced outside the agent — which means the agent can't circumvent it regardless of instructions, manipulation, or intent.
@@ -75,7 +75,7 @@ The difference is enforcement location. Instructions are enforced by the agent �
 
 ### Network controls
 
-The agent's runtime environment can only reach whitelisted endpoints. Everything else is blocked at the network layer. The agent can't exfiltrate data to an attacker's server because it can't reach that server.
+The agent's runtime environment can only reach allowlisted endpoints. Everything else is blocked at the network layer. The agent can't exfiltrate data to an attacker's server because it can't reach that server.
 
 ### Data access controls
 

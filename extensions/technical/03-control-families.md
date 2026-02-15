@@ -646,12 +646,14 @@ The Judge is an **async assurance mechanism** that evaluates AI interactions aft
 
 | Finding Severity | Routing | SLA |
 |------------------|---------|-----|
-| Critical (bias, data leakage) | Immediate escalation | 2 hours |
+| Critical (bias, data leakage) | Immediate escalation | 1 hour |
 | High (policy violation, quality failure) | Priority queue | 24 hours |
 | Medium (minor issues) | Standard review | 1 week |
 | Low (observations) | Batch review | Monthly |
 
 **Evidence:** Finding logs, routing records, SLA compliance
+
+> **Note:** These are Judge finding management SLAs — the time to triage and route findings from automated evaluation. They are distinct from incident response SLAs in the [AI Incident Playbook](../../extensions/templates/ai-incident-playbook.md), which govern response to confirmed security incidents.
 
 ---
 
@@ -798,6 +800,8 @@ Human oversight is a known failure mode in every industry that uses it (aviation
 Additional controls for autonomous AI agents (systems that take actions, not just generate content).
 
 > **See [Agentic Controls](04-agentic-controls.md) for comprehensive coverage.**
+>
+> **Control ID note:** Agentic controls use two complementary schemes. **AG.x** (AG.1–AG.4) provides structural decomposition by phase (planning, execution, assurance, multi-agent). **AI.10.x** provides implementation control IDs within the main control family numbering. See the control selection guide for the mapping: AI.10.1–10.6 implement AG.1–AG.4.
 
 Agentic AI requires controls at three phases:
 
@@ -846,7 +850,7 @@ Agentic AI requires controls at three phases:
 **Requirement:** Define and enforce what agents can and cannot do.
 
 **Implementation:**
-- Explicit action whitelist
+- Explicit action allowlist
 - Parameter constraints on actions
 - Scope enforcement in code
 - Boundary monitoring

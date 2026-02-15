@@ -121,7 +121,39 @@ The same AI capability poses different threats depending on deployment context.
 
 ---
 
-### MEDIUM Tier Example: Customer Support Agent
+### MEDIUM Tier Example: Internal Document Assistant
+
+**System:** Answers employee questions about internal policies and procedures, searches company knowledge base (Confluence, SharePoint), summarises documents. Internal only, no sensitive data access.
+
+**Upstream threats:**
+
+| Threat | Likelihood | Impact | Example |
+|--------|------------|--------|---------|
+| Document poisoning | Low | Medium | Attacker modifies source docs in knowledge base |
+| Query manipulation | Medium | Low | Employee tries to access restricted information |
+| RAG retrieval manipulation | Low | Medium | Crafted queries to surface unintended documents |
+
+**AI Core threats:**
+
+| Threat | Likelihood | Impact | Example |
+|--------|------------|--------|---------|
+| Hallucination | Medium | Medium | Bot invents or misrepresents policies |
+| Prompt injection | Medium | Low | Employee attempts prompt manipulation |
+| Scope creep | Low | Low | Bot answers questions outside its domain |
+
+**Downstream threats:**
+
+| Threat | Likelihood | Impact | Example |
+|--------|------------|--------|---------|
+| Misinformation | Medium | Medium | Employee acts on incorrect policy information |
+| Shadow IT risk | Low | Medium | Ungoverned tool usage spreads |
+| Log leakage | Low | Low | Queries visible to inappropriate staff |
+
+**Appropriate response:** Rules-based guardrails, periodic quality sampling via Judge (recommended), batch human review, 1-year log retention.
+
+---
+
+### HIGH Tier Example: Customer Support Agent
 
 **System:** Answers customer questions, accesses order history, can initiate refunds up to $50.
 
@@ -153,7 +185,7 @@ The same AI capability poses different threats depending on deployment context.
 
 ---
 
-### HIGH Tier Example: Credit Decision Support
+### CRITICAL Tier Example: Credit Decision Support
 
 **System:** Analyzes loan applications, provides recommendations to human underwriters, explains reasoning.
 

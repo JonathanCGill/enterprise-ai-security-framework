@@ -533,7 +533,7 @@ Begin by greeting the customer and asking how you can help.
 | Log Type | Retention | Storage |
 |----------|-----------|---------|
 | Conversation metadata | 3 years | Hot (90d) → Warm (1y) → Cold |
-| Full conversation content | 1 year | Encrypted, access-controlled |
+| Full conversation content | 3 years | Encrypted, access-controlled |
 | Guardrail decisions | 1 year | Hot |
 | Judge evaluations | 3 years | Hot (90d) → Cold |
 | HITL decisions | 7 years | Compliance archive |

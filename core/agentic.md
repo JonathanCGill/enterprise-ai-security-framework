@@ -91,9 +91,9 @@ Limit what the agent can access and do — technically, not via prompts.
 
 | Control | Implementation |
 |---------|----------------|
-| **Network whitelist** | Agent can only reach approved endpoints |
+| **Network allowlist** | Agent can only reach approved endpoints |
 | **Data views** | Agent sees only authorised data subset |
-| **Action whitelist** | Only permitted actions can execute |
+| **Action allowlist** | Only permitted actions can execute |
 | **Resource caps** | Hard limits on compute, API calls, cost |
 | **Time limits** | Maximum execution duration |
 
@@ -149,7 +149,7 @@ Agents are typically HIGH or CRITICAL tier. LOW/MEDIUM agents are rare.
 | Agent Type | Typical Tier | Key Controls |
 |------------|--------------|--------------|
 | Read-only research | HIGH | Scope limits, output review |
-| Internal automation | HIGH | Action whitelist, circuit breakers |
+| Internal automation | HIGH | Action allowlist, circuit breakers |
 | Customer-facing | CRITICAL | Full approval workflow |
 | Financial actions | CRITICAL | All controls, human approval |
 

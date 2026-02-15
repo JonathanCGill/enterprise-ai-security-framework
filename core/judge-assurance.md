@@ -41,8 +41,8 @@ Before you trust the judge, measure its accuracy against human judgment.
 
 | Metric | What It Measures | Target (adjust per risk tier) |
 |--------|-----------------|-------------------------------|
-| **Agreement rate** | How often Judge and human agree | >90% for Tier 2, >95% for Tier 3 |
-| **False negative rate** | Judge missed something human caught | <5% for Tier 2, <2% for Tier 3 |
+| **Agreement rate** | How often Judge and human agree | >90% for HIGH, >95% for CRITICAL |
+| **False negative rate** | Judge missed something human caught | <5% for HIGH, <2% for CRITICAL |
 | **False positive rate** | Judge flagged something human approved | <15% (higher tolerance — better to over-flag) |
 | **Inter-rater reliability** | Consistency between human evaluators | Cohen's κ > 0.7 |
 
