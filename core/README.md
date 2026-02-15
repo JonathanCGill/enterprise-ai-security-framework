@@ -95,7 +95,35 @@ What's been missing: clear guidance on *why* this pattern is necessary and *how*
 | [Controls](controls.md) | Guardrails, Judge, HITL implementation |
 | [Agentic](agentic.md) | Additional controls for agents |
 | [Checklist](checklist.md) | Implementation tracking |
-| [Emerging Controls](emerging-controls.md) | Multimodal, reasoning, streaming *(theoretical)* |
+| [Emerging Controls](emerging-controls.md) | Multimodal, reasoning, streaming overview |
+
+### Specialized Controls
+
+| Document | Purpose |
+|----------|---------|
+| [Judge Assurance](judge-assurance.md) | Judge accuracy measurement and calibration |
+| [Multi-Agent Controls](multi-agent-controls.md) | Controls for multi-agent systems |
+| [Multimodal Controls](multimodal-controls.md) | Controls for image, audio, and video AI |
+| [Memory and Context](memory-and-context.md) | Long context and persistent memory controls |
+| [Reasoning Model Controls](reasoning-model-controls.md) | Controls for chain-of-thought reasoning models |
+| [Streaming Controls](streaming-controls.md) | Controls for real-time streaming outputs |
+
+### Analysis & Insights
+
+| Document | Purpose |
+|----------|---------|
+| [Oversight Readiness Problem](oversight-readiness-problem.md) | Why human-in-the-loop fails and how to fix it |
+| [When the Judge Can Be Fooled](when-the-judge-can-be-fooled.md) | Judge adversarial robustness |
+| [Open Weight Models Shift the Burden](open-weight-models-shift-the-burden.md) | Self-hosted model control implications |
+| [Future Considerations](future-considerations.md) | Future framework scope |
+
+### PACE Sections
+
+| Document | Purpose |
+|----------|---------|
+| [PACE Controls Section](pace-controls-section.md) | PACE framework — controls |
+| [PACE Agentic Section](pace-agentic-section.md) | PACE framework — agentic controls |
+| [PACE Checklist Section](pace-checklist-section.md) | PACE framework — implementation checklist |
 
 ### Architecture Overview
 

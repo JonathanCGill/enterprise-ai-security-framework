@@ -145,7 +145,7 @@ START
 | **AI.8 LLM-as-Judge** | | | | |
 | AI.8.1 Judge evaluation | ✅ Required | ✅ Required | ✅ Required | ⚠️ Recommended |
 | AI.8.2 Sampling strategy | 100% | 20-50% | 5-10% | 1-5% |
-| AI.8.3 Finding management | 2-hour SLA (critical) | 24-hour SLA | 1-week SLA | Monthly batch |
+| AI.8.3 Finding management | 1-hour SLA (critical) | 24-hour SLA | 1-week SLA | Monthly batch |
 | AI.8.4 Judge governance | ✅ Required | ✅ Required | ⚠️ Recommended | ○ Optional |
 | AI.8.5 Confidence calibration | ✅ Required | ✅ Required | ⚠️ Recommended | ○ Optional |
 | **AI.9 Human Oversight** | | | | |
@@ -333,7 +333,7 @@ For each AI system, document:
 | Judge | 20-50% trajectory evaluation |
 | HITL | Plan approval for high-risk actions |
 | Circuit breakers | Step limits, time limits, cost limits |
-| Scope enforcement | Tool whitelist, data scope, outcome boundaries |
+| Scope enforcement | Tool allowlist, data scope, outcome boundaries |
 | Logging | Full trajectory, 3-year retention |
 
 ### Pattern 5: Sandbox/POC

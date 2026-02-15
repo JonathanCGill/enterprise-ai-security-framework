@@ -10,7 +10,7 @@ This is the **oversight readiness problem**: the more reliable your automated co
 
 ![The Ironies of Automation — The Readiness Paradox](../images/ironies-of-automation.svg)
 
-The concept was first identified by Lisanne Baines in 1983 as the "ironies of automation" and has been validated repeatedly in aviation, nuclear power, and process control. The aviation industry has spent four decades engineering solutions to this problem and still gets it wrong. AI systems face a more acute version because the failure modes are less predictable than those in physical systems.
+The concept was first identified by Lisanne Bainbridge in 1983 as the "ironies of automation" and has been validated repeatedly in aviation, nuclear power, and process control. The aviation industry has spent four decades engineering solutions to this problem and still gets it wrong. AI systems face a more acute version because the failure modes are less predictable than those in physical systems.
 
 ## Why AI Systems Make This Harder Than Aviation
 

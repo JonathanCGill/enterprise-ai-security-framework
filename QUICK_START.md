@@ -106,9 +106,9 @@ You can't evaluate what you don't capture.
 
 | Tier | Retention | Access |
 |------|-----------|--------|
-| LOW | 30 days | Team |
-| MEDIUM | 90 days | Team + compliance |
-| HIGH | 1 year | Restricted + audit |
+| LOW | 90 days | Team |
+| MEDIUM | 1 year | Team + compliance |
+| HIGH | 3 years | Restricted + audit |
 | CRITICAL | 7 years | Restricted + legal hold |
 
 ---
@@ -157,9 +157,9 @@ RESPOND:
 
 | Tier | Evaluation Rate |
 |------|-----------------|
-| LOW | 1-5% sample |
-| MEDIUM | 10-25% sample |
-| HIGH | 100% evaluation |
+| LOW | 1-5% (optional) |
+| MEDIUM | 5-10% sample |
+| HIGH | 20-50% evaluation |
 | CRITICAL | 100% + real-time alerting |
 
 → For Judge model selection guidance, see [Judge Model Selection](extensions/technical/judge-model-selection.md)

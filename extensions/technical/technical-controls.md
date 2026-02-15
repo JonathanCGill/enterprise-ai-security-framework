@@ -356,7 +356,7 @@ Control AI access from browsers.
 | Control | Implementation |
 |---------|----------------|
 | **Block AI websites** | Proxy/DNS block consumer AI sites |
-| **Block AI extensions** | Browser extension whitelist/blacklist |
+| **Block AI extensions** | Browser extension allowlist/blocklist |
 | **Isolate AI browsing** | Separate browser profile for approved AI |
 | **Clipboard monitoring** | DLP on copy/paste to AI |
 
@@ -387,7 +387,7 @@ Control AI on mobile devices.
 
 | Control | Purpose |
 |---------|---------|
-| **App whitelist** | Only approved AI apps installable |
+| **App allowlist** | Only approved AI apps installable |
 | **Network restrictions** | VPN required for AI access |
 | **Copy/paste restrictions** | Limit data movement to AI apps |
 | **Managed browser** | Control web-based AI access |

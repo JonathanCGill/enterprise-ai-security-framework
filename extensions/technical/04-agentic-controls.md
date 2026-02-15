@@ -75,7 +75,7 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 
 | Check | Purpose |
 |-------|---------|
-| Action whitelist | Only permitted actions in plan |
+| Action allowlist | Only permitted actions in plan |
 | Scope limits | Plan stays within defined boundaries |
 | Resource limits | Plan won't exceed cost/time limits |
 | Data access | Plan doesn't access prohibited data |
@@ -131,7 +131,7 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 
 | Check | Implementation |
 |-------|----------------|
-| Action permitted | Whitelist of allowed actions |
+| Action permitted | Allowlist of permitted actions |
 | Parameters valid | Schema validation, range checks |
 | Within scope | Action matches approved plan |
 | Rate limit | Max actions per time window |
@@ -184,8 +184,8 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 | Dimension | Definition | Enforcement |
 |-----------|------------|-------------|
 | **Data scope** | What data agent can read/write | Access controls, data classification |
-| **System scope** | What systems agent can interact with | Network controls, API whitelists |
-| **Action scope** | What actions agent can take | Action whitelist per agent |
+| **System scope** | What systems agent can interact with | Network controls, API allowlists |
+| **Action scope** | What actions agent can take | Action allowlist per agent |
 | **Authority scope** | What agent can commit to | Approval thresholds |
 | **Outcome scope** | What results the agent should produce | Outcome boundaries, not just action lists |
 
@@ -249,7 +249,7 @@ Tool protocols standardise how agents invoke external capabilities. The security
 
 | Concern | Mitigation |
 |---------|------------|
-| Server discovery | Whitelist approved MCP servers; don't allow dynamic discovery |
+| Server discovery | Allowlist approved MCP servers; don't allow dynamic discovery |
 | Capability negotiation | Restrict to required capabilities only |
 | Resource access | Apply data scope controls to MCP resource requests |
 | Prompt injection via tools | Sanitise tool outputs before including in context |
@@ -447,7 +447,7 @@ Provide:
 
 | Control | Purpose |
 |---------|---------|
-| Delegation whitelist | Which agents can call which |
+| Delegation allowlist | Which agents can call which |
 | Scope inheritance | Child agent can't exceed parent scope |
 | Aggregated limits | Total limits across agent chain |
 | Attribution | Track which agent responsible for what |

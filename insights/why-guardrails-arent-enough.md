@@ -129,7 +129,7 @@ For agents, there's a fourth principle: **infrastructure beats instructions.**
 You cannot secure an agent by telling it what not to do. Prompts are suggestions. The agent might follow them. It might not. It might find a creative interpretation that technically complies while violating intent.
 
 Instead, enforce constraints in infrastructure:
-- The agent can only reach whitelisted endpoints
+- The agent can only reach allowlisted endpoints
 - The agent can only see data in its authorised scope
 - The agent can only take actions on an explicit allow list
 - Hard circuit breakers trigger regardless of agent reasoning

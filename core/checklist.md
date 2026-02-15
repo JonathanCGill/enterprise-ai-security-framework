@@ -145,9 +145,9 @@
 ## Agent-Specific (if applicable)
 
 ### Scope Enforcement
-- [ ] Network whitelist configured
+- [ ] Network allowlist configured
 - [ ] Data access limited to authorised scope
-- [ ] Action whitelist implemented
+- [ ] Action allowlist implemented
 - [ ] Resource caps set
 
 ### Action Controls

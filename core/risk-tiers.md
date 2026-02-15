@@ -74,10 +74,12 @@ Minimal impact, non-sensitive context.
 
 | Aspect | LOW | MEDIUM | HIGH | CRITICAL |
 |--------|-----|--------|------|----------|
-| Coverage | — | 10% sampling | 100% | 100% |
+| Coverage | 1-5% (optional) | 5-10% | 20-50% | 100% |
 | Timing | — | Batch (daily) | Near real-time | Real-time |
 | Depth | — | Basic quality | Full policy | Full + reasoning |
 | Escalation | — | Weekly | Same-day | Immediate |
+
+> **Note:** "Real-time" Judge evaluation for CRITICAL tier means near-real-time parallel assessment — the Judge evaluates alongside or immediately after delivery. It does not mean inline blocking, which is the Guardrail's role. Principle: **Guardrails block. Judge detects. Humans decide.**
 
 ### Human Oversight
 
