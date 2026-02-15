@@ -88,7 +88,7 @@ The essential documents for understanding and implementing the pattern.
 
 ### Multi-Agent Security Operations (MASO)
 
-When AI agents collaborate, delegate tasks, and take autonomous actions across trust boundaries, single-model controls are not enough. The **[MASO Framework](maso/)** extends this framework into multi-agent orchestration with five dedicated control domains, three implementation tiers, and full PACE resilience integration.
+When AI agents collaborate, delegate tasks, and take autonomous actions across trust boundaries, single-model controls are not enough. The **[MASO Framework](maso/)** extends this framework into multi-agent orchestration with six dedicated control domains, three implementation tiers, and full PACE resilience integration.
 
 | Document | Purpose |
 | --- | --- |
@@ -97,9 +97,9 @@ When AI agents collaborate, delegate tasks, and take autonomous actions across t
 | [Tier 2 — Managed](maso/implementation/tier-2-managed.md) | Medium autonomy: NHI, signed bus, LLM-as-Judge, continuous monitoring |
 | [Tier 3 — Autonomous](maso/implementation/tier-3-autonomous.md) | High autonomy: self-healing PACE, adversarial testing, isolated kill switch |
 
-**MASO control domains:** Identity & Access, Data Protection, Execution Control, Observability, Supply Chain — each with per-tier implementation requirements, checklists, and graduation criteria.
+**MASO control domains:** Prompt, Goal & Epistemic Integrity, Identity & Access, Data Protection, Execution Control, Observability, Supply Chain — each with per-tier implementation requirements, checklists, and graduation criteria.
 
-**OWASP coverage:** Full mapping against both the OWASP Top 10 for LLM Applications (2025) and the OWASP Top 10 for Agentic Applications (2026), with controls that address how individual LLM risks compound across agent chains.
+**OWASP coverage:** Full mapping against both the OWASP Top 10 for LLM Applications (2025) and the OWASP Top 10 for Agentic Applications (2026), with controls that address how individual LLM risks compound across agent chains. An additional [Emergent Risk Register](maso/controls/risk-register.md) captures 30 risks beyond the OWASP taxonomies.
 
 ### Extensions
 

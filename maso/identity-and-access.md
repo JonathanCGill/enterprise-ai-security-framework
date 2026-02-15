@@ -2,6 +2,7 @@
 
 > Part of the [MASO Framework](../README.md) · Control Specifications
 > Covers: ASI03 (Identity & Privilege Abuse) · ASI07 (Insecure Inter-Agent Comms) · LLM06 (Excessive Agency)
+> Also covers: SR-05 (Secrets Leakage) · CR-03 (Role Drift)
 
 ---
 
@@ -51,6 +52,7 @@ All Tier 1 controls remain active, plus:
 | **IA-2.3** Mutual authentication | Agents authenticate to the message bus using NHI certificates | Bus rejects messages from unrecognised or expired identities. |
 | **IA-2.4** No transitive permissions | Delegated tasks do not inherit the delegating agent's permissions | Agent B operates within its own NHI scope regardless of what Agent A requested. |
 | **IA-2.5** Orchestrator privilege separation | Orchestrator can route tasks and manage lifecycle but cannot invoke tools directly | Tool access scoped exclusively to task agents. |
+| **IA-2.6** Secrets exclusion from context | Secrets (API keys, tokens, connection strings) must never appear in agent context windows, inter-agent messages, or logs | Agents access secrets through platform-injected vault references only. DLP scanning for secret patterns on the message bus (cross-ref [DP-2.1](data-protection.md)). |
 
 **What you're building at Tier 2:** An NHI lifecycle management system. This can be an extension of your existing identity provider (Entra ID, Okta, CyberArk) or a dedicated agent identity service.
 
@@ -89,6 +91,8 @@ All Tier 2 controls remain active, plus:
 | IA-T2.3 | Transitive permission | Agent A delegates a task requiring Agent A's permissions to Agent B. Agent B cannot use Agent A's permissions; task fails. |
 | IA-T2.4 | NHI revocation | Revoke a specific agent's NHI. Verify revocation takes effect within 5 minutes. |
 | IA-T2.5 | Orchestrator tool access | Attempt to invoke a tool directly from the orchestrator. Invocation is blocked. |
+| IA-T2.6 | Secrets in context | Search agent context windows, inter-agent messages, and logs for secret patterns (API keys, tokens, connection strings). No secrets found. Verify agents access secrets only through vault injection. |
+| IA-T2.7 | Role-based tool enforcement | For each agent role, attempt to invoke tools assigned to a different role. All cross-role tool invocations blocked. (Amendment: CR-03) |
 
 ### Tier 3 Tests
 
@@ -125,4 +129,4 @@ All Tier 2 controls remain active, plus:
 
 ---
 
-*Back to: [MASO Framework](../README.md) · Next: [Data Protection](data-protection.md)*
+*Previous: [Prompt, Goal & Epistemic Integrity](prompt-goal-and-epistemic-integrity.md) · Back to: [MASO Framework](../README.md) · Next: [Data Protection](data-protection.md)*

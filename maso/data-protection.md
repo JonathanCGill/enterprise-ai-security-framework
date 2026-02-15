@@ -2,6 +2,7 @@
 
 > Part of the [MASO Framework](../README.md) · Control Specifications
 > Covers: LLM02 (Sensitive Info Disclosure) · LLM04 (Data/Model Poisoning) · ASI06 (Memory & Context Poisoning) · LLM08 (Vector/Embedding Weaknesses)
+> Also covers: DR-02 (RAG Poisoning/Corpus Drift)
 
 ---
 
@@ -44,7 +45,7 @@ All Tier 1 controls remain active, plus:
 | Control | Requirement | Implementation Notes |
 |---------|-------------|---------------------|
 | **DP-2.1** DLP on message bus | Inter-agent messages scanned for sensitive data patterns before delivery | PII, credentials, financial data, health data. Messages above recipient's classification are blocked. |
-| **DP-2.2** RAG integrity validation | Knowledge base content checksummed at ingestion; periodic verification | Changes trigger automated review. Recommended: daily integrity checks. |
+| **DP-2.2** RAG integrity and freshness validation | Knowledge base content checksummed at ingestion; periodic verification including content currency | Changes trigger automated review. Recommended: daily integrity checks. Freshness metadata tracks whether content has been superseded; documents past defined freshness window flagged for review (Amendment: DR-02). |
 | **DP-2.3** Infrastructure data fencing | Cross-agent data isolation enforced at platform level | Agent A at "confidential" cannot access Agent B's "restricted" data store, even with application-layer compromise. |
 | **DP-2.4** Memory isolation | Per-agent persistent memory isolated; agents cannot read/write other agents' memory | Shared state mediated exclusively through the message bus with DLP scanning. |
 
@@ -78,7 +79,7 @@ All Tier 2 controls remain active, plus:
 |---------|------|---------------|
 | DP-T2.1 | DLP detection rate | Send 50 test messages containing known PII patterns through the bus. DLP detection rate ≥ 95%. |
 | DP-T2.2 | DLP evasion | Attempt common evasion techniques (Base64 encoding, character substitution, fragmentation). Measure bypass rate. Target: < 10% bypass. |
-| DP-T2.3 | RAG integrity tampering | Modify a document in the RAG store. Verify the integrity check detects the modification within the defined schedule. |
+| DP-T2.3 | RAG integrity and freshness | Modify a document in the RAG store. Verify the integrity check detects the modification within the defined schedule. Also: mark a document as superseded. Verify the freshness check flags it for review. |
 | DP-T2.4 | Cross-agent data fencing | From within an agent's execution environment, attempt to access another agent's data store. Access is blocked at the infrastructure level. |
 | DP-T2.5 | Memory isolation | From within an agent, attempt to read another agent's persistent memory. Read is blocked. |
 

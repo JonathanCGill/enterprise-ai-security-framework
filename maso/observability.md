@@ -2,6 +2,7 @@
 
 > Part of the [MASO Framework](../README.md) · Control Specifications
 > Covers: ASI09 (Human-Agent Trust Exploitation) · ASI10 (Rogue Agents) · LLM09 (Misinformation) · LLM10 (Unbounded Consumption)
+> Also covers: GV-01 (Non-determinism/Irreproducibility) · SR-06 (Logging as Breach Vector) · HF-02 (Accountability Blur)
 
 ---
 
@@ -47,6 +48,8 @@ All Tier 1 controls remain active, plus:
 | **OB-2.3** Drift detection | Statistical comparison of agent output distributions against rolling baseline | Detects gradual quality degradation, topic drift, and style changes. Window: 7-day rolling baseline, alert on >2σ deviation. |
 | **OB-2.4** SIEM/SOAR integration | Agent observability events forwarded to enterprise security operations | Correlation with non-AI security events. Agent anomalies visible alongside network/endpoint alerts. |
 | **OB-2.5** Cost and consumption monitoring | Per-agent token usage, API costs, and execution time tracked with alerting thresholds | Detects runaway loops and unbounded consumption (LLM10) before budget limits are reached. |
+| **OB-2.6** Log security | Logs classified, encrypted at rest and in transit, access-restricted to security operations, retention-limited | Full context capture stored in a separate higher-classification log tier from operational monitoring. Prevents logging from becoming a breach vector (SR-06). |
+| **OB-2.7** Accountable human | Every workflow has a designated human owner recorded in the decision chain and AIBOM | `accountable_human` field mandatory in decision chain log. Judge approval does not transfer responsibility from the human owner. Prevents accountability blur (HF-02). |
 
 ### Tier 3 — Autonomous
 
@@ -58,6 +61,7 @@ All Tier 2 controls remain active, plus:
 | **OB-3.2** Causal chain reconstruction | Automated tool that reconstructs the full decision chain for any given output on demand | Investigation time from "output flagged" to "root cause identified" must be under 4 hours. |
 | **OB-3.3** Independent observability agent | Separate agent on separate infrastructure monitoring the primary agent system | Read-only access to primary system logs and metrics. Cannot be influenced by task agents. Has kill switch authority as a safety net. |
 | **OB-3.4** Cross-agent correlation | Automated detection of correlated anomalies across multiple agents | Catches coordinated failures, shared poisoned data, and consensus manipulation. |
+| **OB-3.5** Decision traceability | For regulated decisions, full trace captured in sufficient detail for regulatory explanation | Standard is explainability (the decision can be explained after the fact), not reproducibility (the same input produces the same output). Satisfies non-determinism governance requirement (GV-01). |
 
 ---
 
@@ -110,6 +114,8 @@ Weights and thresholds should be calibrated during Tier 1 operations using the m
 | OB-T2.3 | Drift detection | Gradually shift agent output distribution over 72 hours. Drift detection triggers alert before human-visible quality impact. |
 | OB-T2.4 | SIEM integration | Generate an agent anomaly event. Verify it appears in SIEM within 5 minutes with correct severity and context. |
 | OB-T2.5 | Cost alerting | Trigger a runaway loop. Cost monitoring alerts before the per-agent budget threshold is reached. |
+| OB-T2.6 | Log access control | Attempt to access agent logs from a non-security-ops account. Access is blocked. Verify logs are encrypted at rest. |
+| OB-T2.7 | Accountable human traceability | Select 10 random decisions from the audit log. Verify each has an `accountable_human` field linking to a named individual. |
 
 ### Tier 3 Tests
 
@@ -119,6 +125,7 @@ Weights and thresholds should be calibrated during Tier 1 operations using the m
 | OB-T3.2 | Cross-agent correlation | Poison a shared RAG source. Verify the correlation engine detects coordinated anomalies across all agents consuming that source. |
 | OB-T3.3 | Independent observability agent integrity | Attempt to influence the observability agent from within the primary agent system (send messages, modify its inputs). All attempts fail due to infrastructure isolation. |
 | OB-T3.4 | Observability agent kill switch | Simulate a scenario where the observability agent detects a critical anomaly and no human responds within 5 minutes. Confirm the observability agent triggers Emergency shutdown. |
+| OB-T3.5 | Decision traceability | Select a regulated decision from the audit trail. Reconstruct a complete regulatory explanation from the trace data alone. Explanation must be producible within 4 hours. |
 
 ---
 
@@ -144,6 +151,7 @@ Every entry in the decision chain should include:
   "approval": "auto | human | escalated | blocked",
   "approver": "system | operator-id",
   "pace_phase": "primary",
+  "accountable_human": "operator-id or workflow-owner-id",
   "previous_entry_hash": "sha256 (Tier 2+ immutability)"
 }
 ```
@@ -173,6 +181,10 @@ This format enables: full chain reconstruction, per-agent performance trending, 
 **Trusting the observability system that runs on the same infrastructure as the agents.** At Tier 3, the observability agent must be on separate infrastructure. If a compromised agent can influence the monitoring system — by flooding it with noise, modifying its inputs, or degrading its resources — the monitoring is compromised. Independence requires infrastructure isolation, not just logical separation.
 
 **Setting drift detection thresholds too tight.** Overly sensitive drift detection generates alert fatigue. If the anomaly score triggers a PACE transition three times a day for false positives, the team will start ignoring it. Calibrate thresholds using Tier 1 manual review data and expect a 2–4 week tuning period at Tier 2 before thresholds stabilise.
+
+**Comprehensive logging without log security.** Agent logs contain reasoning chains, tool parameters, context fragments, and potentially sensitive data. Without classification, encryption, and access controls, the observability layer becomes a high-value target for data exfiltration — the very attack it's supposed to detect (SR-06).
+
+**No named human on the decision chain.** "The agents decided" is not accountability. Every workflow must have a designated human owner. The decision chain log must record who that person is. Judge approval is a tool, not a transfer of responsibility.
 
 ---
 

@@ -2,6 +2,7 @@
 
 > Part of the [MASO Framework](../README.md) · Control Specifications
 > Covers: LLM03 (Supply Chain Vulnerabilities) · ASI04 (Agentic Supply Chain)
+> Also covers: HF-02 (Accountability — AIBOM component)
 
 ---
 
@@ -76,6 +77,7 @@ The AI Bill of Materials is the supply chain equivalent of an SBOM (Software Bil
 | RAG Sources | Knowledge bases with integrity checksums | `[{name: "policy-docs", checksum: "sha256:ghi...", last_verified: "2026-02-14"}]` |
 | Dependencies | Runtime libraries and framework versions | `[{name: "langchain", version: "0.3.12"}]` |
 | Last Updated | Timestamp of AIBOM generation | `2026-02-15T08:00:00Z` |
+| Accountable Human | Named human owner responsible for this agent's design, data sources, and approval | `jonathan.gill@example.com` (Amendment: HF-02) |
 | Deployment Hash | Hash of the complete agent deployment configuration | `sha256:jkl...` |
 
 The AIBOM should be generated automatically as part of the deployment pipeline and stored alongside the agent's configuration in version control. Any discrepancy between the deployed agent and its AIBOM indicates either a deployment error or tampering.

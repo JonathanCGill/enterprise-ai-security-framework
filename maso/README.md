@@ -140,7 +140,13 @@ Every control in MASO is grounded in observed or demonstrated attack patterns. T
 
 ## MASO Control Domains
 
-The framework organises controls into five domains, each mapping to specific OWASP risks:
+The framework organises controls into six domains. The first five map to specific OWASP risks. The sixth — Prompt, Goal & Epistemic Integrity — addresses both the three OWASP risks that require cross-cutting controls and the eight epistemic risks identified in the [Emergent Risk Register](controls/risk-register.md) that have no OWASP equivalent. The risk register also identifies 15 additional emergent controls and 8 amendments that have been integrated into the domain specifications below.
+
+### 0. [Prompt, Goal & Epistemic Integrity](controls/prompt-goal-and-epistemic-integrity.md)
+
+Every agent's instructions, objectives, and information chain must be trustworthy and verifiable. Input sanitisation on all channels — not just user-facing. System prompt isolation prevents cross-agent extraction. Immutable task specifications with continuous goal integrity monitoring. Epistemic controls prevent groupthink, hallucination amplification, uncertainty stripping, and semantic drift across agent chains.
+
+*Covers: LLM01, LLM07, ASI01, plus Epistemic Risks EP-01 through EP-08*
 
 ### 1. [Identity & Access](controls/identity-and-access.md)
 
@@ -192,7 +198,7 @@ Agents can execute read operations and low-consequence write operations autonomo
 
 ### [Tier 3 — Autonomous Multi-Agent](implementation/tier-3-autonomous.md) (High Autonomy)
 
-Agents operate with minimal human intervention for pre-approved task categories. Human oversight focuses on exception handling and strategic review. Full PACE cycle operational and tested through regular red-team exercises. All five MASO control domains fully implemented.
+Agents operate with minimal human intervention for pre-approved task categories. Human oversight focuses on exception handling and strategic review. Full PACE cycle operational and tested through regular red-team exercises. All six MASO control domains fully implemented.
 
 **Required controls:** Everything in Tier 2, plus: kill switch tested and auditable, behavioural drift detection with baseline comparison, blast radius caps enforced, circuit breakers active, full OWASP risk coverage validated, regular adversarial testing of agent autonomy boundaries.
 
@@ -252,11 +258,13 @@ maso/
 │   ├── tier-3-owasp-coverage.svg       # Tier 3 OWASP risk coverage matrix
 │   └── tier-3-cost.svg                 # Tier 3 cost indicators
 ├── controls/
+│   ├── prompt-goal-and-epistemic-integrity.md  # Injection, prompt leakage, goal hijack, epistemic risks
 │   ├── identity-and-access.md          # NHI, credentials, zero-trust controls
 │   ├── data-protection.md              # Data fencing, DLP, RAG integrity
 │   ├── execution-control.md            # Sandbox, blast radius, circuit breakers
 │   ├── observability.md                # Audit, drift detection, SIEM integration
-│   └── supply-chain.md                 # AIBOM, MCP vetting, trust chains
+│   ├── supply-chain.md                 # AIBOM, MCP vetting, trust chains
+│   └── risk-register.md               # 30 emergent risks beyond OWASP, with controls
 ├── threat-intelligence/
 │   ├── incident-tracker.md             # Real-world incidents mapped to controls
 │   └── emerging-threats.md             # Forward-looking threat patterns
