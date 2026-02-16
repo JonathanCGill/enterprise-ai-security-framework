@@ -233,4 +233,4 @@ AI incident response must integrate with the existing enterprise IR process, not
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

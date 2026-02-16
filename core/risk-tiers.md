@@ -166,4 +166,4 @@ The [MASO Framework](../maso/) also uses Tier 1/2/3 for multi-agent **autonomy l
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

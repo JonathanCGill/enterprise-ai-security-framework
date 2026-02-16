@@ -226,4 +226,4 @@ The following CSF 2.0 subcategory areas have no direct mapping to this framework
 **For audit and compliance:** The mapping provides traceability from this framework's 80 infrastructure controls to CSF 2.0 outcomes, supporting compliance evidence for organisations that report against CSF.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

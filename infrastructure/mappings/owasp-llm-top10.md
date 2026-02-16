@@ -3,7 +3,7 @@
 > Maps infrastructure controls to the OWASP Top 10 for Large Language Model Applications (2025) and the OWASP Top 10 for Agentic AI.
 >
 > Part of the [AI Security Infrastructure Controls](../README.md) framework.
-> Companion to the [Enterprise AI Security Controls Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework).
+> Companion to [AI Runtime Behaviour Security](https://github.com/JonathanCGill/ai-runtime-behaviour-security).
 
 ---
 
@@ -268,4 +268,4 @@ Agent actions, decisions, and tool invocations are not logged with sufficient de
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

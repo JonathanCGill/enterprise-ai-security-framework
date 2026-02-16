@@ -182,4 +182,4 @@ Frameworks designed for stateless systems will struggle. The security model need
 We're early in that evolution.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

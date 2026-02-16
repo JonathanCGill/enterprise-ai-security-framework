@@ -325,4 +325,4 @@ AI system logs should flow to the enterprise SIEM/SOAR with:
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

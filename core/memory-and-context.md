@@ -111,4 +111,4 @@ Shared embeddings or knowledge that multiple users access (e.g., company FAQ, pr
 - User-specific context is never written to shared stores
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

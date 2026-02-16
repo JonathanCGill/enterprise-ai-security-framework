@@ -502,4 +502,4 @@ This guide synthesizes publicly available documentation, research, and community
 - **The broader AI safety research community**
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

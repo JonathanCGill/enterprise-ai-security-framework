@@ -685,4 +685,4 @@ A centralised AI governance function aligned with ISO 42001:
 **The key insight:** Technical controls (guardrails, Judge, HITL) are governance controls. A centralised function ensures they're applied consistently, operated effectively, and demonstrate compliance.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

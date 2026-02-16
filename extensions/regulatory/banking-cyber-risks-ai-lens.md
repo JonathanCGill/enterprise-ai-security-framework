@@ -682,4 +682,4 @@ When banks build AI-powered SaaS solutions for internal use or customer-facing s
 10. Develop AI-specific incident response playbooks
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

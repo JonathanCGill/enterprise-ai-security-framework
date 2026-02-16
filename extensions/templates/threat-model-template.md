@@ -418,4 +418,4 @@ This template is a starting point. Your threat model needs to reflect:
 **The framework provides principles. You provide the specifics.**
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -1,4 +1,4 @@
-# Enterprise AI Security Framework
+# AI Runtime Behaviour Security
 
 **Runtime behavioural security for AI systems — from single-model deployments to autonomous multi-agent orchestration.**
 
@@ -181,4 +181,4 @@ This framework was written with the help of AI — primarily Claude and ChatGPT.
 This is a framework about securing AI systems, written with the assistance of AI systems. I think that's appropriate. I'm not going to pretend a human typed every word, because that would be dishonest — and honesty about AI use is kind of the point.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -261,4 +261,4 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 **Review date:** ____________________
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

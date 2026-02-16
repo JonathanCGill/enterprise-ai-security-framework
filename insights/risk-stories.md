@@ -286,4 +286,4 @@ The framework can't prevent a political decision to keep a broken system running
 If you have a grounded, documented AI incident that illustrates a control gap or success, contributions are welcome. See [CONTRIBUTING.md](../CONTRIBUTING.md). Stories must be based on publicly documented events with verifiable sources, not hypotheticals.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

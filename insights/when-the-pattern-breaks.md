@@ -173,4 +173,4 @@ The OWASP Agentic Top 10, AWS's Agentic AI Security Scoping Matrix, and emerging
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

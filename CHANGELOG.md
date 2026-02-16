@@ -50,6 +50,7 @@ The framework is comprehensive but has no production deployments. Rather than ig
 - **Renamed: AI Security Blueprint → Enterprise AI Security Framework**
   - Better reflects the content scope (governance, compliance, org structure)
   - "Blueprint" implied buildable artifacts; "Framework" is accurate
+  - Later renamed to **AI Runtime Behaviour Security** (February 2026)
   
 ### Added
 - **IMPLEMENTATION_GUIDE.md** — New practical guide with working code
@@ -217,4 +218,4 @@ Framework had grown to 48 files. Core + Extensions model provides clear "start h
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

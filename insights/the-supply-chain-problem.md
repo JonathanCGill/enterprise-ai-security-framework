@@ -66,4 +66,4 @@ For self-hosted models, you have more control but more responsibility. You own t
 Neither is inherently safer. Both need explicit controls.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

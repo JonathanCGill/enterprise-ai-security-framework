@@ -120,4 +120,4 @@ Even with all these controls, you cannot prove the Judge is correct. You can onl
 This is the same epistemic limitation identified in [The Verification Gap](../insights/the-verification-gap.md). The Judge doesn't solve it — it manages it. Judge Assurance ensures you know how well it's managing.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

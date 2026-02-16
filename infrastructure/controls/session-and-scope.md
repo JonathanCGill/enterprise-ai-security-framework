@@ -133,4 +133,4 @@ For abnormal termination (crash, timeout, forced kill), cleanup must still occur
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

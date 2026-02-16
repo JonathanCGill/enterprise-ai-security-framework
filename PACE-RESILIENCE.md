@@ -150,4 +150,4 @@ For Tier 3 systems, testing should involve the same personnel who would handle a
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

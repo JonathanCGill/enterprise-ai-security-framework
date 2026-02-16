@@ -1,6 +1,6 @@
 # Adopters
 
-Organisations and individuals using or adapting the Enterprise AI Security Framework.
+Organisations and individuals using or adapting the AI Runtime Behaviour Security.
 
 ---
 
@@ -61,7 +61,7 @@ Organisations currently evaluating the framework.
 
 Individuals and organisations who have contributed improvements.
 
-*See [GitHub contributors](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework/graphs/contributors)*
+*See [GitHub contributors](https://github.com/JonathanCGill/ai-runtime-behaviour-security/graphs/contributors)*
 
 ---
 
@@ -83,4 +83,4 @@ Open an issue or submit feedback via pull request. Your experience helps everyon
 Listing here doesn't imply endorsement of the framework by the organisation, nor endorsement of the organisation by the framework maintainers. It simply indicates use or evaluation.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

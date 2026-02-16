@@ -1,4 +1,4 @@
-# Contributing to Enterprise AI Security Framework
+# Contributing to AI Runtime Behaviour Security
 
 Thank you for your interest in contributing to this project. This document provides guidelines for contributions.
 
@@ -176,4 +176,4 @@ If you're unsure about anything:
 We're happy to help guide your contribution.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

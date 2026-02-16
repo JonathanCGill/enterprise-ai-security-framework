@@ -394,4 +394,4 @@ The framework's technical controls directly support ISO 42001 compliance:
 **Key message:** Technical controls are not separate from governance—they ARE the operational implementation of ISO 42001 requirements.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

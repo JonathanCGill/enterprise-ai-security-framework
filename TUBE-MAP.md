@@ -6,7 +6,7 @@
 
 ---
 
-[![Enterprise AI Security Framework — Complete Tube Map](images/ai-security-tube-map.svg)](images/ai-security-tube-map.svg)
+[![AI Runtime Behaviour Security — Complete Tube Map](images/ai-security-tube-map.svg)](images/ai-security-tube-map.svg)
 
 ---
 
@@ -70,4 +70,4 @@ The **PACE resilience sidebar** on the right shows that resilience planning runs
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

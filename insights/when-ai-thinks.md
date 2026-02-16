@@ -134,4 +134,4 @@ Security and governance approaches that assume transparent, fast, input-output m
 The framework needs to evolve to handle systems that think — even when we can't watch them do it.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

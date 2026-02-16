@@ -199,4 +199,4 @@ This schema enables the judge to enforce provenance checks, uncertainty preserva
 **Checking goal integrity at the output, not along the chain.** A goal hijack that occurs at step 2 of a 10-step chain will produce 8 steps of corrupted work before the final output is evaluated. Goal integrity must be monitored continuously, not just at the endpoint.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -288,4 +288,4 @@ For security team:
 - Continuous improvement feedback loops
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

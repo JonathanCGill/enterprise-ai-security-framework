@@ -480,4 +480,4 @@ Be honest about what's impossible:
 - [ ] Configuration drift detection
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

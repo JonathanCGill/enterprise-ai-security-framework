@@ -216,4 +216,4 @@ The core principle is simple: **if your system is only safe when the human perfo
 The ironies of automation guarantee that the moment you most need human judgement is the moment it is least likely to be available. Design accordingly.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

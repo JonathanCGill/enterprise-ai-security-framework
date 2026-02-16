@@ -87,4 +87,4 @@ This framework does not currently prescribe different control sets per deploymen
 Desktop-scale and edge deployments of small models introduce additional considerations (limited compute for guardrails, no network access for Judge evaluation, constrained observability). These are acknowledged but deferred to a future iteration of the framework.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,7 +2,7 @@
 
 **A PACE-Driven Approach to Securing Multi-Model Agent Orchestration**
 
-> *Part of the [Enterprise AI Security Framework](../)*
+> *Part of the [AI Runtime Behaviour Security](../)*
 > Version 1.0 · February 2026 · Jonathan Gill
 
 ---
@@ -206,7 +206,7 @@ MASO inherits the parent framework's regulatory mappings and extends them to mul
 
 ## Relationship to Parent Framework
 
-MASO is the multi-agent extension of the [Enterprise AI Security Controls Framework](../). It inherits the three-layer defence model, PACE resilience methodology, risk classification matrix, and regulatory mapping framework.
+MASO is the multi-agent extension of [AI Runtime Behaviour Security](../). It inherits the three-layer defence model, PACE resilience methodology, risk classification matrix, and regulatory mapping framework.
 
 It extends into multi-agent territory by addressing multi-model orchestration security, inter-agent communication integrity, the OWASP Agentic Top 10 (2026), compound risk dynamics, Non-Human Identity management, and kill switch architecture.
 
@@ -250,4 +250,4 @@ The framework core, implementation tiers, control domain specifications, threat 
 3. **Agent orchestration security benchmark** — quantitative scoring methodology for multi-agent system security posture.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

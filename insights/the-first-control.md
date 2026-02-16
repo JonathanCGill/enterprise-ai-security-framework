@@ -242,4 +242,4 @@ The controls, patterns, and examples that follow are for systems where AI genuin
 - [Risk Tiers](../core/risk-tiers.md) — Determining appropriate control intensity
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

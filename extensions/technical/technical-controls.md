@@ -672,4 +672,4 @@ index=ai_gateway status=403
 6. **Automate enforcement** — Don't rely on user compliance
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

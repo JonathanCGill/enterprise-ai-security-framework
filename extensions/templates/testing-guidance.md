@@ -410,4 +410,4 @@ This testing guidance is a starting point, not a prescription. You'll need to ad
 How you implement these tests will vary. The need to test them will not.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

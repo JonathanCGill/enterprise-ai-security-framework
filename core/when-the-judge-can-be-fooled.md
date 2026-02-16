@@ -93,4 +93,4 @@ For **Tier 3** (high-risk) systems: All of the above, plus model independence ac
 For **agentic systems**: Judge evaluation of tool calls and action sequences is more critical — and harder — than evaluation of text outputs. An agent that takes the wrong action causes direct harm regardless of how well-written its reasoning was. See [Agentic Controls](../core/agentic.md) for additional requirements.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

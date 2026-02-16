@@ -109,4 +109,4 @@ Every system at Tier 2 or above must have a documented, tested, and maintained n
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

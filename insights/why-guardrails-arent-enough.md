@@ -168,9 +168,9 @@ The three-layer model isn't theoretical. It's already being implemented:
 
 What's been missing: a clear explanation of *why* this pattern is necessary and *how* to implement it proportionate to risk.
 
-That's what the [Enterprise AI Security Framework](../README.md) provides — a practical synthesis of the pattern with implementation guidance. For detailed solution comparison, see [Current Solutions](../extensions/technical/current-solutions.md).
+That's what the [AI Runtime Behaviour Security](../README.md) provides — a practical synthesis of the pattern with implementation guidance. For detailed solution comparison, see [Current Solutions](../extensions/technical/current-solutions.md).
 
 > **Design reviews prove intent. Behavioral monitoring proves reality.**
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

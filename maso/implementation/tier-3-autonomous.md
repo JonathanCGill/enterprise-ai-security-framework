@@ -348,4 +348,4 @@ Tier 3 autonomous operations face the most intense regulatory scrutiny. Specific
 **APRA CPS 234 (for Australian financial services):** Requires that information assets (including AI systems) are managed commensurate with their sensitivity and criticality. Tier 3 systems handling customer financial data must demonstrate that the autonomous controls (drift detection, blast radius caps, kill switch) provide protection equivalent to or better than human supervision. The adversarial testing programme provides the evidence base for this claim.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

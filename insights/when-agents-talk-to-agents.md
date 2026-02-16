@@ -155,4 +155,4 @@ The security and governance models will lag. We're building single-agent control
 Expect failures. Design for them. Learn from them.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

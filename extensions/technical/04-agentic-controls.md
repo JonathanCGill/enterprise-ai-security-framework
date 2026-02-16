@@ -571,4 +571,4 @@ Agentic AI requires controls at three phases:
 **Key principle remains:** Humans decide. Agents act within approved boundaries. Execution is constrained by circuit breakers. Trajectories are evaluated. Findings are reviewed.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

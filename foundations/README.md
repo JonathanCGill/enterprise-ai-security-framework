@@ -1,8 +1,8 @@
-# Enterprise AI Security Framework — Single-Agent Controls
+# AI Runtime Behaviour Security — Single-Agent Controls
 
 **Runtime behavioural security for single-model AI deployments. Guardrails, LLM-as-Judge, and human oversight — scaled to the risk.**
 
-> *Part of the [Enterprise AI Security Framework](../)*
+> *Part of the [AI Runtime Behaviour Security](../)*
 > Version 1.0 · February 2026 · Jonathan Gill
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -226,4 +226,4 @@ This isn't a theoretical proposal. These platforms already implement variants of
 Feedback, corrections, and extensions welcome. See [CONTRIBUTING.md](../CONTRIBUTING.md).
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

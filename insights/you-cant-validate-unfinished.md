@@ -184,4 +184,4 @@ Security approaches will adapt: more prevention, probabilistic intervention, fas
 Build for imperfect control. Design for fast recovery.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

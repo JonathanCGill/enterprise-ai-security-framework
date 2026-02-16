@@ -1,7 +1,7 @@
 # Tool Access Controls
 
 > Part of the [AI Security Infrastructure Controls](../README.md) framework — Agentic AI Controls.
-> Companion to the [Enterprise AI Security Controls Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework).
+> Companion to [AI Runtime Behaviour Security](https://github.com/JonathanCGill/ai-runtime-behaviour-security).
 
 ---
 
@@ -183,4 +183,4 @@ Every tool invocation — whether permitted or denied — must be logged with su
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

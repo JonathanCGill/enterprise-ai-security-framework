@@ -677,4 +677,4 @@ CreditAssist demonstrates CRITICAL-tier implementation with proper control separ
 - Provides comprehensive audit trail
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

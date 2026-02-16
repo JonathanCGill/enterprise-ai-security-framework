@@ -134,4 +134,4 @@ Anomaly detection will generate false positives. Plan for this:
 5. **Ongoing:** Add detection rules as new patterns emerge
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

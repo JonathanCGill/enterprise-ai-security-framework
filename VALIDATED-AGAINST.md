@@ -2,7 +2,7 @@
 
 **Every major control in this framework addresses a documented, public AI security failure. This page is the evidence.**
 
-> Part of the [Enterprise AI Security Framework](./)
+> Part of [AI Runtime Behaviour Security](./)
 > Last updated: February 2026
 
 ---
@@ -442,8 +442,8 @@ This is a living document. As new AI security incidents are publicly disclosed:
 3. Controls that were "threat-modelled only" may be upgraded to "incident-validated"
 4. New controls may be added if incidents reveal gaps
 
-If you know of a public AI security incident not listed here, [open an issue](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework/issues). We'll map it to controls and update both pages.
+If you know of a public AI security incident not listed here, [open an issue](https://github.com/JonathanCGill/ai-runtime-behaviour-security/issues). We'll map it to controls and update both pages.
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

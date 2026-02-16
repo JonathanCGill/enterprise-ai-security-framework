@@ -2,7 +2,7 @@
 
 **Primary. Alternate. Contingency. Emergency.**
 
-*How the Enterprise AI Security Framework achieves operational resilience through layered, independent control redundancy.*
+*How the AI Runtime Behaviour Security achieves operational resilience through layered, independent control redundancy.*
 
 ---
 
@@ -246,4 +246,4 @@ If you're deploying AI at Tier 2 or above, and especially if you're running agen
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

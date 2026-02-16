@@ -252,4 +252,4 @@ Endpoint-specific signals to feed into the [SOC Content Pack](soc-content-pack.m
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

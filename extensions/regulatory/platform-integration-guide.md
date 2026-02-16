@@ -503,4 +503,4 @@ Centralised AI governance across multiple platforms requires:
 **The goal:** Governance Committee sees ONE risk view, regardless of how many platforms are in use. 1st line teams operate within consistent standards. AGO ensures consistency across all.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

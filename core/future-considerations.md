@@ -75,4 +75,4 @@ Regardless of which topics enter scope in future releases, the framework's core 
 - **Practical over theoretical.** If it can't be implemented by an engineering team with a deadline, it doesn't belong in this framework.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*
