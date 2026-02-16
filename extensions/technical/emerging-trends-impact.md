@@ -1,4 +1,4 @@
-# Emerging AI Trends — Impact on Enterprise AI Security Framework
+# Emerging AI Trends — Impact on AI Runtime Behaviour Security
 
 This document assesses how emerging AI trends affect the reference architecture and identifies required adaptations.
 
@@ -326,4 +326,4 @@ The core principle — Guardrails prevent, Judge detects, Humans decide — surv
 The framework should be treated as a **living document** that evolves with the technology. This is not a weakness — it's a design principle.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

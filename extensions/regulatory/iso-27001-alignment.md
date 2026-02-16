@@ -1,6 +1,6 @@
 # ISO 27001:2022 Alignment
 
-This document maps the Enterprise AI Security Framework to ISO 27001:2022 information security requirements.
+This document maps the AI Runtime Behaviour Security to ISO 27001:2022 information security requirements.
 
 ---
 
@@ -475,4 +475,4 @@ When documenting AI systems in your Statement of Applicability (SoA):
 AI systems are information systems. ISO 27001 controls apply. The AI framework adds AI-specific controls where the standard controls are insufficient for AI-specific risks (prompt injection, model manipulation, agentic behaviour, etc.).
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

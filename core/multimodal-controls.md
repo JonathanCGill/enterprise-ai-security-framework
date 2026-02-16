@@ -117,4 +117,4 @@ For these, the control is: **risk-accept with monitoring, or don't deploy that m
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

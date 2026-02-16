@@ -205,4 +205,4 @@ Three patterns emerge across all three examples:
 **3. Human oversight scales with consequence severity.** Tier 1's human-in-the-loop for all writes is non-negotiable in safety-critical systems. The question is not whether to have human oversight, but how to make it effective at the speed the operation requires. Latency SLOs (EC-2.9) ensure that security controls don't make the system too slow to be safe.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

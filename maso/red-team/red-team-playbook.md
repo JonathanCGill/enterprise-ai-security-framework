@@ -351,4 +351,4 @@ Red team results should be reported against the following metrics:
 **Epistemic resilience:** Percentage of factual errors that are caught before reaching the final output.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -183,4 +183,4 @@ For multi-agent monitoring, the [MASO Observability domain](maso/controls/observ
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -126,4 +126,4 @@ Instructions express intent. Infrastructure enforces it.
 Build both. Trust only the second.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

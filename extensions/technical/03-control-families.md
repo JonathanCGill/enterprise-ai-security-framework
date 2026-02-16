@@ -1275,4 +1275,4 @@ The behaviour of AI systems is shaped by training data you don't control and lik
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

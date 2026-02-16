@@ -274,4 +274,4 @@ The question isn't just "did we catch the bad request?" It's "is the agent behav
 - [Current Solutions Reference](../extensions/technical/current-solutions.md) — Platforms implementing this
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

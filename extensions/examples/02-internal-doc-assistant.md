@@ -410,4 +410,4 @@ This is appropriate because:
 **Don't over-engineer.** Match controls to actual risk.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

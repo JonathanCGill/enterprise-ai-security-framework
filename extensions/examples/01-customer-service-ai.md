@@ -615,4 +615,4 @@ Aria demonstrates HIGH-tier implementation with proper control separation:
 **The Judge is not a gatekeeper.** It's a quality assurance mechanism that makes human oversight scalable. Guardrails protect in real-time. The Judge finds what they miss. Humans decide what to do about it.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

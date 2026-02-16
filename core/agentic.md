@@ -209,4 +209,4 @@ Not all actions are reversible. For those that aren't, require human approval.
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

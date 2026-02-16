@@ -140,4 +140,4 @@ If you're deploying multimodal AI in production:
 The framework provides structure. Multimodal fills in that structure with uncertainty.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

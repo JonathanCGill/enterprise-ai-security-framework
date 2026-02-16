@@ -3,7 +3,7 @@
 > *"The world cannot be understood without numbers. And it cannot be understood with numbers alone."*
 > — Hans Rosling, Factfulness
 
-This document grounds the Enterprise AI Security Framework in observed data rather than projected fear. The threat is real. It is also specific, measurable, and disproportionately concentrated in predictable failure modes.
+This document grounds the AI Runtime Behaviour Security in observed data rather than projected fear. The threat is real. It is also specific, measurable, and disproportionately concentrated in predictable failure modes.
 
 ---
 
@@ -103,4 +103,4 @@ This prioritization is not permanent. As the threat landscape matures and agenti
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

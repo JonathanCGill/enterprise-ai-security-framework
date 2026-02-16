@@ -151,4 +151,4 @@ The client must support retraction. This means:
 This is an inherent trade-off. If you need deterministic safety, don't stream.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

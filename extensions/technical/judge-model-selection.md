@@ -263,4 +263,4 @@ Key research informing these recommendations:
 - Industry guidance from Arize, Evidently, Patronus AI, and others
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

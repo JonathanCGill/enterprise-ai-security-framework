@@ -263,4 +263,4 @@ The question isn't "which verification method should we use?" It's "which verifi
 - [Current Solutions Reference](../extensions/technical/current-solutions.md)
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

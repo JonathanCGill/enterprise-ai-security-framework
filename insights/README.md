@@ -56,4 +56,4 @@ What the peer-reviewed literature says about runtime AI security controls.
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

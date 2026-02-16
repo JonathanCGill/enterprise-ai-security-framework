@@ -162,4 +162,4 @@ Multi-agent systems should be classified at least one risk tier higher than the 
 The rationale: every additional agent in a chain is an additional point of failure, an additional attack surface, and an additional accountability gap.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

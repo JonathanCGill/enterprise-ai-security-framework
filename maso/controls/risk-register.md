@@ -171,4 +171,4 @@ The source table's mitigations align well with MASO's approach in the security a
 The source table correctly identifies that the Judge/Challenger is not the solution for every risk. Specifically: secrets leakage (SR-05), logging as breach vector (SR-06), cost blowouts (OP-01), and accountability blur (HF-02) require platform governance and infrastructure controls, not evaluation-layer interventions. MASO's tiered approach (prevention at Layer 1, detection at Layer 2, governance at Layer 3) is the right architecture for this — but the existing control specs need the amendments listed above to close the gaps.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

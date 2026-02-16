@@ -2,7 +2,7 @@
 
 **An honest assessment of what this framework is, what it's validated against, and where the gaps are.**
 
-> Part of the [Enterprise AI Security Framework](./)
+> Part of the [AI Runtime Behaviour Security](./)
 > Last updated: February 2026
 
 ---
@@ -146,4 +146,4 @@ Help us close that gap.
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -1,6 +1,6 @@
 # EU AI Act Crosswalk
 
-This document maps the Enterprise AI Security Framework controls to EU AI Act requirements.
+This document maps the AI Runtime Behaviour Security controls to EU AI Act requirements.
 
 ---
 
@@ -288,4 +288,4 @@ This crosswalk provides guidance, not legal advice. Key limitations:
 4. **Legal advice required:** Consult legal counsel for your situation
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

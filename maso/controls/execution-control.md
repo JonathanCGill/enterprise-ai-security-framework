@@ -166,4 +166,4 @@ The action classification engine is the core mechanism that replaces per-action 
 **Ignoring latency as a security-relevant metric.** Latency SLOs are not just a performance concern. An orchestration that takes 10x longer than expected may indicate a runaway loop, a deadlock, or an agent being manipulated into excessive processing. Latency monitoring feeds into anomaly detection.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -122,4 +122,4 @@ Every AI deployment must answer these before production:
 If you can answer all six, you're ready. If you can't, you're not.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

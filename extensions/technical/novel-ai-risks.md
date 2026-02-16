@@ -412,4 +412,4 @@ The correct response is not to avoid AI. It's to:
 5. **Be honest** — with regulators, customers, and executives about what AI can and can't guarantee
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

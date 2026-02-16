@@ -2,7 +2,7 @@
 
 ## Scope
 
-This security policy applies to the Enterprise AI Security Framework documentation and any example code provided.
+This security policy applies to the AI Runtime Behaviour Security documentation and any example code provided.
 
 ## Reporting Vulnerabilities
 
@@ -54,4 +54,4 @@ If you're implementing this framework:
 We appreciate responsible disclosure and will acknowledge security researchers who report valid issues (unless they prefer to remain anonymous).
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

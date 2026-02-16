@@ -202,4 +202,4 @@ The LLM-as-Judge is a powerful assurance mechanism when used correctly:
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

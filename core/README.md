@@ -1,4 +1,4 @@
-# Enterprise AI Security Framework — Core
+# AI Runtime Behaviour Security — Core
 
 Implementing behavioral controls for AI systems in production.
 
@@ -152,4 +152,4 @@ What's been missing: clear guidance on *why* this pattern is necessary and *how*
 6. **Humans remain accountable** — AI assists; humans own outcomes
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

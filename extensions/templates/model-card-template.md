@@ -282,4 +282,4 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

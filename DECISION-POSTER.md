@@ -6,7 +6,7 @@
 
 ---
 
-[![Enterprise AI Security Framework — Decision Poster](images/decision-poster.svg)](images/decision-poster.svg)
+[![AI Runtime Behaviour Security — Decision Poster](images/decision-poster.svg)](images/decision-poster.svg)
 
 ---
 
@@ -25,4 +25,4 @@ To print at full size: click the image above to open the SVG directly, then use 
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -229,4 +229,4 @@ For each alert category, create a runbook in your existing ITSM (ServiceNow, Pag
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

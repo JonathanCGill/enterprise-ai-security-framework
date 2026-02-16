@@ -158,4 +158,4 @@ Automate the analysis. Keep humans in the loop for decisions.
 Because when the regulator calls, "the AI did it" isn't an answer.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

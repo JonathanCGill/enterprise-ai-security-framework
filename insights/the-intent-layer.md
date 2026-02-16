@@ -276,4 +276,4 @@ That is as close to a scalable multi-agent security architecture as the current 
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

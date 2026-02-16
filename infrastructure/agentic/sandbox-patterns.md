@@ -188,4 +188,4 @@ Code scanning catches known dangerous patterns but is inherently incomplete — 
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

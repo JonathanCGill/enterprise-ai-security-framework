@@ -231,4 +231,4 @@ Model I/O sent to the LLM-as-Judge for evaluation contains all the sensitive dat
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -1,7 +1,7 @@
 # Supply Chain Security Controls
 
 > Part of the [AI Security Infrastructure Controls](../README.md) framework.
-> Companion to the [Enterprise AI Security Controls Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework).
+> Companion to [AI Runtime Behaviour Security](https://github.com/JonathanCGill/ai-runtime-behaviour-security).
 
 ---
 
@@ -239,4 +239,4 @@ Continuously monitor for newly disclosed vulnerabilities, attacks, and safety is
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

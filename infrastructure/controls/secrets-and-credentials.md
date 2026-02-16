@@ -211,4 +211,4 @@ AI projects are prone to embedded credentials — API keys in notebooks, tokens 
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

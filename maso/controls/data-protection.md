@@ -117,4 +117,4 @@ All Tier 2 controls remain active, plus:
 **Scanning outputs but not inter-agent messages.** DLP on final outputs catches data leakage to end users. But in a multi-agent system, the more dangerous leak path is agent-to-agent — where sensitive data crosses trust boundaries invisibly within the orchestration.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -244,4 +244,4 @@ This audit trail must be append-only and stored separately from the systems it m
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

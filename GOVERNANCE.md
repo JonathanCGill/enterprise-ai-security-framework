@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Enterprise AI Security Framework is maintained as an open-source project. This document describes how the project is governed.
+The AI Runtime Behaviour Security is maintained as an open-source project. This document describes how the project is governed.
 
 ## Roles
 
@@ -68,4 +68,4 @@ Contributors who consistently provide high-quality contributions may be invited 
 Changes to this governance document follow the "Significant Changes" process.
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

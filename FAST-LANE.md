@@ -179,4 +179,4 @@ What the Fast Lane does *not* do is remove security's authority. If a deployment
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

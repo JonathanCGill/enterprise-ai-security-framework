@@ -82,4 +82,4 @@ The framework's value is not in promising zero risk. It is in making the residua
 
 ---
 
-*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
+*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*
