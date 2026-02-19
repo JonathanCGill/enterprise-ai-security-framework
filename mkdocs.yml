@@ -160,6 +160,16 @@ nav:
       - Azure AI: infrastructure/reference/platform-patterns/azure-ai.md
       - Databricks: infrastructure/reference/platform-patterns/databricks.md
 
+  - Strategy:
+    - strategy/README.md
+    - Business Alignment: strategy/business-alignment.md
+    - Data Reality: strategy/data-reality.md
+    - Human Factors: strategy/human-factors.md
+    - Progression: strategy/progression.md
+    - Framework Tensions: strategy/framework-tensions.md
+    - Use Case Definition: strategy/use-case-definition.md
+    - From Idea to Production: strategy/idea-to-production.md
+
   - Insights:
     - insights/README.md
     - Fundamentals:

@@ -6,6 +6,10 @@
 
 ---
 
+> **You tested your AI before deployment. You proved it worked. Then it hallucinated a medical dosage, leaked customer data through a prompt injection, or autonomously approved a transaction it should have escalated.** Traditional software assurance assumes deterministic behaviour. AI doesn't have any. If your security model can't answer "what is this system doing *right now*, and how do I know it's correct?" — you have a gap. This framework exists to close it.
+
+---
+
 ## What This Is
 
 This is a thinking tool — not a standard, policy, reference architecture, or compliance checklist.
@@ -119,6 +123,29 @@ The **[MASO Framework](maso/)** extends the foundation into multi-agent orchestr
 
 ---
 
+## Strategy: From Ideas to Running Systems
+
+Security controls answer *how to secure* AI. They don't answer *what to build*, *whether AI is the right tool*, or *whether the organisation can deliver and operate it safely*.
+
+The **[AI Strategy](strategy/)** section bridges this gap — connecting business strategy to the framework's controls through a defined process:
+
+| Stage | Question | Output |
+| --- | --- | --- |
+| [Business Alignment](strategy/business-alignment.md) | Is this worth doing? Is AI the right tool? | Business case with alternatives assessed |
+| [Use Case Definition](strategy/use-case-definition.md) | What exactly will it do? | Ten-question definition that feeds risk classification |
+| [Risk Classification](core/risk-tiers.md) | What tier? What controls? | Six-dimension scored profile with governance approval |
+| [From Idea to Production](strategy/idea-to-production.md) | How do we get from idea to safe operation? | Eight-stage lifecycle with gates and owners |
+
+Three constraints that strategies routinely underestimate:
+
+- **[Data Reality](strategy/data-reality.md)** — Your data determines your strategy more than your ambition does. The framework can secure AI built on poor data; it cannot make it accurate.
+- **[Human Factors](strategy/human-factors.md)** — Skills, learning time, capacity, willingness, sustainability. Controls don't work if the people operating them aren't ready.
+- **[Progression](strategy/progression.md)** — Moving from low to high risk takes 2–3 years. Skipping steps is the most common strategic failure.
+
+The strategy section is honest about [where the framework helps and where it constrains](strategy/framework-tensions.md) strategic choices — and what to do when strategies legitimately test the framework's limits.
+
+---
+
 ## Quick Navigation
 
 | If you want to... | Go here |
@@ -200,13 +227,8 @@ This framework is provided as-is under the [MIT License](LICENSE). As described 
 
 If you adopt any part of this framework, you are responsible for validating it against your own threat model, environment, and regulatory obligations.
 
----
+This framework was written with AI assistance (Claude and ChatGPT) for drafting, structuring, and research synthesis. Architecture, control design, risk analysis, and editorial judgment are the author's.
 
-## How This Was Made
-
-This framework was written with the help of AI — primarily Claude and ChatGPT. The architecture, control design, risk analysis, editorial decisions, and professional judgment are mine. The AI helped with drafting, structuring, research synthesis, and generating the volume of detailed content across 30+ documents that would have taken one person months to write manually.
-
-This is a framework about securing AI systems, written with the assistance of AI systems. I think that's appropriate. I'm not going to pretend a human typed every word, because that would be dishonest — and honesty about AI use is kind of the point.
 ---
 
 *AI Runtime Behaviour Security, 2026 (Jonathan Gill).*
