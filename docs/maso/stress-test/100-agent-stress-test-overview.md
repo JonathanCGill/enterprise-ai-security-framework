@@ -340,7 +340,7 @@ These findings should feed directly into your MASO implementation planning and y
 
 | Document | Relationship |
 |----------|-------------|
-| [E-Commerce 10K Stress Test](ecommerce-10k-stress-test.md) | Tests depth and volume (6 agent types, 10,000 customers, 60,000 instances). Complements this document's breadth focus |
+| [E-Commerce 10K Stress Test](ecommerce-10k-stress-test.md) | Tests depth, volume, and economic pressure (6 agent types, 10,000 customers, 60,000 instances, peak trading cost escalation). Complements this document's breadth focus |
 | [Worked Examples](../examples/worked-examples.md) | Validates MASO at 5-agent scale. This document extends that thinking to 50-100+ agents |
 | [Red Team Playbook](../red-team/red-team-playbook.md) | Tests individual controls. Stress Dimension 8 asks what happens when those attacks are combined |
 | [Tier 3 - Autonomous](../implementation/tier-3-autonomous.md) | Defines the controls required for high autonomy. This document asks which of those controls need adaptation at scale |
