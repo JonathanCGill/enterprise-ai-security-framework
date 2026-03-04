@@ -31,7 +31,7 @@
       {% for nav_item in nav %}
       <li class="md-header-tabs__item">
         <a
-          href="{{ first_page_url(nav_item) | trim }}"
+          href="{% if nav_item.title == 'Home' %}{{ nav.homepage.url | url }}{% else %}{{ first_page_url(nav_item) | trim }}{% endif %}"
           class="md-header-tabs__link{% if nav_item.active %} md-header-tabs__link--active{% endif %}"
         >
           {{ nav_item.title }}
