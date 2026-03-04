@@ -85,20 +85,10 @@ copyright: Copyright &copy; 2026 Jonathan Gill | MIT License
 
 nav:
   - Home: README.md
-  - Architecture: ARCHITECTURE.md
-  - Quick Start: QUICK_START.md
 
-  - Stakeholders:
-    - stakeholders/README.md
-    - Security Leaders: stakeholders/security-leaders.md
-    - Risk & Governance: stakeholders/risk-and-governance.md
-    - Enterprise Architects: stakeholders/enterprise-architects.md
-    - Product Owners: stakeholders/product-owners.md
-    - AI Engineers: stakeholders/ai-engineers.md
-    - Compliance & Legal: stakeholders/compliance-and-legal.md
-    - Insider Threat Teams: stakeholders/insider-threat-teams.md
-
-  - Core Controls:
+  - Framework:
+    - Architecture: ARCHITECTURE.md
+    - Quick Start: QUICK_START.md
     - foundations/README.md
     - Risk Tiers: core/risk-tiers.md
     - Risk Assessment: core/risk-assessment.md
@@ -136,59 +126,67 @@ nav:
     - Integration Guide: maso/integration/integration-guide.md
     - Worked Examples: maso/examples/worked-examples.md
 
-  - Infrastructure:
-    - infrastructure/README.md
-    - Identity & Access: infrastructure/controls/identity-and-access.md
-    - Logging & Observability: infrastructure/controls/logging-and-observability.md
-    - Network & Segmentation: infrastructure/controls/network-and-segmentation.md
-    - Data Protection: infrastructure/controls/data-protection.md
-    - Secrets & Credentials: infrastructure/controls/secrets-and-credentials.md
-    - Incident Response: infrastructure/controls/incident-response.md
-    - Sandbox Patterns: infrastructure/agentic/sandbox-patterns.md
-    - Delegation Chains: infrastructure/agentic/delegation-chains.md
-    - Tool Access Controls: infrastructure/agentic/tool-access-controls.md
-    - OWASP LLM Top 10: infrastructure/mappings/owasp-llm-top10.md
-    - NIST AI RMF: infrastructure/mappings/nist-ai-rmf.md
-    - ISO 42001 Annex A: infrastructure/mappings/iso42001-annex-a.md
-    - AWS Bedrock: infrastructure/reference/platform-patterns/aws-bedrock.md
-    - Microsoft Foundry: infrastructure/reference/platform-patterns/microsoft-foundry.md
-    - Databricks: infrastructure/reference/platform-patterns/databricks.md
+  - Implementation:
+    - Stakeholders:
+      - stakeholders/README.md
+      - Security Leaders: stakeholders/security-leaders.md
+      - Risk & Governance: stakeholders/risk-and-governance.md
+      - Enterprise Architects: stakeholders/enterprise-architects.md
+      - Product Owners: stakeholders/product-owners.md
+      - AI Engineers: stakeholders/ai-engineers.md
+      - Compliance & Legal: stakeholders/compliance-and-legal.md
+      - Insider Threat Teams: stakeholders/insider-threat-teams.md
+    - Infrastructure:
+      - infrastructure/README.md
+      - Identity & Access: infrastructure/controls/identity-and-access.md
+      - Logging & Observability: infrastructure/controls/logging-and-observability.md
+      - Network & Segmentation: infrastructure/controls/network-and-segmentation.md
+      - Data Protection: infrastructure/controls/data-protection.md
+      - Secrets & Credentials: infrastructure/controls/secrets-and-credentials.md
+      - Incident Response: infrastructure/controls/incident-response.md
+      - Sandbox Patterns: infrastructure/agentic/sandbox-patterns.md
+      - Delegation Chains: infrastructure/agentic/delegation-chains.md
+      - Tool Access Controls: infrastructure/agentic/tool-access-controls.md
+      - OWASP LLM Top 10: infrastructure/mappings/owasp-llm-top10.md
+      - NIST AI RMF: infrastructure/mappings/nist-ai-rmf.md
+      - ISO 42001 Annex A: infrastructure/mappings/iso42001-annex-a.md
+      - AWS Bedrock: infrastructure/reference/platform-patterns/aws-bedrock.md
+      - Microsoft Foundry: infrastructure/reference/platform-patterns/microsoft-foundry.md
+      - Databricks: infrastructure/reference/platform-patterns/databricks.md
+    - Strategy:
+      - strategy/README.md
+      - Business Alignment: strategy/business-alignment.md
+      - Use Case Filter: strategy/use-case-filter.md
+      - Human Factors: strategy/human-factors.md
+      - From Idea to Production: strategy/idea-to-production.md
+      - Framework Tensions: strategy/framework-tensions.md
 
-  - Strategy:
-    - strategy/README.md
-    - Business Alignment: strategy/business-alignment.md
-    - Use Case Filter: strategy/use-case-filter.md
-    - Human Factors: strategy/human-factors.md
-    - From Idea to Production: strategy/idea-to-production.md
-    - Framework Tensions: strategy/framework-tensions.md
-
-  - Insights:
-    - insights/README.md
-    - Why Guardrails Aren't Enough: insights/why-guardrails-arent-enough.md
-    - Why AI Security Is a Runtime Problem: insights/why-ai-security-is-a-runtime-problem.md
-    - Why Containment Beats Evaluation: insights/why-containment-beats-evaluation.md
-    - The Verification Gap: insights/the-verification-gap.md
-    - When Agents Talk to Agents: insights/when-agents-talk-to-agents.md
-    - RAG Is Your Biggest Attack Surface: insights/rag-is-your-biggest-attack-surface.md
-    - The MCP Problem: insights/the-mcp-problem.md
-    - State of Reality: insights/state-of-reality.md
-    - What Works: insights/what-works.md
-
-  - Reference:
-    - EU AI Act Crosswalk: extensions/regulatory/eu-ai-act-crosswalk.md
-    - ISO 42001 Clause Mapping: extensions/regulatory/iso-42001-clause-mapping.md
-    - ISO 42001 Alignment: extensions/regulatory/iso-42001-alignment.md
-    - LLM-as-Judge Implementation: extensions/technical/llm-as-judge-implementation.md
-    - Judge Model Selection: extensions/technical/judge-model-selection.md
-    - RAG Security: extensions/technical/rag-security.md
-    - Cost & Latency: extensions/technical/cost-and-latency.md
-    - SOC Integration: extensions/technical/soc-integration.md
-    - Runtime Telemetry Reference: extensions/technical/runtime-telemetry-reference.md
-    - AI Incident Playbook: extensions/templates/ai-incident-playbook.md
-    - Threat Model Template: extensions/templates/threat-model-template.md
-    - Judge Prompt Examples: extensions/templates/judge-prompt-examples.md
-    - Worked Examples: extensions/examples/README.md
-
-  - Downloads: downloads.md
-  - FAQ: FAQ.md
-  - About: ABOUT.md
+  - Resources:
+    - Insights:
+      - insights/README.md
+      - Why Guardrails Aren't Enough: insights/why-guardrails-arent-enough.md
+      - Why AI Security Is a Runtime Problem: insights/why-ai-security-is-a-runtime-problem.md
+      - Why Containment Beats Evaluation: insights/why-containment-beats-evaluation.md
+      - The Verification Gap: insights/the-verification-gap.md
+      - When Agents Talk to Agents: insights/when-agents-talk-to-agents.md
+      - RAG Is Your Biggest Attack Surface: insights/rag-is-your-biggest-attack-surface.md
+      - The MCP Problem: insights/the-mcp-problem.md
+      - State of Reality: insights/state-of-reality.md
+      - What Works: insights/what-works.md
+    - Reference:
+      - EU AI Act Crosswalk: extensions/regulatory/eu-ai-act-crosswalk.md
+      - ISO 42001 Clause Mapping: extensions/regulatory/iso-42001-clause-mapping.md
+      - ISO 42001 Alignment: extensions/regulatory/iso-42001-alignment.md
+      - LLM-as-Judge Implementation: extensions/technical/llm-as-judge-implementation.md
+      - Judge Model Selection: extensions/technical/judge-model-selection.md
+      - RAG Security: extensions/technical/rag-security.md
+      - Cost & Latency: extensions/technical/cost-and-latency.md
+      - SOC Integration: extensions/technical/soc-integration.md
+      - Runtime Telemetry Reference: extensions/technical/runtime-telemetry-reference.md
+      - AI Incident Playbook: extensions/templates/ai-incident-playbook.md
+      - Threat Model Template: extensions/templates/threat-model-template.md
+      - Judge Prompt Examples: extensions/templates/judge-prompt-examples.md
+      - Worked Examples: extensions/examples/README.md
+    - Downloads: downloads.md
+    - FAQ: FAQ.md
+    - About: ABOUT.md
