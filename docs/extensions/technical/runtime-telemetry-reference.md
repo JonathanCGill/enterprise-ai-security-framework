@@ -271,7 +271,7 @@ index=ai_security event_type="oversight_decision" human_review_required="true"
 | where z_score > 3.0
 ```
 
-**Threshold:** z-score > 3.0 (3 standard deviations above 7-day rolling baseline). Indicates either a model behaviour change or an attack campaign.
+**Threshold:** z-score > 3.0 (3 standard deviations above 7-day rolling baseline). Indicates either a model behavior change or an attack campaign.
 
 ## Evidence Artefacts Summary
 

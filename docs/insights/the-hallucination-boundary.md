@@ -155,7 +155,7 @@ The progression is deliberate. Each phase removes a degree of freedom from the m
 
 5. **When verification fails, stop generating.** The PACE degradation path for hallucination failure ends at retrieval-only mode. If you cannot verify the output, do not produce it.
 
-6. **Epistemic controls are structural, not behavioural.** Telling a model "do not hallucinate" is an instruction. Requiring claim provenance, prohibiting self-referential evidence, and preserving uncertainty metadata through the message schema is infrastructure. [Infrastructure beats instructions](infrastructure-beats-instructions.md).
+6. **Epistemic controls are structural, not behavioral.** Telling a model "do not hallucinate" is an instruction. Requiring claim provenance, prohibiting self-referential evidence, and preserving uncertainty metadata through the message schema is infrastructure. [Infrastructure beats instructions](infrastructure-beats-instructions.md).
 
 ## Related
 

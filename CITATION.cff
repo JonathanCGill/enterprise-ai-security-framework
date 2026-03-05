@@ -7,7 +7,7 @@ authors:
 title: "AI Runtime Security: Runtime Behavioral Controls for Generative and Agentic AI Systems"
 version: 1.0.0
 date-released: 2025-01-01
-url: "https://github.com/JonathanCGill/ai-runtime-behaviour-security"
+url: "https://github.com/JonathanCGill/ai-runtime-behavior-security"
 license: MIT
 type: software
 keywords:

@@ -34,9 +34,9 @@ Guardrails catch yesterday's attacks. Today's attacks walk past.
 
 Your AI is supposed to provide balanced information. Instead, it consistently favours one interpretation. Your AI is supposed to stay in scope. Instead, it gradually expands its remit over a multi-turn conversation. Your AI is supposed to be helpful. Instead, it's condescending.
 
-None of these trigger keyword filters. The words are fine. The behaviour isn't.
+None of these trigger keyword filters. The words are fine. The behavior isn't.
 
-**3. Emergent behaviour at scale**
+**3. Emergent behavior at scale**
 
 A single interaction looks fine. A thousand interactions reveal a pattern: the AI gives different quality responses to different demographic groups. Or it's slowly leaking information across sessions. Or it's being manipulated by a coordinated campaign.
 
