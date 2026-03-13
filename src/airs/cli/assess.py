@@ -170,15 +170,18 @@ def _get_model_caller(provider: str, model: str):
     if not api_key:
         console.print()
         console.print(Panel(
-            f"[red]Missing API key.[/red]\n\n"
-            f"Set your {env_var} environment variable before running:\n\n"
-            f"  [bold]export {env_var}=sk-your-key-here[/bold]\n\n"
-            f"Then re-run:\n\n"
-            f"  [bold]airs assess --provider {provider} --model {model} --json[/bold]",
+            f"No [bold]{env_var}[/bold] found in environment.\n\n"
+            f"Paste your API key below to continue, or set it for future runs:\n\n"
+            f"  [dim]export {env_var}=sk-...[/dim]",
             title="API Key Required",
-            border_style="red",
+            border_style="yellow",
         ))
-        raise typer.Exit(1)
+        api_key = typer.prompt(f"  Paste your {env_var}").strip()
+        if not api_key:
+            console.print("[red]No key provided. Skipping live test.[/red]")
+            raise typer.Exit(1)
+        console.print(f"  [green]Key received ({api_key[:8]}...)[/green]")
+        console.print()
 
     if provider == "openai":
         try:
