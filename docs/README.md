@@ -13,9 +13,11 @@ comments: false
 
 <div class="home-subtitle" markdown>
 
-**A risk-proportionate framework for controlling AI behaviour in production.**
+**A structured approach to reducing AI risk in production.**
 
-Protect your organisation from AI security risks without slowing it down. AIRS provides guardrails, not gates. It helps you select the right controls for your actual risk, not bury you in documentation.
+A framework for identifying, assessing, and treating threats
+to the confidentiality, integrity, and availability of AI systems
+during live operation.
 
 </div>
 
@@ -27,7 +29,7 @@ Protect your organisation from AI security risks without slowing it down. AIRS p
 
 ## The Framework
 
-[AI Runtime Security](what-is-ai-runtime-security.md) is the practice of monitoring, constraining, and governing AI system behaviour in production environments. It applies defence-in-depth principles at the point of execution, treating deployment as the beginning of the risk lifecycle rather than the end of it.
+[AI Runtime Security](what-is-ai-runtime-security.md) is the practice of identifying, assessing, and treating threats to the confidentiality, integrity, and availability of AI systems during live operation. It applies defence-in-depth principles at the point of execution, treating deployment as the beginning of the risk lifecycle rather than the end of it.
 
 This is not a vendor product or a proprietary methodology. It is a field of practice, comparable to how disciplines like Zero Trust, DevSecOps, and Security Chaos Engineering emerged to address gaps that existing security models did not cover.
 
@@ -75,7 +77,7 @@ The principle is not new. Defence-in-depth has always been how we secure complex
 
 Banking supervisors, data protection authorities, and AI regulators are all converging on the same expectation: you must be able to demonstrate that your AI systems behave within defined boundaries, and that you have controls to detect and respond when they do not.
 
-The AIRS Framework maps directly to EU AI Act requirements for high-risk AI systems, NIST AI RMF functions, ISO 42001 controls, and sector-specific expectations from banking regulators. It is not a compliance checkbox. It is an operational architecture that produces the evidence compliance requires. The controls are the compliance. That is the point.
+The AIRS Framework maps directly to EU AI Act requirements for high-risk AI systems, NIST AI RMF functions, ISO 42001 controls, and sector-specific expectations from banking regulators. It is not a compliance checkbox. It is an operational architecture that produces the evidence compliance requires. Effective controls generate compliance evidence as a by-product of their normal operation.
 
 ### Where to go from here
 
