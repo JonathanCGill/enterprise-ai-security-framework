@@ -3,7 +3,7 @@
 **Forward-Looking Threat Patterns for Multi-Agent AI Systems**
 
 > Part of the [MASO Framework](../README.md) · Threat Intelligence
-> Last updated: April 2026
+> Last updated: May 2026
 
 ## Purpose
 
@@ -57,7 +57,9 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 ### ET-04: Model Context Protocol (MCP) as Attack Surface
 
-**Status:** Active exploitation in the wild
+**Status:** Ecosystem-level exposure with vendor non-mitigation (April 2026 update)
+
+**Q2 2026 escalation:** OX Security's April 2026 disclosure documented approximately ten high and critical CVEs across Anthropic's MCP SDKs (Python, TypeScript, Java, Rust), all rooted in unsafe argument handling at STDIO transport launch. Anthropic's response was that argument sanitisation is the developer's responsibility, declining to change the protocol. The protocol owner has explicitly punted the mitigation, which means SC-2.2 (signed manifests) and SC-2.3 (server vetting) are no longer sufficient on their own: a hardened MCP gateway or proxy enforcing argument sanitisation, transport allow-listing, and per-server process isolation is now a non-optional layer for any production deployment. Cross-references: see the 2026-04-15 entry in [News](../../news.md).
 
 **Threat:** MCP servers expose tool definitions, resource listings, and schema metadata to AI agents. Poisoned MCP servers can inject instructions through tool descriptions, manipulate agent behavior through crafted resource metadata, or exfiltrate data through tool call parameters.
 
@@ -483,3 +485,64 @@ The following threats reflect trends visible in production deployments and resea
 | **ET-23 Mid-flight model routing breaks calibration** | <span class="tier-high">High</span> | **High** | **Tier 2** | **Supply Chain, Model Cognition** |
 | **ET-24 Post-quantum trust chain exposure** | **Low (now), Rising** | **Critical** | **Tier 2** | **Supply Chain** |
 | **ET-25 Cross-tenant contamination in browser/desktop agents** | <span class="tier-high">High</span> | **Critical** | **Tier 2** | **Execution Control, Data Protection** |
+| **ET-26 AI-augmented OT/ICS intrusion** | <span class="tier-high">High</span> | **Critical** | **Tier 3** | **Execution Control, Identity & Access** |
+| **ET-27 Coding-agent-as-initial-access-vector** | <span class="tier-high">High</span> | **High** | **Tier 1** | **Supply Chain, Execution Control** |
+| **ET-28 Structural risk in agent ensembles** | <span class="tier-high">High</span> | **High** | **Tier 2** | **Observability, Prompt & Goal Integrity** |
+
+## 2026 Q2 Update (May 2026): Three Further Threat Patterns
+
+The May 2026 review surfaced three patterns that warrant their own entries rather than being absorbed into ET-01 to ET-25.
+
+### ET-26: AI-augmented OT/ICS intrusion
+
+**Status:** Confirmed in production. Dragos disclosed an attacker using Claude Code to autonomously identify the IT/OT boundary in a municipal water utility during the same campaign that breached nine Mexican federal agencies (April 2026).
+
+**Threat:** A frontier coding agent operated under attacker direction crosses the IT/OT boundary, identifies industrial protocols, and proposes pivots into ICS systems. The agent is not malicious; it is performing software-engineering tasks that happen to map onto OT reconnaissance. The qualitative shift from ET-14 (browser/computer-use agents) is that the agent's reasoning, not just its actions, is doing the offensive work.
+
+**Why it is distinct from ET-14 and ET-08:** ET-14 covers an agent operating a screen on behalf of a legitimate user. ET-08 covers AI generating attacks against AI defences. ET-26 covers an agent doing the human-attacker's reasoning, in domains where the defender has no AI counterpart. OT environments have minimal AI-aware monitoring, no LLM-trained SOC analysts, and protocol stacks the attacker can ask the agent to explain in real time.
+
+**Emerging variant, autonomous protocol pivot:** The agent reads network capture data, identifies Modbus / DNP3 / S7, and proposes valid commands without operator instruction. The operator's prompts remain at the IT-reconnaissance layer; the agent volunteers the OT pivot.
+
+**MASO controls:** EC-2.1 (sandboxed execution), EC-1.5 (interaction timeout), IA-2.3 (no transitive permissions across IT/OT trust zones), OB-2.2 (drift detection on tool-call categories), SC-1.3 (fixed toolsets, deny network discovery tools to coding agents)
+
+**Gap in current controls:** The framework's worked examples for energy and critical infrastructure assume the agent is the defender. They do not anticipate the agent as the attacker's reasoning layer. MASO 2.0 should add a control class: **OT-aware action denial**, where any tool whose output could plausibly identify or interact with industrial protocols requires a Tier 3 human gate regardless of the agent's stated objective.
+
+**Assessment:** High likelihood for any organisation operating OT environments where developers have access to coding agents. The Mexican water utility case is unlikely to remain isolated.
+
+> **Source:** [Dragos: AI-assisted ICS attack on water utility](https://www.dragos.com/blog/ai-assisted-ics-attack-water-utility) · [SecurityWeek: Hackers weaponize Claude Code](https://www.securityweek.com/hackers-weaponize-claude-code-in-mexican-government-cyberattack/)
+
+### ET-27: Coding-agent-as-initial-access-vector
+
+**Status:** Active exploitation. Cursor CVE-2026-26268 (April 2026, CVSS 8.1) demonstrated single-clone-to-RCE on developer hosts via embedded bare repositories triggering attacker-supplied pre-commit hooks. Microsoft Semantic Kernel CVE-2026-25592 and CVE-2026-26030 (May 2026) demonstrated prompt-injection-to-RCE in the agent SDK itself.
+
+**Threat:** The developer's own AI coding agent becomes the beachhead. The attacker does not need to compromise a third-party tool, an MCP server, or the agent's runtime: a hostile repository, a poisoned vector store, or a prompt that the developer asks the agent to summarise is enough to get code execution on the host running the IDE.
+
+**Why it is distinct from ET-04 and ET-13:** ET-04 covers third-party MCP servers. ET-13 covers the skill registry as a marketplace. ET-27 covers the agent SDK and the IDE itself as the attack surface. The developer is unlikely to apply the same scrutiny to their own IDE that they apply to MCP servers, because the IDE is treated as part of their trusted toolchain.
+
+**Emerging variant, repository-as-payload:** The attacker's code does not run in CI. It runs the moment the developer asks the agent to clone, summarise, or analyse the repository. The malicious behaviour happens before any test pipeline sees the code.
+
+**MASO controls:** SC-1.x (supply chain, extended to the developer toolchain), EC-2.1 (sandboxed execution of agent-driven git operations), EC-2.2 (sandboxed code execution)
+
+**Gap in current controls:** SC-1.x covers production agents and MCP servers but does not cover the developer's IDE. MASO 2.0 should add: pre-commit hook policy enforcement for agent-driven git operations, mandatory sandbox boundaries between the agent's execution context and the developer's host, and bare-repository denial in agent-initiated checkouts. The host running the agent is part of the agent's blast radius and must be governed accordingly.
+
+**Assessment:** High likelihood for any organisation whose developers use agentic IDEs (Cursor, GitHub Copilot Workspace, Claude Code, Windsurf, Continue). The exposure is per-developer, not per-deployment, which makes it a larger surface than most procurement processes have measured.
+
+> **Source:** [NVD CVE-2026-26268 (Cursor)](https://nvd.nist.gov/vuln/detail/CVE-2026-26268) · [Microsoft Security Blog: Prompts become shells](https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/)
+
+### ET-28: Structural risk in agent ensembles
+
+**Status:** Named as a distinct risk pillar in the Five Eyes *Careful Adoption of Agentic AI Services* (May 2026). Observed in production but rarely reported as a security incident because no adversary is involved.
+
+**Threat:** Multi-agent systems fail through cascading non-malicious errors. An agent returns a partially correct result, the next agent treats it as authoritative, downstream agents amplify confidence, and the final output is wrong with apparent corroboration. This is distinct from ET-02 (collusion, which can be optimisation-driven) and ET-05 (epistemic cascading, which is closer to hallucination propagation): ET-28 is the case where every agent operates correctly given its inputs, and the failure is purely structural.
+
+**Why it deserves its own entry:** Five Eyes elevated structural risk to one of five named pillars (alongside privilege, design and configuration, behavioural, and accountability). Regulated buyers will cite this taxonomy. The framework partially covers structural risk under ET-05 but does not name the case where there is no hallucination, no adversary, no collusion, just well-formed inter-agent error propagation.
+
+**Emerging variant, latency-induced inconsistency:** A slow downstream agent receives stale context that is correct at the moment of dispatch but wrong by the moment of execution. The orchestrator does not detect the staleness because each individual agent is within tolerance.
+
+**MASO controls:** OB-2.2 (drift detection across the trace, not the agent), OB-2.3 (inter-agent communication profiling), PG-2.7 (uncertainty preservation), PG-3.4 (plan-execution conformance), EC-2.6 (decision commit protocol)
+
+**Gap in current controls:** Existing controls are agent-scoped. Structural risk is trace-scoped. MASO 2.0 should add: trace-level invariant checks (does the output of step N still hold given the state at step N+K?), latency-aware staleness detection on inter-agent context, and a structural-failure circuit breaker that triggers on cumulative deviation regardless of any single agent's status.
+
+**Assessment:** High likelihood for any production multi-agent system. Rarely reported because the failure looks like a quality issue rather than a security incident.
+
+> **Source:** [CISA: Secure Adoption of Agentic AI](https://www.cisa.gov/news-events/news/cisa-us-and-international-partners-release-guide-secure-adoption-agentic-ai)

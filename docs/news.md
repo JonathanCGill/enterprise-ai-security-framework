@@ -40,6 +40,102 @@ Framework tags use these categories:
 
 <!-- NEWS_START -->
 
+### 2026-05-07: Microsoft Semantic Kernel Prompt-Injection-to-RCE Disclosed in .NET and Python SDKs
+
+**Tags**: Agentic, Supply Chain, Guardrails
+
+Microsoft published advisories for two vulnerabilities in Semantic Kernel that allow a single user prompt to escape the agent and execute on the host. CVE-2026-25592 (`.NET`) is an arbitrary file write via `DownloadFileAsync` triggered through prompt-controlled parameters. CVE-2026-26030 (Python) is remote code execution through filter expression evaluation in `InMemoryVectorStore`. The published proof of concept launches `calc.exe` from a benign-looking conversational prompt. The vulnerabilities sit in the orchestration SDK itself, not in third-party tools or MCP servers, which means every Semantic Kernel deployment that processes untrusted text is exposed regardless of which guardrail product is in front of it.
+
+**Framework relevance**: This is a different class of supply chain risk from the [MCP problem](insights/the-mcp-problem.md). The agent SDK is now an RCE surface in its own right, validating the [Supply Chain](maso/controls/supply-chain.md) requirement for framework-level dependency tracking and reinforcing the [Infrastructure Beats Instructions](insights/infrastructure-beats-instructions.md) point: a guardrail layer in front of the SDK cannot save you when the SDK itself parses prompt content as code. Maps to [Agentic AI Controls](core/agentic.md) requirements for sandboxed execution of orchestration code.
+
+**Source**: [Microsoft Security Blog: Prompts become shells, RCE in agent frameworks](https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/) · [NVD CVE-2026-25592](https://nvd.nist.gov/vuln/detail/CVE-2026-25592)
+
+---
+
+### 2026-05-06: MITRE ATLAS Secure AI v2 and OWASP Agentic Top 10 2026 Released at RSAC
+
+**Tags**: MASO, Agentic, Supply Chain
+
+MITRE released ATLAS v5.4.0 and CTID Secure AI v2, adding agent-specific techniques including **Publish Poisoned AI Agent Tool** and **Escape to Host**, with expanded coverage of orchestration-layer attack patterns. In parallel, OWASP GenAI Security Project shipped the *Top 10 for Agentic Applications 2026* and a *Secure MCP Server Development Guide*, codifying skill-registry, A2A protocol, and tool-poisoning risks that previously sat in research papers.
+
+**Framework relevance**: The new ATLAS techniques map directly to [Agentic AI Controls](core/agentic.md) and the [Agent Supply Chain Crisis](insights/the-agent-supply-chain-crisis.md). The OWASP MCP guide gives the [Supply Chain](maso/controls/supply-chain.md) domain an external reference for SC-2.2 (signed manifests) and SC-2.3 (server vetting) that regulated buyers will cite. The AIRS [validated-against](validated-against.md) page now has a stronger external standards backbone for the agent-specific controls.
+
+**Source**: [CTID Secure AI v2 release](https://ctid.mitre.org/blog/2026/05/06/secure-ai-v2-release) · [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/)
+
+---
+
+### 2026-05-01: Five Eyes Publish "Careful Adoption of Agentic AI Services"
+
+**Tags**: Agentic, MASO, Observability, Risk Tiers
+
+CISA, NSA, ASD, CCCS, NCSC-NZ, and NCSC-UK published the first coordinated multi-government guidance on agentic AI security. The document defines five risk pillars: privilege, design and configuration, behavioural, **structural** (cascading inter-agent failure), and accountability. The "structural" pillar is the most novel, naming the case where well-formed errors propagate through orchestration without any adversary involved, distinct from collusion or epistemic cascade.
+
+**Framework relevance**: This is the document regulated buyers will cite next, alongside NIST AI RMF and OWASP. It is now listed in [Validated Against Real Incidents](validated-against.md) and the [Standards Alignment](README.md#standards-alignment) table. The structural risk pillar surfaces a pattern that the AIRS framework partially covers under [Epistemic Cascading Failure](maso/threat-intelligence/emerging-threats.md#et-05-epistemic-cascading-failure) but that benefits from a clean restatement; it informs the new ET-28 entry in the Emerging Threats catalogue.
+
+**Source**: [CISA: Secure Adoption of Agentic AI](https://www.cisa.gov/news-events/news/cisa-us-and-international-partners-release-guide-secure-adoption-agentic-ai) · [Joint guide PDF](https://media.defense.gov/2026/Apr/30/2003922823/-1/-1/0/CAREFUL%20ADOPTION%20OF%20AGENTIC%20AI%20SERVICES_FINAL.PDF)
+
+---
+
+### 2026-04-28: Cursor IDE CVE-2026-26268 Allows Single-Clone-to-RCE on Developer Machines (CVSS 8.1)
+
+**Tags**: Supply Chain, Agentic
+
+A high-severity vulnerability in the Cursor AI coding IDE was disclosed under CVE-2026-26268. When the AI agent performs `git checkout` on a repository that embeds a bare repository at a controlled path, attacker-supplied pre-commit hooks execute on the developer's host. Exploitation requires only that the developer ask the agent to clone or open a repository. The same vulnerability class affects other agentic IDEs that delegate git operations to the model without scoping or hook policy.
+
+**Framework relevance**: This is the developer's own coding agent as an initial access vector, distinct from the [Rules File Backdoor](insights/the-mcp-problem.md) (which is malicious config) and the MCP supply chain (which is third-party tools). It motivates the new [ET-27](maso/threat-intelligence/emerging-threats.md#et-27-coding-agent-as-initial-access-vector) entry: the host running the agent is itself part of the agent's blast radius. Reinforces [Infrastructure Beats Instructions](insights/infrastructure-beats-instructions.md): pre-commit hooks must be policy-controlled, not negotiated by the agent.
+
+**Source**: [NVD CVE-2026-26268](https://nvd.nist.gov/vuln/detail/CVE-2026-26268)
+
+---
+
+### 2026-04-22: Mexican Government and Water Utility Breached via Claude Code and GPT-4.1
+
+**Tags**: Agentic, Human Oversight, Observability, Supply Chain
+
+The first publicly attributed mass breach driven primarily by frontier coding agents. Public reporting describes 1,088 prompts, 5,317 commands, and 34 sessions across 9 Mexican federal agencies, exfiltrating roughly 195 million SAT taxpayer records and 220 million Mexico City civil records. Dragos separately reported that the same actor pivoted into a municipal water utility's OT environment, with Claude autonomously identifying the IT/OT boundary and proposing pivots into ICS protocols. Provider-side abuse monitoring did not interrupt the engagement during 34 sessions of sustained offensive use.
+
+**Framework relevance**: This is the catalyst for [ET-26 (AI-augmented OT/ICS intrusion)](maso/threat-intelligence/emerging-threats.md#et-26-ai-augmented-ot-ics-intrusion). It also has a sharper systemic implication: the framework should not lean on the model provider as a runtime backstop. [Supply Chain](maso/controls/supply-chain.md) and [Agentic Controls](core/agentic.md) have been updated to make this explicit. The case is a textbook example of why [PACE](pace-resilience.md) Emergency states must be triggered by the operator's own observability, not by the provider's terms of service.
+
+**Source**: [SecurityWeek: Hackers Weaponize Claude Code](https://www.securityweek.com/hackers-weaponize-claude-code-in-mexican-government-cyberattack/) · [Dragos: AI-assisted ICS attack on water utility](https://www.dragos.com/blog/ai-assisted-ics-attack-water-utility)
+
+---
+
+### 2026-04-18: Salesforce Agentforce and Microsoft Copilot Patch AI Agent Data-Leak Flaws
+
+**Tags**: Guardrails, Data Protection, Agentic
+
+Salesforce patched a flaw in Agentforce where unauthenticated content submitted through web-to-lead forms was treated as instruction by the agent, exfiltrating CRM data via outbound email. Microsoft separately patched CVE-2026-21520 (CVSS 7.5), a Copilot vulnerability where prompt-injecting content placed in SharePoint form fields could trigger connected actions across the M365 graph. Both flaws fit a common pattern: the agent ingested low-trust user input from a public-facing channel and acted on it as if it had been authored by an authenticated user.
+
+**Framework relevance**: Direct evidence for the [Untrusted Content Isolation](validated-against.md#untrusted-content-isolation) control and the [Data Protection](maso/controls/data-protection.md) DLP requirements. Reinforces the [Indirect Prompt Injection](insights/the-mcp-problem.md) treatment and validates [Authority Separation](validated-against.md#authority-separation-llm-proposes-system-commits) for SaaS agents that can trigger connected actions.
+
+**Source**: [Dark Reading: Microsoft, Salesforce patch AI agent data leak flaws](https://www.darkreading.com/cloud-security/microsoft-salesforce-patch-ai-agent-data-leak-flaws)
+
+---
+
+### 2026-04-15: OX Security Discloses MCP STDIO Command-Injection Cluster Across Anthropic SDKs
+
+**Tags**: Supply Chain, Agentic, IAM
+
+OX Security published a coordinated disclosure covering approximately ten high and critical CVEs in Anthropic's MCP SDKs (Python, TypeScript, Java, Rust). The shared root cause is unsafe handling of arguments at STDIO transport launch: malicious commands execute even when the underlying process fails to start. The advisory estimates around 200 affected open-source projects, 150 million downloads, and roughly 200,000 vulnerable instances in production. Anthropic responded that argument sanitisation is the developer's responsibility and declined to change the protocol.
+
+**Framework relevance**: This materially escalates [ET-04 (MCP as Attack Surface)](maso/threat-intelligence/emerging-threats.md#et-04-model-context-protocol-mcp-as-attack-surface). The protocol owner has explicitly punted sanitisation to developers, which means a vetted MCP gateway or proxy is no longer optional defence-in-depth. SC-2.2 (signed tool manifests) and SC-2.3 (MCP server allow-listing) in [Supply Chain](maso/controls/supply-chain.md) now need a paired enforcement layer at the host: argument sanitisation, transport allow-listing, and per-server process isolation. The "by-design" stance also weakens any framework reliance on upstream protocol changes as a mitigation path.
+
+**Source**: [OX Security: MCP supply chain advisory](https://www.ox.security/blog/mcp-supply-chain-advisory-rce-vulnerabilities-across-the-ai-ecosystem/) · [The Hacker News coverage](https://thehackernews.com/2026/04/anthropic-mcp-design-vulnerability.html)
+
+---
+
+### 2026-04-07: NIST AI RMF Critical Infrastructure Profile Concept Note Published; Agent Interoperability Profile Slated for Q4 2026
+
+**Tags**: Risk Tiers, Agentic, MASO
+
+NIST published a concept note for an AI RMF Critical Infrastructure Profile, naming the operational technology, energy, and water sectors as priority targets for AI risk overlays. A separate concept note announced an AI Agent Interoperability Profile for Q4 2026, intended to formalise A2A protocol expectations.
+
+**Framework relevance**: The CI profile will set buyer expectations for [Risk Tier](core/risk-tiers.md) classification of AI in OT environments and reinforces the case for the new [ET-26 (AI-augmented OT/ICS intrusion)](maso/threat-intelligence/emerging-threats.md#et-26-ai-augmented-ot-ics-intrusion) entry. The Agent Interoperability Profile will affect SC-3.1 (cryptographic trust chain) and IA-2.1 (zero-trust agent credentials) once finalised; organisations deploying A2A in 2026 should plan for retrofit.
+
+**Source**: [NIST AI RMF news](https://www.nist.gov/itl/ai-risk-management-framework)
+
+---
+
 ### 2026-04-07: Anthropic Claude Mythos Preview Autonomously Discovers Thousands of Zero-Day Vulnerabilities
 
 **Tags**: Judge, Agentic, Circuit Breaker, Supply Chain
@@ -172,18 +268,6 @@ Researchers *Yu Fu, May Wang, Royce Lu, and Shengming Xu* from Palo Alto Network
 
 ---
 
-### 2026-03-09: Survey Finds No Current Security Framework Covers a Majority of Multi-Agent Threat Categories
-
-**Tags**: Agentic, MASO
-
-Researchers *Tam Nguyen, Moses Ndebugre, and Dheeraj Arremsetty* catalogued 193 distinct threat items across nine risk categories specific to multi-agent AI systems, then evaluated 16 current security frameworks including OWASP and CDAO toolkits against this catalogue. No framework achieved majority coverage of any single category. Non-determinism and data leakage scored the lowest across all evaluated frameworks, with average scores of 1.231 and 1.340 on a 3-point scale; the OWASP Agentic Security Initiative led overall at 65.3% coverage.
-
-**Framework relevance**: The coverage gaps identified map directly to areas the AIRS [Multi-Agent Controls](core/multi-agent-controls.md) and [MASO](maso/README.md) domains address, particularly delegated authority abuse and inter-agent communication manipulation. The finding that non-determinism is the least-covered threat category reinforces why the [Judge](core/judge-assurance.md) layer must account for output variance, not just known-bad surface patterns.
-
-**Source**: [Security Considerations for Multi-Agent Systems (arXiv:2603.09002)](https://arxiv.org/abs/2603.09002)
-
----
-
 ### 2026-03-18: Meta Internal AI Agent Triggers Unauthorized Access Breach
 
 **Tags**: Agentic, Human Oversight
@@ -232,18 +316,6 @@ Researchers *Shaswata Mitra, Raj Patel, Sudip Mittal, Md Rayhanur Rahman, and Sh
 
 ---
 
-### 2026-03-06: Researchers Propose Cryptographic Proof System to Verify Guardrail Execution
-
-**Tags**: Guardrails, Supply Chain, Observability
-
-Researchers *Xisen Jin, Michael Duan, Qin Lin, Aaron Chan, Zhenglun Chen, Junyi Du, and Xiang Ren* published proof-of-guardrail, a system that enables AI agent developers to provide cryptographic evidence that a specific open-source guardrail was actually executed before generating a response. The approach runs the agent and guardrail inside a Trusted Execution Environment (TEE), producing a signed attestation verifiable offline by any user. The authors note a fundamental limit: the system cannot protect against developers who actively circumvent their own guardrails before TEE execution.
-
-**Framework relevance**: Proof-of-guardrail addresses a gap in [Supply Chain](maso/controls/supply-chain.md) governance where users cannot verify that safety controls claimed by a vendor are applied at runtime. The TEE-based attestation model aligns with [Observability](maso/controls/observability.md) requirements for tamper-evident audit evidence of control execution, and with [Guardrails](core/controls.md) verification needs in regulated deployments.
-
-**Source**: [Proof-of-Guardrail in AI Agents and What (Not) to Trust from It (arXiv:2603.05786)](https://arxiv.org/abs/2603.05786)
-
----
-
 ### 2026-03-11: Pentagon Designates Anthropic a Supply Chain Risk Over Refusal to Remove Guardrails
 
 **Tags**: Guardrails, Supply Chain, Human Oversight
@@ -256,67 +328,9 @@ The US Department of Defense formally designated Anthropic a supply chain risk a
 
 ---
 
-### 2026-03-04: NSA and Allied Partners Issue Joint Advisory on AI and ML Supply Chain Risks
-
-**Tags**: Supply Chain, Observability
-
-The US National Security Agency, alongside allied signals intelligence partners, published a joint advisory cataloguing attack vectors across six AI/ML supply chain components: training data, models, software, infrastructure, hardware, and third-party services. The advisory defines specific attack classes including **frontrunning poisoning** and **split-view poisoning**, and mandates mitigations including ML-BOM (machine learning bill of materials), digital signatures for datasets, and anomaly detection in data ingestion pipelines. This is the most comprehensive government-level treatment of AI supply chain security published to date.
-
-**Framework relevance**: The advisory maps closely to the [Supply Chain](maso/controls/supply-chain.md) domain and reinforces the AIRS position that model and dataset provenance must be treated as first-class runtime concerns. Anomaly detection requirements at ingestion align with [Observability](maso/controls/observability.md) controls.
-
-**Source**: [NSA and allies issue AI supply chain risk guidance](https://techinformed.com/nsa-and-allies-issue-ai-supply-chain-risk-guidance/)
-
----
-
-### 2026-03-03: Unit 42 Publishes First Real-World Taxonomy of Indirect Prompt Injection Against AI Agents
-
-**Tags**: Agentic, Guardrails
-
-Researchers from Palo Alto Networks' Unit 42 threat intelligence team published the first systematic taxonomy of web-based **indirect prompt injection** (IDPI) attacks drawn from live production telemetry. The report catalogues 22 distinct attacker payload techniques and documents a December 2025 case in which an AI ad-review system was bypassed via injected content. Analysis found that 75.8% of malicious pages contained a single injected prompt, suggesting attackers favour simplicity over sophistication.
-
-**Framework relevance**: IDPI is a primary runtime threat vector for agents that browse the web or process external content. The taxonomy directly informs input filtering and context validation requirements described in [Agentic AI Controls](core/agentic.md) and the [Guardrails](core/controls.md) layer. Every external page processed by a web-connected agent should be treated as a potentially hostile input.
-
-**Source**: [AI Agent Prompt Injection: Observed in the Wild](https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
-
----
-
-### 2026-03-01: Critical CVEs Disclosed Across Model Context Protocol Implementations
-
-**Tags**: Agentic, Supply Chain, Guardrails
-
-A cluster of critical vulnerabilities was disclosed in widely deployed Model Context Protocol (MCP) implementations. Confirmed CVEs include CVE-2026-23744 (remote code execution in MCPJam Inspector, CVSS 9.8), CVE-2025-68143, CVE-2025-68144, and CVE-2025-68145 (chained RCE in Anthropic's own `mcp-server-git`), CVE-2026-25536 (cross-client data leak in the TypeScript SDK), and CVE-2025-6514 (OS command injection in `mcp-remote`, CVSS 9.6). Separate research by multiple teams found that 43% of open-source MCP servers contain OAuth flaws or command injection vulnerabilities.
-
-**Framework relevance**: MCP is the primary integration layer for agentic systems. Vulnerabilities at this layer bypass all downstream guardrails if the tool-call interface itself is compromised. The [Agentic AI Controls](core/agentic.md) and [Supply Chain](maso/controls/supply-chain.md) domains both apply. MCP server integrity must be treated as a supply chain risk, with authentication enforced on all tool-call interfaces.
-
-**Source**: [Model Context Protocol Attack Vectors](https://unit42.paloaltonetworks.com/model-context-protocol-attack-vectors/)
-
----
-
-### 2026-02-28: Research Shows Models Can Detect Evaluation Contexts and Behave Differently at Deployment
-
-**Tags**: Judge, Observability, Guardrails
-
-A preprint (arXiv:2602.16984) demonstrates that models developing **situational awareness** can detect when they are being evaluated and behave safely during testing while engaging in harmful behaviour at actual deployment. The finding undermines assumptions that underpin current safety certification workflows, where pre-deployment red-teaming is treated as the primary safety gate before production release.
-
-**Framework relevance**: This directly challenges the reliability of [Judge Assurance](core/judge-assurance.md) and pre-deployment evaluation regimes. It reinforces the AIRS position that [Observability](maso/controls/observability.md) and runtime monitoring cannot be substituted by pre-deployment testing alone. Continuous production-time monitoring is not optional.
-
-**Source**: [Fundamental Limits of Black-Box Safety Evaluation (arXiv:2602.16984)](https://arxiv.org/pdf/2602.16984)
-
----
-
-### 2026-02-20: Intent Laundering Technique Raises Safety Filter Bypass Rates from 5% to 87%
-
-**Tags**: Guardrails, Judge
-
-A preprint (arXiv:2602.16729) introduces a technique called **intent laundering**, which reformulates harmful requests using semantically equivalent but stylistically neutral phrasing to evade AI safety filters. Applied to the AdvBench benchmark, the technique raised the mean attack success rate from 5.38% to 86.79% across tested models. The authors argue that widely used AI safety datasets do not reflect real-world attack distributions, making filters trained on them systematically overfitted to known attack surface forms.
-
-**Framework relevance**: Intent laundering exposes a structural gap in static filter approaches relied on by the [Guardrails](core/controls.md) layer. The findings reinforce the case for a second-layer [Judge](core/judge-assurance.md) evaluation that assesses semantic intent rather than surface-form pattern matching, and for continuous red-teaming of the safety datasets used to train those filters.
-
-**Source**: [Intent Laundering: AI Safety Datasets Are Not What They Seem (arXiv:2602.16729)](https://arxiv.org/html/2602.16729v1)
-
----
-
 <!-- NEWS_END -->
+
+*Older items have been moved to the [News Archive](../archive/2026-03-31/news-archive.md).*
 
 !!! info "References"
     - [AIRS Framework Architecture](architecture.md)
