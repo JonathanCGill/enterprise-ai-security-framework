@@ -33,7 +33,7 @@ The industry is converging on the same answer independently. NVIDIA NeMo, AWS Be
 
 **Guardrails prevent. Judge detects. Humans decide. Circuit breakers contain.**
 
-Each layer catches what the others miss. Remove any layer and you have a gap. The framework pairs every control with a **[PACE resilience architecture](docs/PACE-RESILIENCE.md)**, Primary, Alternate, Contingency, Emergency, so when a layer degrades, the system transitions to a predetermined safe state rather than failing silently.
+Each layer catches what the others miss. Remove any layer and you have a gap. The Judge is a probabilistic control, an LLM evaluating another LLM, and recent research (HiddenLayer, arXiv 2504.11168, intent laundering) shows commercial guardrail-and-judge stacks can be bypassed at near-100% rates by an adversary who can probe them. Treat the Judge as a layer that raises the attacker's cost, not as a peer of deterministic policy enforcement; pair it with capability tokens, infrastructure-level scoping, and network-layer DLP wherever the action is consequential. The framework pairs every control with a **[PACE resilience architecture](docs/PACE-RESILIENCE.md)**, Primary, Alternate, Contingency, Emergency, so when a layer degrades, the system transitions to a predetermined safe state rather than failing silently.
 
 ![Single-Agent Security Architecture](docs/images/single-agent-architecture.svg)
 
@@ -149,6 +149,7 @@ Three constraints strategies routinely underestimate: **[Data Reality](docs/stra
 | [MITRE ATLAS](https://atlas.mitre.org/) | Agent-focused threat intelligence |
 | [EU AI Act](https://artificialintelligenceact.eu/) | Art. 9, 14, 15, risk management, oversight, robustness |
 | [DORA](https://www.digital-operational-resilience-act.com/) | Digital operational resilience for financial services |
+| [Five Eyes: Careful Adoption of Agentic AI Services](https://media.defense.gov/2026/Apr/30/2003922823/-1/-1/0/CAREFUL%20ADOPTION%20OF%20AGENTIC%20AI%20SERVICES_FINAL.PDF) | Privilege, design, behavioural, structural, and accountability pillars (May 2026) |
 
 ## About This Framework
 

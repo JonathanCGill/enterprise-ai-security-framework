@@ -3,7 +3,7 @@
 **Every major control in this framework addresses a documented, public AI security failure. This page shows how.**
 
 > Part of [AI Runtime Security](README.md)
-> Last updated: March 2026
+> Last updated: May 2026
 
 ## How to Read This Page
 
@@ -263,6 +263,20 @@ Controls in these categories are based on threat modelling and architectural rea
 - **Advanced identity and access** (zero-trust agent credentials, non-human identity lifecycle). These extend standard NHI patterns to AI agents. The patterns are proven in traditional service-to-service authentication; the extension to AI agents is logical but not yet documented in public incidents.
 
 - **Tier 3 autonomous controls** (self-healing PACE, adversarial testing suites, independent kill switch). These are designed for fully autonomous multi-agent systems, which are still rare in production. The controls are architecturally sound but won't be incident-validated until autonomous systems are common enough to be attacked.
+
+## External Standards Backing the Controls
+
+Validation by incident is the strongest form of evidence, but external standards bodies are increasingly codifying the same patterns the framework recommends. The May 2026 Five Eyes guidance is the most relevant recent addition.
+
+| Standard | Date | Pillars / Coverage Relevant to AIRS |
+|----------|------|-------------------------------------|
+| [Five Eyes: Careful Adoption of Agentic AI Services](https://media.defense.gov/2026/Apr/30/2003922823/-1/-1/0/CAREFUL%20ADOPTION%20OF%20AGENTIC%20AI%20SERVICES_FINAL.PDF) | May 2026 | Privilege (maps to IAM), Design and Configuration (maps to Supply Chain and Agentic), Behavioural (maps to Observability and Judge), **Structural** (named pillar for cascading inter-agent failure, see [ET-28](maso/threat-intelligence/emerging-threats.md#et-28-structural-risk-in-agent-ensembles)), Accountability (maps to Human Oversight) |
+| [MITRE ATLAS Secure AI v2](https://ctid.mitre.org/blog/2026/05/06/secure-ai-v2-release) | May 2026 | New techniques: Publish Poisoned AI Agent Tool, Escape to Host. Maps to [Supply Chain](maso/controls/supply-chain.md) and [Agentic Controls](core/agentic.md). |
+| [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/) | May 2026 | Full coverage in MASO. The 2026 edition adds Insecure Agent Communication (ASI03), Cascading Hallucination (ASI10), and skill-registry compromise. |
+| [OWASP Secure MCP Server Development Guide](https://genai.owasp.org/) | May 2026 | External reference for SC-2.2 (signed manifests) and SC-2.3 (server vetting). |
+| [NIST AI RMF Critical Infrastructure Profile (concept note)](https://www.nist.gov/itl/ai-risk-management-framework) | April 2026 | Forthcoming overlay for OT/energy/water sectors. Affects [Risk Tier](core/risk-tiers.md) classification for AI in critical infrastructure deployments. Reinforces [ET-26](maso/threat-intelligence/emerging-threats.md#et-26-ai-augmented-ot-ics-intrusion). |
+
+The framework's three-layer architecture, infrastructure-beats-instructions principle, and message-bus posture are now each backed by at least one independent standards body or coordinated multi-government guidance document. This is the single largest external-validation shift since the page was first written.
 
 ## How This Page Evolves
 

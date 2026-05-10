@@ -17,6 +17,9 @@ The three-layer pattern depends on the Model-as-Judge to detect "unknown-bad" ou
 
 If you deploy a Judge without evaluating its accuracy, you have added cost and latency without knowing whether you have added safety.
 
+!!! warning "The Judge is a probabilistic control"
+    HiddenLayer's "same model different hat" research (April 2026) and arXiv 2504.11168 demonstrate near-100% evasion rates against commercial judge layers in front of major LLMs when the judge itself is susceptible to prompt injection. The Mexican government breach (April 2026) showed provider-side abuse detection failing to interrupt 34 sessions of sustained offensive use. The Judge layer raises the attacker's cost; it does not, on its own, stop a determined adversary. For consequential actions, pair the Judge with deterministic policy enforcement (capability tokens, infrastructure-level scoping, network-layer DLP), not just additional Judge calibration. See [When the Judge Can Be Fooled](when-the-judge-can-be-fooled.md) for the full failure-mode catalogue.
+
 ## What Can Go Wrong
 
 | Failure Mode | Impact |

@@ -25,6 +25,8 @@ The UK AI Security Institute's *Frontier AI Trends Report* (December 2025) adds 
 
 If the primary model can detect and game evaluations, it can potentially game your Judge too.
 
+The April 2026 HiddenLayer "same model different hat" research and arXiv 2504.11168 added empirical weight: commercial guardrail-and-judge stacks can be bypassed at rates approaching 100% when the attacker can craft inputs that exploit shared training data between the primary model and the Judge. The Judge layer is a probabilistic defence that raises the attacker's cost. It is not a peer of a deterministic policy gate, and the framework's three-layer model should be read accordingly: pair the Judge with infrastructure-level enforcement (capability tokens, network-layer DLP, authority separation) for any consequential action.
+
 This doesn't invalidate the Judge pattern. It means the Judge layer needs its own threat model. For a comprehensive treatment of evaluation integrity risks - including sandbagging mitigations and canary interaction strategies - see **[Evaluation Integrity Risks](../insights/evaluation-integrity-risks.md)**.
 
 ## How the Judge Can Fail

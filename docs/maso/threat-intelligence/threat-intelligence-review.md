@@ -3,7 +3,7 @@
 **Does Current Threat Intelligence Affect the Framework's Proposals?**
 
 > Part of the [MASO Framework](../README.md) · Threat Intelligence
-> Last updated: February 2026
+> Last updated: May 2026 (Q2 addendum below the original review)
 
 ## Executive Summary
 
@@ -385,6 +385,51 @@ The three new threats not currently covered (agent C2 via legitimate infrastruct
 
 **Overall assessment:** The framework's proposals are sound and increasingly well-supported by independent evidence. The priority is now operational hardening - refining specific controls based on demonstrated attack techniques - rather than architectural changes.
 
+## Q2 2026 Addendum (May 2026)
+
+This addendum captures threat intelligence between February and May 2026. The February conclusions all hold. Three developments require explicit framework response.
+
+### 1. Provider-side abuse monitoring is not a control you can count on
+
+**What changed:** The April 2026 Mexican government breach used Claude Code across 34 sessions, 1,088 prompts, and 5,317 commands to exfiltrate roughly 195M SAT records and 220M Mexico City civil records, with Dragos separately confirming an OT pivot into a municipal water utility. Provider abuse detection did not interrupt the engagement.
+
+**Implication:** Anywhere the framework leans implicitly on the model provider as a runtime backstop, the language must change. Provider terms of service and abuse detection are governance controls, not runtime controls. They cannot be cited as part of the operator's defence.
+
+**Framework actions:** [Supply Chain](../controls/supply-chain.md) and [Agentic Controls](../../core/agentic.md) have been updated to make this explicit. PACE Emergency states must be triggered by the operator's own observability, not by the provider. New emerging-threat entry [ET-26 (AI-augmented OT/ICS intrusion)](emerging-threats.md#et-26-ai-augmented-ot-ics-intrusion) covers the specific case.
+
+### 2. The Judge layer is empirically bypassable at near-100% rates
+
+**What changed:** HiddenLayer's "same model different hat" research and arXiv 2504.11168 demonstrate up to 100% evasion against Azure Prompt Shield and Meta Prompt Guard when the judge LLM is itself susceptible to prompt injection. Combined with February's intent-laundering result (5% to 87% bypass) and March's genetic-algorithm fuzzing (97-99% evasion), the cumulative evidence is that an LLM judge is a probabilistic control, not a peer of a deterministic guardrail.
+
+**Implication:** The README's "Guardrails prevent. Judge detects. Humans decide. Circuit breakers contain." framing is still correct as architecture, but each layer's strength claim needs qualification. The judge is a *probabilistic* layer that increases the attacker's cost; it cannot stand alone against an adversary who can probe it.
+
+**Framework actions:** [Judge Assurance](../../core/judge-assurance.md) and [When the Judge Can Be Fooled](../../core/when-the-judge-can-be-fooled.md) have been updated. The README adds one sentence on the probabilistic nature of the Judge layer. The framework's stance remains unchanged: pair the judge with deterministic policy enforcement (capability tokens, infrastructure-level scoping, network-layer DLP) for any consequential action.
+
+### 3. Three new threat patterns warrant their own entries
+
+| New entry | Triggered by | Why distinct |
+|----------|-------------|--------------|
+| [ET-26 AI-augmented OT/ICS intrusion](emerging-threats.md#et-26-ai-augmented-ot-ics-intrusion) | Mexican water utility (Dragos, April 2026) | Agent reasoning, not just actions, performs OT reconnaissance |
+| [ET-27 Coding-agent-as-initial-access-vector](emerging-threats.md#et-27-coding-agent-as-initial-access-vector) | Cursor CVE-2026-26268, Semantic Kernel CVE-2026-25592/26030 | Developer's IDE is the beachhead, distinct from MCP and Rules File Backdoor |
+| [ET-28 Structural risk in agent ensembles](emerging-threats.md#et-28-structural-risk-in-agent-ensembles) | Five Eyes *Careful Adoption of Agentic AI* (May 2026) | Non-malicious cascading failure, distinct from collusion and epistemic cascade |
+
+### 4. ET-04 (MCP supply chain) escalated
+
+OX Security's April 2026 disclosure (~10 high/critical CVEs across MCP SDKs in Python, TypeScript, Java, Rust) plus Anthropic's public position that argument sanitisation is the developer's responsibility means SC-2.2 and SC-2.3 alone are insufficient. A vetted MCP gateway or proxy is now non-optional defence-in-depth at the host level. See [ET-04](emerging-threats.md#et-04-model-context-protocol-mcp-as-attack-surface) for the updated formulation.
+
+### 5. New external standards to map
+
+Three standards documents published since February affect the framework's [Validated Against](../../validated-against.md) page and standards alignment table:
+
+- **Five Eyes** *Careful Adoption of Agentic AI Services* (1 May 2026), now in standards alignment.
+- **MITRE ATLAS Secure AI v2** and **CTID Secure AI v2** (6 May 2026, RSAC) added "Publish Poisoned AI Agent Tool" and "Escape to Host" techniques.
+- **OWASP** *Top 10 for Agentic Applications 2026* and *Secure MCP Server Development Guide* (6 May 2026).
+- **NIST** AI RMF Critical Infrastructure Profile concept note (7 April 2026); AI Agent Interoperability Profile slated for Q4 2026.
+
+### 6. What is unchanged
+
+The three-layer model, PACE resilience, infrastructure-beats-instructions, the MASO message bus posture, and the risk tier structure all hold. None of the Q2 evidence contradicts them. The next major framework revision (MASO 2.0) remains the right vehicle for the deeper changes already scoped in [maso-2.0-anticipated-changes.md](../maso-2.0-anticipated-changes.md); this addendum is incremental, not architectural.
+
 ## Sources
 
 - [Lakera AI - The Year of the Agent: Q4 2025 Report](https://www.lakera.ai/blog/the-year-of-the-agent-what-recent-attacks-revealed-in-q4-2025-and-what-it-means-for-2026)
@@ -422,4 +467,19 @@ The three new threats not currently covered (agent C2 via legitimate infrastruct
 - [AI Hallucination Squatting / Slopsquatting](https://instatunnel.my/blog/ai-hallucination-squatting-the-new-frontier-of-supply-chain-attacks)
 - [MITRE SAFE-AI Full Report](https://atlas.mitre.org/pdf-files/SAFEAI_Full_Report.pdf)
 - [Palisade AI Shutdown Resistance Research (June 2025)](https://www.osohq.com/developers/ai-agents-gone-rogue)
+
+### Q2 2026 addendum sources
+
+- [SecurityWeek: Hackers Weaponize Claude Code in Mexican Government Cyberattack](https://www.securityweek.com/hackers-weaponize-claude-code-in-mexican-government-cyberattack/)
+- [Dragos: AI-assisted ICS attack on water utility](https://www.dragos.com/blog/ai-assisted-ics-attack-water-utility)
+- [Microsoft Security Blog: Prompts Become Shells, RCE in Agent Frameworks](https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/)
+- [OX Security: MCP Supply Chain Advisory](https://www.ox.security/blog/mcp-supply-chain-advisory-rce-vulnerabilities-across-the-ai-ecosystem/)
+- [The Hacker News: Anthropic MCP Design Vulnerability](https://thehackernews.com/2026/04/anthropic-mcp-design-vulnerability.html)
+- [NVD CVE-2026-26268 (Cursor)](https://nvd.nist.gov/vuln/detail/CVE-2026-26268)
+- [CISA: Secure Adoption of Agentic AI (Five Eyes)](https://www.cisa.gov/news-events/news/cisa-us-and-international-partners-release-guide-secure-adoption-agentic-ai)
+- [Joint guide PDF: Careful Adoption of Agentic AI Services](https://media.defense.gov/2026/Apr/30/2003922823/-1/-1/0/CAREFUL%20ADOPTION%20OF%20AGENTIC%20AI%20SERVICES_FINAL.PDF)
+- [CTID Secure AI v2 release](https://ctid.mitre.org/blog/2026/05/06/secure-ai-v2-release)
+- [Dark Reading: Microsoft, Salesforce Patch AI Agent Data Leak Flaws](https://www.darkreading.com/cloud-security/microsoft-salesforce-patch-ai-agent-data-leak-flaws)
+- [HiddenLayer: Same Model, Different Hat](https://hiddenlayer.com/innovation-hub/) (judge-LLM bypass research, April 2026)
+- [arXiv 2504.11168: Universal evasion against Prompt Shield and Prompt Guard](https://arxiv.org/abs/2504.11168)
 

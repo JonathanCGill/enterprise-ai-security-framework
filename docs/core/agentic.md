@@ -315,4 +315,5 @@ Not all actions are reversible. For those that aren't, require human approval.
 9. **Detect aggregate intent** - Per-interaction controls miss task decomposition attacks; analyze session-level action sequences
 10. **Evaluate before acting** - For elevated-risk actions, synchronous pre-action Judge evaluation prevents damage that async detection can only report
 11. **Secure the integration layer** - Tool supply chain is the primary attack surface; treat it as a prerequisite, not an extension
+12. **Do not rely on the model provider as a runtime backstop** - The April 2026 Mexican government breach showed provider-side abuse detection failing to interrupt 34 sessions of sustained offensive use of Claude Code. Provider terms of service and abuse monitoring are governance controls, not runtime controls. Every defensive claim must be enforceable by the operator's own observability, policy enforcement, and circuit-breaker authority
 
