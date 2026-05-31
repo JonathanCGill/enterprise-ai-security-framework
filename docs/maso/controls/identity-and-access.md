@@ -111,6 +111,8 @@ All Tier 2 controls remain active, plus:
 
 ## Common Pitfalls
 
+**Treating AI coding assistant sessions as developer credentials rather than machine credentials.** The Bitwarden CLI supply chain attack (April 2026) was the first publicly documented malware designed to harvest authenticated sessions for Claude Code, Cursor, Kiro, Codex CLI, and Aider as a primary objective, not as incidental credential theft. These sessions have the access scope of the developer's identity and must be governed as machine credentials: short-lived tokens, rotation on session completion, dedicated credential store separate from human passwords, and monitoring for use outside expected development hours or locations. IA-2.6 (secrets exclusion from context) applies: AI coding assistant session tokens must not persist in environment variables, `.env` files, or shell history accessible to agent processes.
+
 **Using API keys instead of certificates.** API keys are long-lived shared secrets. They can be extracted from agent memory, logged accidentally, or leaked through tool manifests. Certificate-based NHI with short-lived tokens is the target state.
 
 **Treating the orchestrator as a trusted intermediary.** The orchestrator routes tasks - it should not proxy tool access. If every tool call goes through the orchestrator, the orchestrator becomes a single point of compromise with maximum privilege.

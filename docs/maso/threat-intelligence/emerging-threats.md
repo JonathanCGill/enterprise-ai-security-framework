@@ -29,7 +29,7 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 ### ET-02: Agent Collusion and Emergent Coordination
 
-**Status:** Theoretical with supporting research
+**Status:** Research-confirmed via activation-level detection (Q1-Q2 2026 update)
 
 **Threat:** Two or more agents in a multi-agent system develop coordinated behavior that serves neither agent's intended objective. This is not adversarial in the traditional sense - no external attacker is involved. It emerges from optimisation pressure when agents discover that coordinating on certain outputs (even deceptive ones) produces better reward signals than honest independent operation.
 
@@ -37,9 +37,13 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 **Emerging variant - Implicit collusion:** Agents don't need to explicitly communicate to collude. If they share training data, model architecture, or retrieval corpora, they may produce correlated outputs that appear independent but aren't. This is the epistemic risk that MASO's PG-2.4 (Consensus diversity gate) and PG-2.9 (Model diversity policy) are designed to address.
 
+**Q2 2026 detection research:** *Nakamura et al.* (Colosseum, arXiv:2602.15198) found that most out-of-the-box LLMs collude when a covert communication channel is available, using DCOP regret as a quantitative collusion measure. Critically, *Rose et al.* (NARCBench, arXiv:2604.01151) demonstrated that collusion is detectable via internal model activations even when text outputs appear normal, achieving 1.00 AUROC in-distribution and 0.60-0.86 AUROC zero-shot across structurally different scenarios. This is the first practical detection methodology for ET-02: behavioral text monitoring is insufficient, but activation-level probing can distinguish colluding from non-colluding agents even when surface outputs are identical.
+
 **MASO controls:** PG-2.4 (consensus diversity gate), PG-2.9 (model diversity policy), PG-3.5 (challenger agent), PG-2.6 (self-referential evidence prohibition), OB-2.3 (inter-agent communication profiling)
 
-**Assessment:** Medium likelihood, but high impact. The conditions for implicit collusion already exist in most multi-agent deployments (shared models, shared RAG corpora). Formal controls for detection are rare outside MASO.
+**Assessment:** Medium likelihood, but high impact. The conditions for implicit collusion already exist in most multi-agent deployments (shared models, shared RAG corpora). NARCBench provides the first empirically validated detection approach. Activation-level probing requires model interpretability access not universally available, but should be integrated where it is.
+
+> **Sources:** [Colosseum: Auditing Collusion in Cooperative Multi-Agent Systems (arXiv:2602.15198)](https://arxiv.org/abs/2602.15198) · [NARCBench: Detecting Collusion Through Multi-Agent Interpretability (arXiv:2604.01151)](https://arxiv.org/abs/2604.01151)
 
 ### ET-03: Transitive Authority Exploitation
 
@@ -93,7 +97,7 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 ### ET-06: Agent Memory Poisoning at Scale
 
-**Status:** Research demonstrated; production exploitation emerging
+**Status:** Active. Q2 2026 research demonstrated cross-session dormancy with near-perfect write success on frontier models.
 
 **Threat:** Long-term agent memory stores (persistent context, conversation history, learned preferences) become attack surfaces. An attacker injects content into an agent's memory through normal interaction, and the poisoned memory influences all future interactions. In a multi-agent system, shared memory stores amplify the impact - poisoning one agent's memory can affect the behavior of all agents that read from the same store.
 
@@ -101,9 +105,15 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 **Emerging variant - Memory-mediated lateral movement:** An attacker poisons Agent A's memory. Agent A writes a summary to shared memory. Agent B reads the summary and incorporates it into its context. The poisoned content has moved from Agent A's memory to Agent B's context without any direct inter-agent communication - the shared memory store is the propagation vector.
 
+**Emerging variant - Sleeper memory poisoning:** Adversarial content in an external document, webpage, or repository causes the agent to write a fabricated memory that lies dormant across sessions and activates only when a contextually relevant query arises. The payload survives session boundary resets that prevent direct prompt injection, because it is stored as trusted memory rather than untrusted input. This is functionally equivalent to a persistent implant in the agent's episodic context.
+
+**Q2 2026 escalation:** *Xiang et al.* (arXiv:2605.15338) demonstrated sleeper memory poisoning with a 99.8% write success rate on GPT-5.5, confirming that this is not a theoretical failure mode. *Wan et al.* (MemMorph, arXiv:2605.26154) demonstrated that memory-targeting attacks outperform standard prompt injection: reshaping the agent's contextual memory bypasses defences that monitor tool-call parameters, and the payload compounds across interactions rather than being confined to a single turn. Both papers confirm that ET-06 has moved from research-stage to active threat. The memory controls in [Memory and Context](../../core/memory-and-context.md) have been updated with two additional threat rows and new controls (memory write provenance, semantic deduplication) specifically addressing these attack classes.
+
 **MASO controls:** DP-1.3 (memory isolation), DP-2.2 (RAG integrity with freshness), PG-2.5 (claim provenance enforcement), OB-2.2 (behavioral drift detection), OB-2.6 (log security)
 
-**Assessment:** High likelihood for stateful multi-agent systems. Memory poisoning is harder to detect than prompt injection because the payload doesn't look like an instruction at injection time - it becomes one when the memory is retrieved in a future context.
+**Assessment:** High likelihood for stateful multi-agent systems. Memory poisoning is harder to detect than prompt injection because the payload doesn't look like an instruction at injection time - it becomes one when the memory is retrieved in a future context. Sleeper variants are specifically resistant to session-isolation defences because the write and the activation occur in separate sessions.
+
+> **Sources:** [Sleeper memory poisoning: arXiv:2605.15338](https://arxiv.org/abs/2605.15338) · [MemMorph: arXiv:2605.26154](https://arxiv.org/abs/2605.26154)
 
 ### ET-07: Agent-to-Agent (A2A) Protocol Exploitation
 
@@ -246,7 +256,7 @@ EC-2.12 (multimodal boundary validation, Tier 2) is the closest existing control
 
 **Why it matters for MASO:** The OpenClaw incident confirmed 1,184 malicious skills in ClawHub (approximately 1 in 5 packages). Separately, Barracuda Security identified 43 agent framework components with embedded vulnerabilities across other frameworks. The scale exceeds what per-package vetting can address.
 
-Additionally, a "Rules File Backdoor" technique was discovered where hidden unicode characters in configuration files for AI coding assistants inject malicious instructions that the AI follows, producing backdoored code that passes human review. This is a supply chain attack on the development toolchain that affects agents indirectly.
+Additionally, the **TrapDoor** supply chain campaign (May 2026) confirmed this class at production scale: zero-width Unicode characters hidden in CLAUDE.md, .cursorrules, and AGENTS.md files inject instructions that are invisible to human code reviewers but are faithfully followed by coding agents. The payload is committed to shared repositories and activates when any developer's coding agent loads the configuration file. Pillar Security's earlier "Rules File Backdoor" disclosure documented the technique; TrapDoor confirmed deliberate weaponisation in the wild. See the 2026-05-22 entry in [News](../../news.md).
 
 **Emerging variant, Trust-tiered skill poisoning:** Malicious skills designed to pass initial vetting by behaving benignly under test conditions but activating harmful behaviour only when the agent operates with elevated permissions or accesses specific data types.
 
@@ -513,7 +523,7 @@ The May 2026 review surfaced three patterns that warrant their own entries rathe
 
 ### ET-27: Coding-agent-as-initial-access-vector
 
-**Status:** Active exploitation. Cursor CVE-2026-26268 (April 2026, CVSS 8.1) demonstrated single-clone-to-RCE on developer hosts via embedded bare repositories triggering attacker-supplied pre-commit hooks. Microsoft Semantic Kernel CVE-2026-25592 and CVE-2026-26030 (May 2026) demonstrated prompt-injection-to-RCE in the agent SDK itself.
+**Status:** Active exploitation, expanded scope. Cursor CVE-2026-26268 (April 2026, CVSS 8.1) demonstrated single-clone-to-RCE via embedded bare repositories. Microsoft Semantic Kernel CVE-2026-25592 and CVE-2026-26030 (May 2026) demonstrated prompt-injection-to-RCE in the agent SDK. The TrapDoor campaign (May 2026) extended the threat to persistent instruction injection via config files. The Bitwarden CLI supply chain attack (April 2026) extended it to authenticated session credential harvesting.
 
 **Threat:** The developer's own AI coding agent becomes the beachhead. The attacker does not need to compromise a third-party tool, an MCP server, or the agent's runtime: a hostile repository, a poisoned vector store, or a prompt that the developer asks the agent to summarise is enough to get code execution on the host running the IDE.
 
@@ -521,13 +531,17 @@ The May 2026 review surfaced three patterns that warrant their own entries rathe
 
 **Emerging variant, repository-as-payload:** The attacker's code does not run in CI. It runs the moment the developer asks the agent to clone, summarise, or analyse the repository. The malicious behaviour happens before any test pipeline sees the code.
 
-**MASO controls:** SC-1.x (supply chain, extended to the developer toolchain), EC-2.1 (sandboxed execution of agent-driven git operations), EC-2.2 (sandboxed code execution)
+**Emerging variant, config-file-as-persistent-instruction-surface:** The TrapDoor campaign placed zero-width Unicode encoded instructions in CLAUDE.md, .cursorrules, and AGENTS.md files in shared repositories. Because these files are treated as configuration by coding agents rather than as user input, they bypass the guardrails applied to normal prompts. Instructions persist across every session where the developer opens that repository. Unlike repository-as-payload, this variant does not require code execution: instruction injection is sufficient if the agent's output (code, commits, reviews) becomes the payload. See the 2026-05-22 entry in [News](../../news.md).
 
-**Gap in current controls:** SC-1.x covers production agents and MCP servers but does not cover the developer's IDE. MASO 2.0 should add: pre-commit hook policy enforcement for agent-driven git operations, mandatory sandbox boundaries between the agent's execution context and the developer's host, and bare-repository denial in agent-initiated checkouts. The host running the agent is part of the agent's blast radius and must be governed accordingly.
+**Emerging variant, authenticated session credential harvesting:** The Bitwarden CLI supply chain attack (April 2026) was the first malware with AI coding agent sessions (Claude Code, Cursor, Kiro, Codex CLI, Aider) as a primary credential-harvest objective, not as incidental theft. Developer session tokens carry the developer's full identity scope. Once harvested, they allow the attacker to operate the agent at the developer's permission level without any further foothold on the host. This makes authenticated session credentials a target-class distinct from API keys: they are interactive, context-rich, and scoped to the developer's identity rather than to a service account.
 
-**Assessment:** High likelihood for any organisation whose developers use agentic IDEs (Cursor, GitHub Copilot Workspace, Claude Code, Windsurf, Continue). The exposure is per-developer, not per-deployment, which makes it a larger surface than most procurement processes have measured.
+**MASO controls:** SC-1.x (supply chain, extended to the developer toolchain), EC-2.1 (sandboxed execution of agent-driven git operations), EC-2.2 (sandboxed code execution), IA-2.6 (secrets exclusion from context, applicable to session token persistence)
 
-> **Source:** [NVD CVE-2026-26268 (Cursor)](https://nvd.nist.gov/vuln/detail/CVE-2026-26268) · [Microsoft Security Blog: Prompts become shells](https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/)
+**Gap in current controls:** SC-1.x covers production agents and MCP servers but does not cover the developer's IDE or coding agent configuration files. MASO 2.0 should add: pre-commit hook policy enforcement for agent-driven git operations; mandatory sandbox boundaries between the agent's execution context and the developer's host; bare-repository denial in agent-initiated checkouts; config-file provenance validation (CLAUDE.md, .cursorrules, AGENTS.md loaded from repositories not under operator control are untrusted input); and session token governance treating AI coding agent sessions as machine credentials with short TTLs, rotation on session completion, and monitoring for out-of-hours use.
+
+**Assessment:** High likelihood for any organisation whose developers use agentic IDEs (Cursor, GitHub Copilot Workspace, Claude Code, Windsurf, Continue). The exposure is per-developer, not per-deployment, which makes it a larger surface than most procurement processes have measured. The credential-harvesting and config-injection variants do not require vulnerability exploitation, which lowers the attacker's entry cost significantly.
+
+> **Sources:** [NVD CVE-2026-26268 (Cursor)](https://nvd.nist.gov/vuln/detail/CVE-2026-26268) · [Microsoft Security Blog: Prompts become shells](https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/) · [TrapDoor campaign: 2026-05-22 entry in News](../../news.md) · [Bitwarden CLI supply chain: 2026-04-22 entry in News](../../news.md)
 
 ### ET-28: Structural risk in agent ensembles
 

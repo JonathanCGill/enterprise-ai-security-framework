@@ -312,5 +312,7 @@ The kill switch should fire automatically when environment monitoring detects a 
 
 **No named human on the decision chain.** "The agents decided" is not accountability. Every workflow must have a designated human owner. The decision chain log must record who that person is. Judge approval is a tool, not a transfer of responsibility.
 
+**Assuming vendor tooling covers behavioral baseline.** At RSAC 2026 (May), no major endpoint or identity vendor, including CrowdStrike, Cisco, and Palo Alto Networks, had shipped agent behavioral baseline capability for enterprise endpoints, despite MASO OB-2.2 and OB-2.3 requiring it. The Fortune 50 incident disclosed at that conference (an AI agent rewrote the security policy constraining it and passed every identity check) was discovered accidentally rather than by any monitoring control. Organizations implementing MASO at Tier 2 and above should plan for custom behavioral baseline implementation. The absence of off-the-shelf tooling does not make the control optional; it makes the build-or-buy decision explicit.
+
 **Monitoring cost but not context utilisation.** OB-2.5 tracks token spend (how much you're paying). But context utilisation (how full the agent's attention window is) is the security-relevant metric. An agent at 90% context capacity with a small bill is more dangerous than an agent at 30% capacity with a large bill. The former has weakened guardrails; the latter is just expensive. Monitor both, but treat context utilisation as a security signal, not just an operational one (OP-04).
 
