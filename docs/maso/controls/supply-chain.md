@@ -54,6 +54,7 @@ All Tier 2 controls remain active, plus:
 | **SC-3.2** Automated rollback | If a model provider change causes quality degradation (detected by Model-as-Judge baseline comparison), the system rolls back to the previous known-good version | Rollback is automated within the PACE Alternate phase. |
 | **SC-3.3** Continuous dependency scanning | Automated scanning of all agent dependencies for known vulnerabilities and indicators of tampering | Minimum: daily scan. Results feed into the observability layer and trigger alerts on findings. |
 | **SC-3.4** A2A trust chain validation | Agent-to-agent protocol endpoints (A2A, MCP, custom) validated against a trust chain before interaction | Prevents a compromised external service from injecting itself into the agent orchestration. |
+| **SC-3.5** CI/CD pipeline integrity | CI/CD pipelines that produce signed artifacts must be monitored for integrity: OIDC token scope validation at runtime, build environment isolation, and anomaly detection on attestation workflows | Addresses SLSA attestation bypass via mid-build token hijacking. Signed provenance is only as trustworthy as the signing pipeline itself. See Common Pitfalls. |
 
 ## AIBOM Specification (Tier 2+)
 
@@ -138,6 +139,10 @@ MCP (Model Context Protocol) servers extend agent capabilities by providing tool
 | **Optimising** | Model version pinning with automated rollback. Continuous dependency scanning. A2A trust chain validation. AIBOM generation fully automated in CI/CD pipeline. |
 
 ## Common Pitfalls
+
+**Treating build provenance attestation as proof of artifact safety.** The Mini Shai-Hulud campaign (May 2026) produced the first malicious npm packages carrying valid SLSA Build Level 3 Sigstore attestations by hijacking a legitimate OIDC token mid-CI/CD workflow, compromising OpenAI's code-signing certificates in the process. Attestation proves the artifact was built as claimed; it does not prove the build pipeline was uncompromised. SC-3.5 addresses this, but only if CI/CD pipeline integrity monitoring is active: runtime OIDC token scope validation, build environment isolation, and anomaly detection on attestation workflows are all required.
+
+**Agent configuration files are an instruction injection surface.** The TrapDoor supply chain campaign (May 2026) weaponized `CLAUDE.md`, `.cursorrules`, and equivalent AI coding tool configuration files by embedding hidden instructions using zero-width Unicode characters, invisible to human reviewers but parsed by the agent. These files are consumed as instruction context, not inert configuration, and must be treated as untrusted input when loaded from repositories or shared directories not under the operator's direct control. SC-2.2 (signed tool manifests) should be extended to cover any configuration file the agent reads as instruction context, alongside tool manifests and MCP server descriptors.
 
 **Treating model provider updates as safe by default.** Model providers update their models regularly - sometimes with notice, sometimes without. Each update is a supply chain change that can affect every agent in the system. Model version pinning (Tier 3) is the defensive measure, but even at Tier 2, organisations should monitor provider change logs and test updates before promoting them to production.
 

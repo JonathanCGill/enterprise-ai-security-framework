@@ -25,6 +25,8 @@ A single request-response pair may be safe. The accumulated context may not be.
 | **Gradual context poisoning** | Early turns inject instructions that influence later turns | Model behavior changes over a long conversation without triggering per-turn guardrails |
 | **Cross-session leakage** | Persistent memory or shared cache surfaces User A's data for User B | Data breach - potentially regulated data |
 | **Memory manipulation** | Injecting false "memories" via conversation that persist across sessions | Ongoing manipulation of model behavior for a user |
+| **Sleeper memory poisoning** | Adversarial content in an external document, webpage, or repository causes the agent to write a fabricated memory that lies dormant across sessions and activates only when a contextually relevant query arises | Ongoing cross-session behavioral manipulation; bypasses session-isolation defenses because the payload is injected in one session and activated in another. Achieves near-perfect write success on current frontier models (arXiv:2605.15338). |
+| **Memory-targeted tool hijacking** | Adversarial records injected into long-term memory reshape the agent's contextual perception, causing it to autonomously select attacker-preferred tools | Tool selection manipulation without any tool manifest tampering; harder to detect because memory receives less scrutiny than tool call parameters (arXiv:2605.26154). |
 | **Context window overflow** | Filling the context with irrelevant content to push out system instructions | Guardrail bypass - system prompt "forgotten" |
 | **Accumulated PII** | Individual turns are PII-free but the conversation as a whole builds a profile | Privacy violation - model holds more personal data than any individual turn reveals |
 
@@ -74,6 +76,7 @@ For systems that maintain memory across sessions (user preferences, conversation
 | **Memory audit trail** | Log what's written to and read from persistent memory |
 | **User memory controls** | Users can view, edit, and delete their stored memories |
 | **Memory injection prevention** | Validate that persistent memories are genuine (from real conversations) not injected |
+| **Memory write provenance** | Tag every memory write with the source that triggered it: conversation turn, external document URL, tool output, or agent ID. Provenance allows a fabricated memory to be traced to the injecting source on retrieval, and enables anomaly detection on which external sources are triggering memory writes rather than only on memory content. |
 | **Semantic deduplication** | Detect and prevent accumulation of near-duplicate memory entries that could indicate poisoning; semantically similar entries are merged or flagged for review before storage |
 
 ### 4. Accumulated Context Evaluation
