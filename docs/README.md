@@ -1,5 +1,6 @@
 ---
 title: AI Runtime Security (AIRS)
+description: AI Governance decides what AI should do. AI Runtime Security verifies what it actually does. A vendor-neutral, risk-proportionate framework for running AI safely in production.
 hide:
   - navigation
   - toc
@@ -7,9 +8,13 @@ hide:
 
 # AI Runtime Security
 
-**Your AI passed every test. It still hallucinated in production.**
+**AI Governance decides what AI should do. AI Runtime Security verifies what it actually does.**
 
-Most organisations have no controls between the model and the damage it can do. AIRS is a vendor-neutral, risk-proportionate framework for running AI safely in production: layered runtime controls you can match to your actual risk, not a compliance checklist.
+These are different questions, different tools, and different teams. Governance sets policy: what the model is allowed to do, who is accountable, what regulations apply. Runtime security enforces it: catching the prompt injection mid-request, evaluating outputs before they reach users, halting the agent that tries to exceed its scope.
+
+Most organisations have governance. Few have runtime security. That gap is where the failures live.
+
+AIRS is a vendor-neutral, risk-proportionate framework for the enforcement side: layered runtime controls you can match to your actual risk, not a compliance checklist.
 
 **Three domains, one framework.** [Foundation](foundations/README.md) secures single-agent systems, [MASO](maso/README.md) secures multi-agent orchestration, and [Infrastructure](infrastructure/README.md) secures the platforms underneath. The [SDK](sdk/README.md) turns all three into code.
 
@@ -18,6 +23,33 @@ Most organisations have no controls between the model and the damage it can do. 
 New here? Start with [what AI Runtime Security is](what-is-ai-runtime-security.md).
 
 ![AIRS Architecture Overview: layered runtime controls across Guardrails, Model-as-Judge, Human Oversight, and Circuit Breakers](images/architecture-overview.svg){ .arch-diagram }
+
+---
+
+## The governance gap
+
+<div class="governance-split" markdown>
+<div class="governance-col" markdown>
+
+**Governance asks:**
+
+What is this AI allowed to do? Who is accountable when it fails? Does this deployment comply with policy and regulation?
+
+*Answered by: policies, risk registers, accountability frameworks, audits, and compliance programmes.*
+
+</div>
+<div class="runtime-col" markdown>
+
+**Runtime security answers:**
+
+Is it doing that, right now, in this request? Did the model stay in scope? What stopped the last injection?
+
+*Answered by: guardrails, model evaluation, audit trails, human escalation paths, and circuit breakers.*
+
+</div>
+</div>
+
+Governance without runtime security is intent without enforcement. Your policy says the model should not exfiltrate data. Runtime security is what actually stops it.
 
 ---
 
