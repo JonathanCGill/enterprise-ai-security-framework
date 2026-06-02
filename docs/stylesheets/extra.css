@@ -338,6 +338,35 @@ img[src$=".svg"] {
 [data-md-color-scheme="slate"] .tier-high     { background: #3d200a; color: #fbbf85; border-color: #5a2f11; }
 [data-md-color-scheme="slate"] .tier-critical { background: #3b0f0f; color: #f7a8a8; border-color: #5a1616; }
 
+/* ── Governance / runtime security split on homepage ── */
+.governance-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.governance-col,
+.runtime-col {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.governance-col {
+  border-top: 3px solid var(--md-default-fg-color--light);
+}
+
+.runtime-col {
+  border-top: 3px solid var(--md-accent-fg-color);
+}
+
+@media (max-width: 600px) {
+  .governance-split {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Four Control Layers: per-card accent on Home ── */
 .control-layers .grid.cards > ul > li,
 .control-layers .grid.cards > .md-typeset > ul > li {
